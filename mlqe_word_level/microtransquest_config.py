@@ -1,38 +1,38 @@
 from multiprocessing import cpu_count
 
-TRAIN_PATH = "examples/word_level/wmt_2020/en_zh/data/en-zh/train/"
+TRAIN_PATH = "data/train/en-zh-train/"
 TRAIN_SOURCE_FILE = "train.src"
 TRAIN_SOURCE_TAGS_FILE = "train.source_tags"
 TRAIN_TARGET_FILE = "train.mt"
 TRAIN_TARGET_TAGS_FLE = "train.tags"
 
-DEV_PATH = "examples/word_level/wmt_2020/en_zh/data/en-zh/dev/"
+DEV_PATH = "data/dev/en-zh-dev/"
 DEV_SOURCE_FILE = "dev.src"
 DEV_SOURCE_TAGS_FILE = "dev.source_tags"
 DEV_TARGET_FILE = "dev.mt"
 DEV_TARGET_TAGS_FLE = "dev.tags"
 
-TEST_PATH = "examples/word_level/wmt_2020/en_zh/data/en-zh/test-blind/"
-TEST_SOURCE_FILE = "test.src"
-TEST_TARGET_FILE = "test.mt"
+TEST_PATH = "data/test/en-zh-test20/"
+TEST_SOURCE_FILE = "test20.src"
+TEST_TARGET_FILE = "test20.mt"
 
-TEST_SOURCE_TAGS_FILE = "predictions_src.txt"
-TEST_TARGET_TAGS_FLE = "predictions_mt.txt"
+TEST_SOURCE_TAGS_FILE = "test_predictions_src.txt"
+TEST_TARGET_TAGS_FLE = "test_predictions_mt.txt"
 
 DEV_SOURCE_TAGS_FILE_SUB = "dev_predictions_src.txt"
 DEV_TARGET_TAGS_FILE_SUB = "dev_predictions_mt.txt"
 
 SEED = 777
-TEMP_DIRECTORY = "temp/data"
+TEMP_DIRECTORY = "train_result/data"
 GOOGLE_DRIVE = False
 DRIVE_FILE_ID = None
 MODEL_TYPE = "xlmroberta"
-MODEL_NAME = "xlm-roberta-large"
+MODEL_NAME = "transformers/xlm-roberta"
 
 microtransquest_config = {
-    'output_dir': 'temp/outputs/',
-    "best_model_dir": "temp/outputs/best_model",
-    'cache_dir': 'temp/cache_dir/',
+    'output_dir': 'train_result/outputs/',
+    "best_model_dir": "train_result/outputs/best_model",
+    'cache_dir': 'train_result/cache_dir/',
 
     'fp16': False,
     'fp16_opt_level': 'O1',
