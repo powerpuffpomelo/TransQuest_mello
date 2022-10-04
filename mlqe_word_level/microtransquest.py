@@ -20,6 +20,10 @@ lang_pair = args.lang_pair
 TRAIN_PATH = "data/train/" + lang_pair + "-train/"
 DEV_PATH = "data/dev/" + lang_pair + "-dev/"
 TEST_PATH = "data/test/" + lang_pair + "-test20/"
+TEMP_DIRECTORY = "train_result_" + lang_pair + "/data"
+microtransquest_config['output_dir'] = 'train_result_' + lang_pair + '/outputs/'
+microtransquest_config['best_model_dir'] = "train_result_" + lang_pair + "/outputs/best_model"
+microtransquest_config['cache_dir'] = 'train_result_' + lang_pair + '/cache_dir/'
 
 if not os.path.exists(TEMP_DIRECTORY):
     os.makedirs(TEMP_DIRECTORY)

@@ -1,18 +1,20 @@
 from multiprocessing import cpu_count
 
-TRAIN_PATH = "data/train/en-zh-train/"
+lang_pair = 'en-zh'
+
+TRAIN_PATH = "data/train/" + lang_pair + "-train/"
 TRAIN_SOURCE_FILE = "train.src"
 TRAIN_SOURCE_TAGS_FILE = "train.source_tags"
 TRAIN_TARGET_FILE = "train.mt"
 TRAIN_TARGET_TAGS_FLE = "train.tags"
 
-DEV_PATH = "data/dev/en-zh-dev/"
+DEV_PATH = "data/dev/" + lang_pair + "-dev/"
 DEV_SOURCE_FILE = "dev.src"
 DEV_SOURCE_TAGS_FILE = "dev.source_tags"
 DEV_TARGET_FILE = "dev.mt"
 DEV_TARGET_TAGS_FLE = "dev.tags"
 
-TEST_PATH = "data/test/en-zh-test20/"
+TEST_PATH = "data/test/" + lang_pair + "-test20/"
 TEST_SOURCE_FILE = "test20.src"
 TEST_TARGET_FILE = "test20.mt"
 
@@ -23,16 +25,16 @@ DEV_SOURCE_TAGS_FILE_SUB = "dev_predictions_src.txt"
 DEV_TARGET_TAGS_FILE_SUB = "dev_predictions_mt.txt"
 
 SEED = 777
-TEMP_DIRECTORY = "train_result/data"
+TEMP_DIRECTORY = "train_result_" + lang_pair + "/data"
 GOOGLE_DRIVE = False
 DRIVE_FILE_ID = None
 MODEL_TYPE = "xlmroberta"
 MODEL_NAME = "transformers/xlm-roberta"
 
 microtransquest_config = {
-    'output_dir': 'train_result/outputs/',
-    "best_model_dir": "train_result/outputs/best_model",
-    'cache_dir': 'train_result/cache_dir/',
+    'output_dir': 'train_result_' + lang_pair + '/outputs/',
+    "best_model_dir": "train_result_" + lang_pair + "/outputs/best_model",
+    'cache_dir': 'train_result_' + lang_pair + '/cache_dir/',
 
     'fp16': False,
     'fp16_opt_level': 'O1',
@@ -72,7 +74,7 @@ microtransquest_config = {
     'reprocess_input_data': True,
 
     'process_count': cpu_count() - 2 if cpu_count() > 2 else 1,
-    'n_gpu': 8,
+    'n_gpu': 1,
     'use_multiprocessing': True,
     "multiprocessing_chunksize": 500,
     'silent': False,
