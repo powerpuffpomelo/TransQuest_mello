@@ -5,8 +5,8 @@ echo ${lang_pair}
 
 # 复制数据
 echo "#=========================== get data ===========================#"
-hdfs dfs -get /home/byte_arnold_lq_mlnlc/user/yanyiming.mello/data/mlqe-pe_word_level ./
-mv mlqe-pe_word_level data
+hdfs dfs -get /home/byte_arnold_lq_mlnlc/user/yanyiming.mello/data/mlqe-pe_word_level_with_analysis ./
+mv mlqe-pe_word_level_with_analysis data
 
 # 复制xlm roberta预训练模型
 echo "#=========================== get xlmr ===========================#"

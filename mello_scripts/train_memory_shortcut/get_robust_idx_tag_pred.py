@@ -1,10 +1,10 @@
 # 只得到idx处的预测tag存起来，其余tag不care
 
 lang_pair = 'si-en'
-test_prefix = "train_result_" + lang_pair + "/prediction/"
+test_prefix = "transquest_model/train_result_" + lang_pair + "/prediction/"
 all_tag_path = test_prefix + "test20.mt_tag.pred"
-robust_idx_path = "data/test/" + lang_pair + "-test20/test20.mt_popular_idx"
-robust_tag_path = test_prefix + "test20.mt_tag_popular_part.pred"
+robust_idx_path = "data/test/" + lang_pair + "-test20/test20.mt_same_and_unseen_idx"
+robust_tag_path = test_prefix + "test20.mt_tag_same_and_unseen_part.pred"
 
 with open(all_tag_path, 'r', encoding='utf-8') as ft, open(robust_idx_path, 'r', encoding='utf-8') as fid, \
     open(robust_tag_path, 'w', encoding='utf-8') as fsave:
@@ -19,4 +19,4 @@ with open(all_tag_path, 'r', encoding='utf-8') as ft, open(robust_idx_path, 'r',
                 robust_tag_line.append(tag)
         fsave.write(' '.join(robust_tag_line) + '\n')
 
-# python3 scripts/get_robust_idx_tag_pred.py
+# python3 mello_scripts/train_memory_shortcut/get_robust_idx_tag_pred.py

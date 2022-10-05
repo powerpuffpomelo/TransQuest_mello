@@ -3,8 +3,8 @@
 lang_pair = 'si-en'
 test_prefix = "data/test/" + lang_pair + "-test20/"
 all_tag_path = test_prefix + "test20.mt_tag"
-robust_idx_path = test_prefix + "test20.mt_popular_idx"
-robust_tag_path = test_prefix + "test20.mt_tag_popular_part"
+robust_idx_path = test_prefix + "test20.mt_same_and_unseen_idx"
+robust_tag_path = test_prefix + "test20.mt_tag_same_and_unseen_part"
 
 with open(all_tag_path, 'r', encoding='utf-8') as ft, open(robust_idx_path, 'r', encoding='utf-8') as fid, \
     open(robust_tag_path, 'w', encoding='utf-8') as fsave:
@@ -19,4 +19,4 @@ with open(all_tag_path, 'r', encoding='utf-8') as ft, open(robust_idx_path, 'r',
                 robust_tag_line.append(tag)
         fsave.write(' '.join(robust_tag_line) + '\n')
 
-# python3 scripts/get_robust_idx_tag_gold.py
+# python3 mello_scripts/train_memory_shortcut/get_robust_idx_tag_gold.py

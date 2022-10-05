@@ -84,7 +84,7 @@ python3 scripts/estimate_word.py $GOLD_PREFIX/test20.mt_tag $PRE_PREFIX/test20.m
 # robust train memory
 lang_pair=si-en
 GOLD_PREFIX=data/test/${lang_pair}-test20
-PRE_PREFIX=train_result_${lang_pair}/prediction
-python3 scripts/estimate_word.py $GOLD_PREFIX/test20.mt_tag_popular_part $PRE_PREFIX/test20.mt_tag_popular_part.pred
+PRE_PREFIX=transquest_model/train_result_${lang_pair}/prediction
+python3 mello_scripts/train_memory_shortcut/estimate_word.py $GOLD_PREFIX/test20.mt_tag_same_and_unseen_part $PRE_PREFIX/test20.mt_tag_same_and_unseen_part.pred
 
 """

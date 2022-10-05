@@ -32,4 +32,4 @@ with open(qe_train_mt_path, 'r', encoding='utf-8') as f_mt, open(qe_train_gold_t
         stat['ok_ratio'] = stat['ok_freq'] / stat['train_freq']
     json.dump(stat_dict, f_save, indent=1, ensure_ascii=False)
 
-# python3 scripts/get_token_train_tag_stat.py
+# python3 mello_scripts/train_memory_shortcut/get_token_train_tag_stat.py

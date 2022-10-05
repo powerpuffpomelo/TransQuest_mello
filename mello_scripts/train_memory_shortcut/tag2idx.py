@@ -3,15 +3,19 @@
 #"""
 lang_pair = 'si-en'
 test_prefix = "data/test/" + lang_pair + "-test20/"
-qe_test_niche_tag_path = test_prefix + "test20.mt_popular_tag"
-qe_test_niche_idx_path = test_prefix + "test20.mt_popular_idx"
+qe_test_niche_tag_path = test_prefix + "test20.mt_niche_tag"
+qe_test_niche_idx_path = test_prefix + "test20.mt_niche_idx"         # 小众词汇的idx 0
+qe_test_popular_idx_path = test_prefix + "test20.mt_popular_idx"     # 大众词汇的idx 1
+qe_test_same_idx_path = test_prefix + "test20.mt_same_idx"           # 训练集中标签比例okbad各半的词汇的idx 0.5
+qe_test_unseen_idx_path = test_prefix + "test20.mt_unseen_idx"       # 没在训练集中出现过的词汇的idx -1
+qe_test_same_and_unseen_idx_path = test_prefix + "test20.mt_same_and_unseen_idx"   # 前两个集合加起来
 
-with open(qe_test_niche_tag_path, 'r', encoding='utf-8') as ftag, open(qe_test_niche_idx_path, 'w', encoding='utf-8') as fidx:
+with open(qe_test_niche_tag_path, 'r', encoding='utf-8') as ftag, open(qe_test_same_and_unseen_idx_path, 'w', encoding='utf-8') as fidx:
     for tag_line in ftag.readlines():
         idx_list = []
         tag_line = tag_line.strip('\n').split()
         for i, tag in enumerate(tag_line):
-            if tag == '1':
+            if tag == '-1' or tag == '0.5':
                 idx_list.append(i)
         fidx.write(' '.join(map(str, idx_list)) + '\n')
 #"""
@@ -39,4 +43,4 @@ with open(mt_path, 'r', encoding='utf-8') as fmt, open(idx_path, 'r', encoding =
 """
 
 
-# python3 scripts/tag2idx.py
+# python3 mello_scripts/train_memory_shortcut/tag2idx.py

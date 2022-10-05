@@ -1,4 +1,4 @@
-# 根据训练时大部分被打什么标签，得到测试集or训练集的小众tag文件，和mt对应，得到01文件，0代表大众或持平，1代表小众, -1 代表没在训练集出现过
+# 根据训练时大部分被打什么标签，得到测试集or训练集的小众tag文件，和mt对应，得到01文件，0代表小众，1代表大众, 0.5代表训练集中标签okbad各半，-1代表没在训练集出现过
 import json
 
 lang_pair = 'si-en'
@@ -19,11 +19,13 @@ with open(qe_test_mt_path, 'r', encoding='utf-8') as f_mt, open(qe_test_gold_tag
         line_niche = []
         for token, tag in zip(line_mt, line_tag):
             if token in train_tag_stat:
-                if tag == 'OK' and train_tag_stat[token]['ok_ratio'] >= 0.5: line_niche.append(0)
-                elif tag == 'BAD' and train_tag_stat[token]['ok_ratio'] <= 0.5: line_niche.append(0)
-                else: line_niche.append(1)
+                if (tag == 'OK' and train_tag_stat[token]['ok_ratio'] < 0.5) or (tag == 'BAD' and train_tag_stat[token]['ok_ratio'] > 0.5): line_niche.append(0)
+                elif (tag == 'OK' and train_tag_stat[token]['ok_ratio'] > 0.5) or (tag == 'BAD' and train_tag_stat[token]['ok_ratio'] < 0.5): line_niche.append(1)
+                else:
+                    assert train_tag_stat[token]['ok_ratio'] == 0.5
+                    line_niche.append(0.5)
             else:
                 line_niche.append(-1)
         f_save.write(' '.join(map(str, line_niche)) + '\n')
 
-# python3 scripts/get_niche_token_idx_tag.py
+# python3 mello_scripts/train_memory_shortcut/get_niche_token_idx_tag.py
