@@ -11,7 +11,7 @@ mv mlqe-pe_word_level_with_analysis data
 # 复制xlm roberta预训练模型
 echo "#=========================== get xlmr ===========================#"
 mkdir -p transformers
-hdfs dfs -get /home/byte_arnold_lq_mlnlc/user/yanyiming.mello/transformers/xlm-roberta ./transformers
+hdfs dfs -get /home/byte_arnold_lq_mlnlc/user/yanyiming.mello/model/transformers/xlm-roberta ./transformers
 
 # 训练啦
 echo "#=========================== begin training ===========================#"

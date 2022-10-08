@@ -9,25 +9,51 @@ def prepare_data(raw_df, args):
 
     sentence_id = 0
     data = []
-    for source_sentence, source_tag_line, target_sentence, target_tag_lind in zip(source_sentences, source_tags,
-                                                                                  target_sentences, target_tags):
-        for word, tag in zip(source_sentence.split(), source_tag_line.split()):
-            data.append([sentence_id, word, tag])
+    if "source_adv_tags" in raw_df.columns and "target_adv_tags" in raw_df.columns:
+        source_adv_tags = raw_df["source_adv_tags"].tolist()
+        target_adv_tags = raw_df["target_adv_tags"].tolist()
+        for source_sentence, source_tag_line, target_sentence, target_tag_line, \
+                        source_adv_tag_line, target_adv_tag_line in zip(source_sentences, 
+                        source_tags, target_sentences, target_tags, source_adv_tags, target_adv_tags):
+            for word, tag, adv_tag in zip(source_sentence.split(), source_tag_line.split(), source_adv_tag_line.split()):
+                data.append([sentence_id, word, tag, float(adv_tag)])
 
-        data.append([sentence_id, "[SEP]", "OK"])
+            data.append([sentence_id, "[SEP]", "OK", 0.5])
 
-        target_words = target_sentence.split()
-        target_tags = target_tag_lind.split()
+            target_words = target_sentence.split()
+            target_tags = target_tag_line.split()
+            target_adv_tags = target_adv_tag_line.split()
 
-        data.append([sentence_id, args.tag, target_tags.pop(0)])
+            data.append([sentence_id, args.tag, target_tags.pop(0), float(target_adv_tags.pop(0))])
 
-        for word in target_words:
-            data.append([sentence_id, word, target_tags.pop(0)])
+            for word in target_words:
+                data.append([sentence_id, word, target_tags.pop(0), float(target_adv_tags.pop(0))])
+                data.append([sentence_id, args.tag, target_tags.pop(0), float(target_adv_tags.pop(0))])
+
+            sentence_id += 1
+
+        return pd.DataFrame(data, columns=['sentence_id', 'words', 'labels', 'adv_labels'])
+
+    else:
+        for source_sentence, source_tag_line, target_sentence, target_tag_lind in zip(source_sentences, source_tags,
+                                                                                    target_sentences, target_tags):
+            for word, tag in zip(source_sentence.split(), source_tag_line.split()):
+                data.append([sentence_id, word, tag])
+
+            data.append([sentence_id, "[SEP]", "OK"])
+
+            target_words = target_sentence.split()
+            target_tags = target_tag_lind.split()
+
             data.append([sentence_id, args.tag, target_tags.pop(0)])
 
-        sentence_id += 1
+            for word in target_words:
+                data.append([sentence_id, word, target_tags.pop(0)])
+                data.append([sentence_id, args.tag, target_tags.pop(0)])
 
-    return pd.DataFrame(data, columns=['sentence_id', 'words', 'labels'])
+            sentence_id += 1
+
+        return pd.DataFrame(data, columns=['sentence_id', 'words', 'labels'])
 
 
 def format_to_test(to_test, args):

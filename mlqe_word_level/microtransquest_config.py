@@ -7,12 +7,16 @@ TRAIN_SOURCE_FILE = "train.src"
 TRAIN_SOURCE_TAGS_FILE = "train.source_tags"
 TRAIN_TARGET_FILE = "train.mt"
 TRAIN_TARGET_TAGS_FLE = "train.tags"
+TRAIN_SOURCE_ADV_TAGS_FILE = "train.src_ok_ratio_tag"
+TRAIN_TARGET_ADV_TAGS_FILE = "train.mtgap_ok_ratio_tag"
 
 DEV_PATH = "data/dev/" + lang_pair + "-dev/"
 DEV_SOURCE_FILE = "dev.src"
 DEV_SOURCE_TAGS_FILE = "dev.source_tags"
 DEV_TARGET_FILE = "dev.mt"
 DEV_TARGET_TAGS_FLE = "dev.tags"
+DEV_SOURCE_ADV_TAGS_FILE = "dev.src_ok_ratio_tag"
+DEV_TARGET_ADV_TAGS_FILE = "dev.mtgap_ok_ratio_tag"
 
 TEST_PATH = "data/test/" + lang_pair + "-test20/"
 TEST_SOURCE_FILE = "test20.src"
@@ -39,7 +43,7 @@ microtransquest_config = {
     'fp16': False,
     'fp16_opt_level': 'O1',
     'max_seq_length': 200,
-    'train_batch_size': 8,
+    'train_batch_size': 2,  # 8
     'gradient_accumulation_steps': 1,
     'eval_batch_size': 8,
     'num_train_epochs': 3,
@@ -104,4 +108,6 @@ microtransquest_config = {
     "target_column": "target",
     "source_tags_column": "source_tags",
     "target_tags_column": "target_tags",
+
+    "reg_lambda": -0.5,
 }

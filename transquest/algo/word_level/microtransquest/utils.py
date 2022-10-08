@@ -31,7 +31,7 @@ from tqdm.auto import tqdm
 class InputExample(object):
     """A single training/test example for token classification."""
 
-    def __init__(self, guid, words, labels, x0=None, y0=None, x1=None, y1=None):
+    def __init__(self, guid, words, labels, adv_labels=None, x0=None, y0=None, x1=None, y1=None):
         """Constructs a InputExample.
         Args:
             guid: Unique id for the example.
@@ -43,6 +43,7 @@ class InputExample(object):
         self.guid = guid
         self.words = words
         self.labels = labels
+        self.adv_labels = adv_labels
         if x0 is None:
             self.bboxes = None
         else:
@@ -52,11 +53,12 @@ class InputExample(object):
 class InputFeatures(object):
     """A single set of features of data."""
 
-    def __init__(self, input_ids, input_mask, segment_ids, label_ids, bboxes=None):
+    def __init__(self, input_ids, input_mask, segment_ids, label_ids, adv_label_ids=None, bboxes=None):
         self.input_ids = input_ids
         self.input_mask = input_mask
         self.segment_ids = segment_ids
         self.label_ids = label_ids
+        self.adv_label_ids = adv_label_ids
         if bboxes:
             self.bboxes = bboxes
 
@@ -157,10 +159,16 @@ def get_examples_from_df(data, bbox=False):
             for sentence_id, sentence_df in data.groupby(["sentence_id"])
         ]
     else:
-        return [
-            InputExample(guid=sentence_id, words=sentence_df["words"].tolist(), labels=sentence_df["labels"].tolist(), )
-            for sentence_id, sentence_df in data.groupby(["sentence_id"])
-        ]
+        if "adv_labels" in data.columns:
+            return [
+                InputExample(guid=sentence_id, words=sentence_df["words"].tolist(), labels=sentence_df["labels"].tolist(), adv_labels=sentence_df["adv_labels"].tolist())
+                for sentence_id, sentence_df in data.groupby(["sentence_id"])
+            ]
+        else:
+            return [
+                InputExample(guid=sentence_id, words=sentence_df["words"].tolist(), labels=sentence_df["labels"].tolist(), )
+                for sentence_id, sentence_df in data.groupby(["sentence_id"])
+            ]
 
 
 def convert_example_to_feature(example_row):
@@ -175,41 +183,63 @@ def convert_example_to_feature(example_row):
         sep_token,
         sep_token_extra,
         pad_on_left,
-        pad_token,
-        pad_token_segment_id,
-        pad_token_label_id,
+        pad_token,              # 1
+        pad_token_segment_id,   # 0
+        pad_token_label_id,     # -100
         sequence_a_segment_id,
         mask_padding_with_zero,
     ) = example_row
 
     tokens = []
     label_ids = []
+    adv_label_ids = []
     bboxes = []
     if example.bboxes:
-        for word, label, bbox in zip(example.words, example.labels, example.bboxes):
-            word_tokens = tokenizer.tokenize(word)
-            tokens.extend(word_tokens)
-            # Use the real label id for the first token of the word, and padding ids for the remaining tokens
-            label_ids.extend([label_map[label]] + [pad_token_label_id] * (len(word_tokens) - 1))
-            bboxes.extend([bbox] * len(word_tokens))
+        if example.adv_labels is not None:
+            for word, label, adv_label, bbox in zip(example.words, example.labels, example.adv_labels, example.bboxes):
+                word_tokens = tokenizer.tokenize(word)
+                tokens.extend(word_tokens)
+                # Use the real label id for the first token of the word, and padding ids for the remaining tokens
+                label_ids.extend([label_map[label]] + [pad_token_label_id] * (len(word_tokens) - 1))
+                adv_label_ids.extend([adv_label] + [pad_token_label_id] * (len(word_tokens) - 1))
+                bboxes.extend([bbox] * len(word_tokens))
+        else:
+            for word, label, bbox in zip(example.words, example.labels, example.bboxes):
+                word_tokens = tokenizer.tokenize(word)
+                tokens.extend(word_tokens)
+                # Use the real label id for the first token of the word, and padding ids for the remaining tokens
+                label_ids.extend([label_map[label]] + [pad_token_label_id] * (len(word_tokens) - 1))
+                bboxes.extend([bbox] * len(word_tokens))
 
         cls_token_box = [0, 0, 0, 0]
         sep_token_box = [1000, 1000, 1000, 1000]
         pad_token_box = [0, 0, 0, 0]
 
     else:
-        for word, label in zip(example.words, example.labels):
-            word_tokens = tokenizer.tokenize(word)
-            tokens.extend(word_tokens)
-            # Use the real label id for the first token of the word, and padding ids for the remaining tokens
-            if word_tokens:  # avoid non printable character like '\u200e' which are tokenized as a void token ''
-                label_ids.extend([label_map[label]] + [pad_token_label_id] * (len(word_tokens) - 1))
+        # 经过这里
+        if example.adv_labels is not None:
+            for word, label, adv_label in zip(example.words, example.labels, example.adv_labels):
+                word_tokens = tokenizer.tokenize(word)
+                tokens.extend(word_tokens)
+                # Use the real label id for the first token of the word, and padding ids for the remaining tokens
+                if word_tokens:  # avoid non printable character like '\u200e' which are tokenized as a void token ''
+                    label_ids.extend([label_map[label]] + [pad_token_label_id] * (len(word_tokens) - 1))
+                    adv_label_ids.extend([adv_label] + [pad_token_label_id] * (len(word_tokens) - 1))         # TODO 这里该pad啥
+        else:
+            for word, label in zip(example.words, example.labels):
+                word_tokens = tokenizer.tokenize(word)
+                tokens.extend(word_tokens)
+                # Use the real label id for the first token of the word, and padding ids for the remaining tokens
+                if word_tokens:  # avoid non printable character like '\u200e' which are tokenized as a void token ''
+                    label_ids.extend([label_map[label]] + [pad_token_label_id] * (len(word_tokens) - 1))
 
     # Account for [CLS] and [SEP] with "- 2" and with "- 3" for RoBERTa.
     special_tokens_count = 3 if sep_token_extra else 2
     if len(tokens) > max_seq_length - special_tokens_count:
         tokens = tokens[: (max_seq_length - special_tokens_count)]
         label_ids = label_ids[: (max_seq_length - special_tokens_count)]
+        if example.adv_labels is not None:
+            adv_label_ids = adv_label_ids[: (max_seq_length - special_tokens_count)]
         if bboxes:
             bboxes = bboxes[: (max_seq_length - special_tokens_count)]
 
@@ -231,63 +261,134 @@ def convert_example_to_feature(example_row):
     # For classification tasks, the first vector (corresponding to [CLS]) is
     # used as as the "sentence vector". Note that this only makes sense because
     # the entire model is fine-tuned.
-    tokens += [sep_token]
-    label_ids += [pad_token_label_id]
-    if bboxes:
-        bboxes += [sep_token_box]
-    if sep_token_extra:
-        # roberta uses an extra separator b/w pairs of sentences
+    if example.adv_labels is not None:
+        tokens += [sep_token]
+        label_ids += [pad_token_label_id]
+        adv_label_ids += [pad_token_label_id]
+        if bboxes:
+            bboxes += [sep_token_box]
+        if sep_token_extra:
+            # roberta uses an extra separator b/w pairs of sentences
+            tokens += [sep_token]
+            label_ids += [pad_token_label_id]
+            adv_label_ids += [pad_token_label_id]
+            if bboxes:
+                bboxes += [sep_token_box]
+        segment_ids = [sequence_a_segment_id] * len(tokens)
+        
+        if cls_token_at_end:
+            tokens += [cls_token]
+            label_ids += [pad_token_label_id]
+            adv_label_ids += [pad_token_label_id]
+            segment_ids += [cls_token_segment_id]
+        else:
+            tokens = [cls_token] + tokens
+            label_ids = [pad_token_label_id] + label_ids
+            adv_label_ids = [pad_token_label_id] + adv_label_ids
+            segment_ids = [cls_token_segment_id] + segment_ids
+            if bboxes:
+                bboxes = [cls_token_box] + bboxes
+
+        input_ids = tokenizer.convert_tokens_to_ids(tokens)
+
+        # The mask has 1 for real tokens and 0 for padding tokens. Only real
+        # tokens are attended to.
+        input_mask = [1 if mask_padding_with_zero else 0] * len(input_ids)
+
+        # Zero-pad up to the sequence length.
+        padding_length = max_seq_length - len(input_ids)
+        if pad_on_left:
+            input_ids = ([pad_token] * padding_length) + input_ids
+            input_mask = ([0 if mask_padding_with_zero else 1] * padding_length) + input_mask
+            segment_ids = ([pad_token_segment_id] * padding_length) + segment_ids
+            label_ids = ([pad_token_label_id] * padding_length) + label_ids
+            adv_label_ids = ([pad_token_label_id] * padding_length) + adv_label_ids
+        else:
+            input_ids += [pad_token] * padding_length
+            input_mask += [0 if mask_padding_with_zero else 1] * padding_length
+            segment_ids += [pad_token_segment_id] * padding_length
+            label_ids += [pad_token_label_id] * padding_length
+            adv_label_ids += [pad_token_label_id] * padding_length
+            if bboxes:
+                bboxes += [pad_token_box] * padding_length
+
+        # print('label_ids')
+        # print(label_ids)
+        # print('adv_label_ids')
+        # print(adv_label_ids)   # 正常的
+        assert len(input_ids) == max_seq_length
+        assert len(input_mask) == max_seq_length
+        assert len(segment_ids) == max_seq_length
+        assert len(label_ids) == max_seq_length
+        assert len(adv_label_ids) == max_seq_length
+        if bboxes:
+            assert len(bboxes) == max_seq_length
+            
+        if bboxes:
+            return InputFeatures(
+                input_ids=input_ids, input_mask=input_mask, segment_ids=segment_ids, label_ids=label_ids, adv_label_ids=adv_label_ids, bboxes=bboxes
+            )
+        else:
+            return InputFeatures(input_ids=input_ids, input_mask=input_mask, segment_ids=segment_ids, label_ids=label_ids, adv_label_ids=adv_label_ids)
+
+    else:
         tokens += [sep_token]
         label_ids += [pad_token_label_id]
         if bboxes:
             bboxes += [sep_token_box]
-    segment_ids = [sequence_a_segment_id] * len(tokens)
+        if sep_token_extra:
+            # roberta uses an extra separator b/w pairs of sentences
+            tokens += [sep_token]
+            label_ids += [pad_token_label_id]
+            if bboxes:
+                bboxes += [sep_token_box]
+        segment_ids = [sequence_a_segment_id] * len(tokens)
 
-    if cls_token_at_end:
-        tokens += [cls_token]
-        label_ids += [pad_token_label_id]
-        segment_ids += [cls_token_segment_id]
-    else:
-        tokens = [cls_token] + tokens
-        label_ids = [pad_token_label_id] + label_ids
-        segment_ids = [cls_token_segment_id] + segment_ids
+        if cls_token_at_end:
+            tokens += [cls_token]
+            label_ids += [pad_token_label_id]
+            segment_ids += [cls_token_segment_id]
+        else:
+            tokens = [cls_token] + tokens
+            label_ids = [pad_token_label_id] + label_ids
+            segment_ids = [cls_token_segment_id] + segment_ids
+            if bboxes:
+                bboxes = [cls_token_box] + bboxes
+
+        input_ids = tokenizer.convert_tokens_to_ids(tokens)
+
+        # The mask has 1 for real tokens and 0 for padding tokens. Only real
+        # tokens are attended to.
+        input_mask = [1 if mask_padding_with_zero else 0] * len(input_ids)
+
+        # Zero-pad up to the sequence length.
+        padding_length = max_seq_length - len(input_ids)
+        if pad_on_left:
+            input_ids = ([pad_token] * padding_length) + input_ids
+            input_mask = ([0 if mask_padding_with_zero else 1] * padding_length) + input_mask
+            segment_ids = ([pad_token_segment_id] * padding_length) + segment_ids
+            label_ids = ([pad_token_label_id] * padding_length) + label_ids
+        else:
+            input_ids += [pad_token] * padding_length
+            input_mask += [0 if mask_padding_with_zero else 1] * padding_length
+            segment_ids += [pad_token_segment_id] * padding_length
+            label_ids += [pad_token_label_id] * padding_length
+            if bboxes:
+                bboxes += [pad_token_box] * padding_length
+
+        assert len(input_ids) == max_seq_length
+        assert len(input_mask) == max_seq_length
+        assert len(segment_ids) == max_seq_length
+        assert len(label_ids) == max_seq_length
         if bboxes:
-            bboxes = [cls_token_box] + bboxes
+            assert len(bboxes) == max_seq_length
 
-    input_ids = tokenizer.convert_tokens_to_ids(tokens)
-
-    # The mask has 1 for real tokens and 0 for padding tokens. Only real
-    # tokens are attended to.
-    input_mask = [1 if mask_padding_with_zero else 0] * len(input_ids)
-
-    # Zero-pad up to the sequence length.
-    padding_length = max_seq_length - len(input_ids)
-    if pad_on_left:
-        input_ids = ([pad_token] * padding_length) + input_ids
-        input_mask = ([0 if mask_padding_with_zero else 1] * padding_length) + input_mask
-        segment_ids = ([pad_token_segment_id] * padding_length) + segment_ids
-        label_ids = ([pad_token_label_id] * padding_length) + label_ids
-    else:
-        input_ids += [pad_token] * padding_length
-        input_mask += [0 if mask_padding_with_zero else 1] * padding_length
-        segment_ids += [pad_token_segment_id] * padding_length
-        label_ids += [pad_token_label_id] * padding_length
         if bboxes:
-            bboxes += [pad_token_box] * padding_length
-
-    assert len(input_ids) == max_seq_length
-    assert len(input_mask) == max_seq_length
-    assert len(segment_ids) == max_seq_length
-    assert len(label_ids) == max_seq_length
-    if bboxes:
-        assert len(bboxes) == max_seq_length
-
-    if bboxes:
-        return InputFeatures(
-            input_ids=input_ids, input_mask=input_mask, segment_ids=segment_ids, label_ids=label_ids, bboxes=bboxes
-        )
-    else:
-        return InputFeatures(input_ids=input_ids, input_mask=input_mask, segment_ids=segment_ids, label_ids=label_ids, )
+            return InputFeatures(
+                input_ids=input_ids, input_mask=input_mask, segment_ids=segment_ids, label_ids=label_ids, bboxes=bboxes
+            )
+        else:
+            return InputFeatures(input_ids=input_ids, input_mask=input_mask, segment_ids=segment_ids, label_ids=label_ids, )
 
 
 def convert_examples_to_features(
@@ -341,7 +442,7 @@ def convert_examples_to_features(
         for example in examples
     ]
 
-    if use_multiprocessing:
+    if use_multiprocessing:   # 经过了
         with Pool(process_count) as p:
             features = list(
                 tqdm(

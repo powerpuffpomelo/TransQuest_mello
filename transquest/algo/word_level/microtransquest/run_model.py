@@ -14,6 +14,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 import torch
+import torch.nn as nn
 from seqeval.metrics import classification_report, f1_score, precision_score, recall_score
 from tensorboardX import SummaryWriter
 from torch.nn import CrossEntropyLoss
@@ -48,6 +49,8 @@ from transquest.algo.word_level.microtransquest.format import post_process, prep
 from transquest.algo.word_level.microtransquest.model_args import MicroTransQuestArgs
 from transquest.algo.word_level.microtransquest.utils import sweep_config_to_sweep_values, InputExample, \
     read_examples_from_file, get_examples_from_df, convert_examples_to_features, LazyQEDataset
+
+from mlqe_word_level.RobertaForTokenClassificationAndRegression import XLMRobertaForTokenClassificationAndRegression, XLMRobertaForTokenClassificationAndRegressionConfig
 
 try:
     import wandb
@@ -120,7 +123,7 @@ class MicroTransQuestModel:
             assert labels == self.args.labels_list
             self.args.labels_list = labels
         elif labels:
-            self.args.labels_list = labels
+            self.args.labels_list = labels   # labels=["OK", "BAD"]
         elif self.args.labels_list:
             pass
         else:
@@ -129,7 +132,7 @@ class MicroTransQuestModel:
                 "BAD",
                 "SEP",
             ]
-        self.num_labels = len(self.args.labels_list)
+        self.num_labels = len(self.args.labels_list)   # 2
 
         config_class, model_class, tokenizer_class = MODEL_CLASSES[model_type]
         if self.num_labels:
@@ -138,7 +141,8 @@ class MicroTransQuestModel:
         else:
             self.config = config_class.from_pretrained(model_name, **self.args.config)
             self.num_labels = self.config.num_labels
-
+        # print(self.config)
+        # assert 1==2
         if use_cuda:
             if torch.cuda.is_available():
                 if cuda_device == -1:
@@ -500,7 +504,7 @@ class MicroTransQuestModel:
                 if steps_trained_in_current_epoch > 0:
                     steps_trained_in_current_epoch -= 1
                     continue
-                batch = tuple(t.to(device) for t in batch)
+                batch = tuple(t.to(device) for t in batch)  # input_ids, input_mask, segment_ids, label_ids, adv_label_ids
 
                 inputs = self._get_inputs_dict(batch)
 
@@ -510,8 +514,8 @@ class MicroTransQuestModel:
                         # model outputs are always tuple in pytorch-transformers (see doc)
                         loss = outputs[0]
                 else:
+                    # forward在这里
                     outputs = model(**inputs)
-                    # model outputs are always tuple in pytorch-transformers (see doc)
                     loss = outputs[0]
 
                 if args.n_gpu > 1:
@@ -857,12 +861,12 @@ class MicroTransQuestModel:
 
             if preds is None:
                 preds = logits.detach().cpu().numpy()
-                out_label_ids = inputs["labels"].detach().cpu().numpy()
+                out_label_ids = inputs["token_cls_labels"].detach().cpu().numpy()
                 out_input_ids = inputs["input_ids"].detach().cpu().numpy()
                 out_attention_mask = inputs["attention_mask"].detach().cpu().numpy()
             else:
                 preds = np.append(preds, logits.detach().cpu().numpy(), axis=0)
-                out_label_ids = np.append(out_label_ids, inputs["labels"].detach().cpu().numpy(), axis=0)
+                out_label_ids = np.append(out_label_ids, inputs["token_cls_labels"].detach().cpu().numpy(), axis=0)
                 out_input_ids = np.append(out_input_ids, inputs["input_ids"].detach().cpu().numpy(), axis=0)
                 out_attention_mask = np.append(
                     out_attention_mask, inputs["attention_mask"].detach().cpu().numpy(), axis=0,
@@ -1055,12 +1059,12 @@ class MicroTransQuestModel:
 
                 if preds is None:
                     preds = logits.detach().cpu().numpy()
-                    out_label_ids = inputs["labels"].detach().cpu().numpy()
+                    out_label_ids = inputs["token_cls_labels"].detach().cpu().numpy()
                     out_input_ids = inputs["input_ids"].detach().cpu().numpy()
                     out_attention_mask = inputs["attention_mask"].detach().cpu().numpy()
                 else:
                     preds = np.append(preds, logits.detach().cpu().numpy(), axis=0)
-                    out_label_ids = np.append(out_label_ids, inputs["labels"].detach().cpu().numpy(), axis=0)
+                    out_label_ids = np.append(out_label_ids, inputs["token_cls_labels"].detach().cpu().numpy(), axis=0)
                     out_input_ids = np.append(out_input_ids, inputs["input_ids"].detach().cpu().numpy(), axis=0)
                     out_attention_mask = np.append(
                         out_attention_mask, inputs["attention_mask"].detach().cpu().numpy(), axis=0,
@@ -1181,7 +1185,8 @@ class MicroTransQuestModel:
                 else:
                     if self.args.lazy_loading:
                         raise ValueError("Input must be given as a path to a file when using lazy loading")
-                    examples = get_examples_from_df(data, bbox=True if self.args.model_type == "layoutlm" else False)
+
+                    examples = get_examples_from_df(data, bbox=True if self.args.model_type == "layoutlm" else False)   # 经过了
 
             cached_features_file = os.path.join(
                 args.cache_dir,
@@ -1238,10 +1243,17 @@ class MicroTransQuestModel:
             if self.args.onnx:
                 return all_label_ids
 
-            if self.args.model_type == "layoutlm":
-                dataset = TensorDataset(all_input_ids, all_input_mask, all_segment_ids, all_label_ids, all_bboxes)
+            if features[0].adv_label_ids is not None:
+                all_adv_label_ids = torch.tensor([f.adv_label_ids for f in features], dtype=torch.float)
+                if self.args.model_type == "layoutlm":
+                    dataset = TensorDataset(all_input_ids, all_input_mask, all_segment_ids, all_label_ids, all_adv_label_ids, all_bboxes)
+                else:
+                    dataset = TensorDataset(all_input_ids, all_input_mask, all_segment_ids, all_label_ids, all_adv_label_ids)
             else:
-                dataset = TensorDataset(all_input_ids, all_input_mask, all_segment_ids, all_label_ids)
+                if self.args.model_type == "layoutlm":
+                    dataset = TensorDataset(all_input_ids, all_input_mask, all_segment_ids, all_label_ids, all_bboxes)
+                else:
+                    dataset = TensorDataset(all_input_ids, all_input_mask, all_segment_ids, all_label_ids)
 
         return dataset
 
@@ -1288,11 +1300,20 @@ class MicroTransQuestModel:
         return {metric: values[-1] for metric, values in metric_values.items()}
 
     def _get_inputs_dict(self, batch):
-        inputs = {
-            "input_ids": batch[0],
-            "attention_mask": batch[1],
-            "labels": batch[3],
-        }
+        if len(batch) > 4:
+            inputs = {
+                "input_ids": batch[0],
+                "attention_mask": batch[1],
+                "token_cls_labels": batch[3],
+                "token_reg_labels": batch[4],
+            }
+        else:
+            inputs = {
+                "input_ids": batch[0],
+                "attention_mask": batch[1],
+                "token_cls_labels": batch[3],
+            }
+
         # XLM, DistilBERT, RoBERTa, and XLM-RoBERTa don't use segment_ids
         if self.args.model_type in ["bert", "xlnet", "albert", "layoutlm"]:
             inputs["token_type_ids"] = batch[2]
@@ -1349,3 +1370,175 @@ class MicroTransQuestModel:
 
     def get_named_parameters(self):
         return [n for n, p in self.model.named_parameters()]
+
+
+class MicroTQWithAdvHead(MicroTransQuestModel):
+    def __init__(
+            self,
+            model_type,
+            model_name,
+            labels=None,
+            args=None,
+            use_cuda=True,
+            cuda_device=-1,
+            onnx_execution_provider=None,
+            **kwargs,
+    ):
+        """
+        Initializes a Model
+
+        Args:
+            model_type: The type of model (bert, roberta)
+            model_name: Default Transformer model name or path to a directory containing Transformer model file (pytorch_model.bin).
+            labels (optional): A list of all Named Entity labels.  If not given, ["O", "B-MISC", "I-MISC",  "B-PER", "I-PER", "B-ORG", "I-ORG", "B-LOC", "I-LOC"] will be used.
+            args (optional): Default args will be used if this parameter is not provided. If provided, it should be a dict containing the args that should be changed in the default args.
+            use_cuda (optional): Use GPU if available. Setting to False will force model to use CPU only.
+            cuda_device (optional): Specific GPU that should be used. Will use the first available GPU by default.
+            **kwargs (optional): For providing proxies, force_download, resume_download, cache_dir and other options specific to the 'from_pretrained' implementation where this will be supplied.
+        """  # noqa: ignore flake8"
+
+        MODEL_CLASSES = {
+            "bert": (BertConfig, BertForTokenClassification, BertTokenizer),
+            "distilbert": (DistilBertConfig, DistilBertForTokenClassification, DistilBertTokenizer),
+            "roberta": (RobertaConfig, RobertaForTokenClassification, RobertaTokenizer),
+            "xlmroberta": (XLMRobertaForTokenClassificationAndRegressionConfig, XLMRobertaForTokenClassificationAndRegression, XLMRobertaTokenizer),
+        }
+
+        self.args = self._load_model_args(model_name)
+
+        if isinstance(args, dict):
+            self.args.update_from_dict(args)
+        elif isinstance(args, MicroTransQuestArgs):
+            self.args = args
+
+        if "sweep_config" in kwargs:
+            self.is_sweeping = True
+            sweep_config = kwargs.pop("sweep_config")
+            sweep_values = sweep_config_to_sweep_values(sweep_config)
+            self.args.update_from_dict(sweep_values)
+        else:
+            self.is_sweeping = False
+
+        if self.args.manual_seed:
+            random.seed(self.args.manual_seed)
+            np.random.seed(self.args.manual_seed)
+            torch.manual_seed(self.args.manual_seed)
+            if self.args.n_gpu > 0:
+                torch.cuda.manual_seed_all(self.args.manual_seed)
+
+        if not use_cuda:
+            self.args.fp16 = False
+
+        if labels and self.args.labels_list:
+            assert labels == self.args.labels_list
+            self.args.labels_list = labels
+        elif labels:
+            self.args.labels_list = labels   # labels=["OK", "BAD"]
+        elif self.args.labels_list:
+            pass
+        else:
+            self.args.labels_list = [
+                "OK",
+                "BAD",
+                "SEP",
+            ]
+        self.num_labels = len(self.args.labels_list)   # 2
+
+        if self.args.reg_lambda:
+            self.args.config['reg_lambda'] = self.args.reg_lambda
+
+        config_class, model_class, tokenizer_class = MODEL_CLASSES[model_type]
+        if self.num_labels:
+            self.config = config_class.from_pretrained(model_name, num_labels=self.num_labels, **self.args.config)
+            self.num_labels = self.num_labels
+        else:
+            self.config = config_class.from_pretrained(model_name, **self.args.config)
+            self.num_labels = self.config.num_labels
+
+        if use_cuda:
+            if torch.cuda.is_available():
+                if cuda_device == -1:
+                    self.device = torch.device("cuda")
+                else:
+                    self.device = torch.device(f"cuda:{cuda_device}")
+            else:
+                raise ValueError(
+                    "'use_cuda' set to True when cuda is unavailable."
+                    "Make sure CUDA is available or set use_cuda=False."
+                )
+        else:
+            self.device = "cpu"
+
+        if self.args.onnx:
+            from onnxruntime import InferenceSession, SessionOptions
+
+            if not onnx_execution_provider:
+                onnx_execution_provider = "CUDAExecutionProvider" if use_cuda else "CPUExecutionProvider"
+
+            options = SessionOptions()
+            options.intra_op_num_threads = 1
+
+            if self.args.dynamic_quantize:
+                model_path = quantize(Path(os.path.join(model_name, "onnx_model.onnx")))
+                self.model = InferenceSession(model_path.as_posix(), options, providers=[onnx_execution_provider])
+            else:
+                model_path = os.path.join(model_name, "onnx_model.onnx")
+                self.model = InferenceSession(model_path, options, providers=[onnx_execution_provider])
+        else:
+            if not self.args.quantized_model:
+                self.model = model_class.from_pretrained(model_name, config=self.config, **kwargs)
+            else:
+                quantized_weights = torch.load(os.path.join(model_name, "pytorch_model.bin"))
+                self.model = model_class.from_pretrained(None, config=self.config, state_dict=quantized_weights)
+
+            if self.args.dynamic_quantize:
+                self.model = torch.quantization.quantize_dynamic(self.model, {torch.nn.Linear}, dtype=torch.qint8)
+            if self.args.quantized_model:
+                self.model.load_state_dict(quantized_weights)
+            if self.args.dynamic_quantize:
+                self.args.quantized_model = True
+
+        self.results = {}
+
+        if self.args.fp16:
+            try:
+                from torch.cuda import amp
+            except AttributeError:
+                raise AttributeError("fp16 requires Pytorch >= 1.6. Please update Pytorch or turn off fp16.")
+
+        if model_name in [
+            "vinai/bertweet-base",
+            "vinai/bertweet-covid19-base-cased",
+            "vinai/bertweet-covid19-base-uncased",
+        ]:
+            self.tokenizer = tokenizer_class.from_pretrained(
+                model_name, do_lower_case=self.args.do_lower_case, normalization=True, **kwargs
+            )
+        else:
+            self.tokenizer = tokenizer_class.from_pretrained(
+                model_name, do_lower_case=self.args.do_lower_case, **kwargs
+            )
+
+        if self.args.special_tokens_list:
+            self.tokenizer.add_tokens(self.args.special_tokens_list, special_tokens=True)
+            self.model.resize_token_embeddings(len(self.tokenizer))
+
+        self.args.model_name = model_name
+        self.args.model_type = model_type
+
+        self.pad_token_label_id = CrossEntropyLoss().ignore_index
+
+        if model_type == "camembert":
+            warnings.warn(
+                "use_multiprocessing automatically disabled as CamemBERT"
+                " fails when using multiprocessing for feature conversion."
+            )
+            self.args.use_multiprocessing = False
+
+        if self.args.add_tag:
+            self.tokenizer.add_tokens([self.args.tag], special_tokens=True)
+            self.model.resize_token_embeddings(len(self.tokenizer))
+
+        if self.args.wandb_project and not wandb_available:
+            warnings.warn("wandb_project specified but wandb is not available. Wandb disabled.")
+            self.args.wandb_project = None
