@@ -137,6 +137,8 @@ class RobertaForTokenClassificationAndRegression(RobertaPreTrainedModel):
             token_reg_loss_temp = loss_fct(token_reg_logits.view(-1), token_reg_labels.view(-1))
             token_reg_mask = token_reg_labels.ge(0).view(-1)
             token_reg_loss = torch.mean(token_reg_loss_temp * token_reg_mask)
+            one = torch.ones_like(token_reg_loss)
+            token_reg_loss = torch.where(token_reg_loss > 1, one, token_reg_loss)
 
         if token_cls_loss is not None and token_reg_loss is not None:
             loss = token_cls_loss + token_reg_loss * self.reg_lambda

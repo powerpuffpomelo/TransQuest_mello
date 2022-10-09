@@ -844,6 +844,8 @@ class MicroTransQuestModel:
 
             with torch.no_grad():
                 inputs = self._get_inputs_dict(batch)
+                if self.model.__class__.__name__ == 'XLMRobertaForTokenClassificationAndRegression' and "labels" in inputs:
+                    inputs['token_cls_labels'] = inputs.pop('labels')
 
                 if self.args.fp16:
                     with amp.autocast():
@@ -861,12 +863,18 @@ class MicroTransQuestModel:
 
             if preds is None:
                 preds = logits.detach().cpu().numpy()
-                out_label_ids = inputs["token_cls_labels"].detach().cpu().numpy()
+                if "labels" in inputs:
+                    out_label_ids = inputs["labels"].detach().cpu().numpy()
+                else:
+                    out_label_ids = inputs["token_cls_labels"].detach().cpu().numpy()
                 out_input_ids = inputs["input_ids"].detach().cpu().numpy()
                 out_attention_mask = inputs["attention_mask"].detach().cpu().numpy()
             else:
                 preds = np.append(preds, logits.detach().cpu().numpy(), axis=0)
-                out_label_ids = np.append(out_label_ids, inputs["token_cls_labels"].detach().cpu().numpy(), axis=0)
+                if "labels" in inputs:
+                    out_label_ids = np.append(out_label_ids, inputs["labels"].detach().cpu().numpy(), axis=0)
+                else:
+                    out_label_ids = np.append(out_label_ids, inputs["token_cls_labels"].detach().cpu().numpy(), axis=0)
                 out_input_ids = np.append(out_input_ids, inputs["input_ids"].detach().cpu().numpy(), axis=0)
                 out_attention_mask = np.append(
                     out_attention_mask, inputs["attention_mask"].detach().cpu().numpy(), axis=0,
@@ -1042,6 +1050,8 @@ class MicroTransQuestModel:
 
                 with torch.no_grad():
                     inputs = self._get_inputs_dict(batch)
+                    if self.model.__class__.__name__ == 'XLMRobertaForTokenClassificationAndRegression' and "labels" in inputs:
+                        inputs['token_cls_labels'] = inputs.pop('labels')
 
                     if self.args.fp16:
                         with amp.autocast():
@@ -1059,12 +1069,18 @@ class MicroTransQuestModel:
 
                 if preds is None:
                     preds = logits.detach().cpu().numpy()
-                    out_label_ids = inputs["token_cls_labels"].detach().cpu().numpy()
+                    if "labels" in inputs:
+                        out_label_ids = inputs["labels"].detach().cpu().numpy()
+                    else:
+                        out_label_ids = inputs["token_cls_labels"].detach().cpu().numpy()
                     out_input_ids = inputs["input_ids"].detach().cpu().numpy()
                     out_attention_mask = inputs["attention_mask"].detach().cpu().numpy()
                 else:
                     preds = np.append(preds, logits.detach().cpu().numpy(), axis=0)
-                    out_label_ids = np.append(out_label_ids, inputs["token_cls_labels"].detach().cpu().numpy(), axis=0)
+                    if "labels" in inputs:
+                        out_label_ids = np.append(out_label_ids, inputs["labels"].detach().cpu().numpy(), axis=0)
+                    else:
+                        out_label_ids = np.append(out_label_ids, inputs["token_cls_labels"].detach().cpu().numpy(), axis=0)
                     out_input_ids = np.append(out_input_ids, inputs["input_ids"].detach().cpu().numpy(), axis=0)
                     out_attention_mask = np.append(
                         out_attention_mask, inputs["attention_mask"].detach().cpu().numpy(), axis=0,
@@ -1311,7 +1327,7 @@ class MicroTransQuestModel:
             inputs = {
                 "input_ids": batch[0],
                 "attention_mask": batch[1],
-                "token_cls_labels": batch[3],
+                "labels": batch[3],
             }
 
         # XLM, DistilBERT, RoBERTa, and XLM-RoBERTa don't use segment_ids

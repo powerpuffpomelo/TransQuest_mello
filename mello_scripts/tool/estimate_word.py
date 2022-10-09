@@ -1,7 +1,7 @@
 # coding=utf-8
 import numpy as np
 from sklearn.metrics import accuracy_score
-from sklearn.metrics import f1_score, precision_score, recall_score
+from sklearn.metrics import f1_score, precision_score, recall_score, matthews_corrcoef
 import sys
 
 def read_File(filePath):
@@ -58,10 +58,12 @@ if __name__ == '__main__':
     if 'enzh-word' not in sys.argv[1]:
         preList = BPE2word(preList, sys.argv[3])
     """
+    mcc = matthews_corrcoef(goldList, preList)
     acc = accuracy_score(goldList, preList)
     f1_bad, f1_ok = f1_score(goldList, preList, average=None, pos_label=None)
     precision_bad, precision_ok = precision_score(goldList, preList, average=None)
     recall_bad, recall_ok = recall_score(goldList, preList, average=None)
+    print("mcc = %.4f" % mcc)
     print("accuracy = %.4f" % acc)
     print("f1-ok = %.4f" % f1_ok)
     print("f1-bad = %.4f" % f1_bad)
@@ -75,16 +77,25 @@ if __name__ == '__main__':
 """
 # 注意gold和pred不要写反
 
-# transquest
+# transquest whole test
 lang_pair=si-en
 GOLD_PREFIX=data/test/${lang_pair}-test20
 PRE_PREFIX=train_result_${lang_pair}/prediction
-python3 scripts/estimate_word.py $GOLD_PREFIX/test20.mt_tag $PRE_PREFIX/test20.mt_tag.pred
+python3 mello_scripts/tool/estimate_word.py $GOLD_PREFIX/test20.mt_tag $PRE_PREFIX/test20.mt_tag.pred
 
-# robust train memory
+# robust train memory / part test
 lang_pair=si-en
 GOLD_PREFIX=data/test/${lang_pair}-test20
-PRE_PREFIX=train_result_${lang_pair}/prediction
-python3 scripts/estimate_word.py $GOLD_PREFIX/test20.mt_tag_popular_part $PRE_PREFIX/test20.mt_tag_popular_part.pred
+PRE_PREFIX=transquest_model/train_result_${lang_pair}/prediction
+echo "a popular_part"
+python3 mello_scripts/tool/estimate_word.py $GOLD_PREFIX/test20.mt_tag_popular_part $PRE_PREFIX/test20.mt_tag_popular_part.pred
+echo "b niche_part"
+python3 mello_scripts/tool/estimate_word.py $GOLD_PREFIX/test20.mt_tag_niche_part $PRE_PREFIX/test20.mt_tag_niche_part.pred
+echo "c same_part"
+python3 mello_scripts/tool/estimate_word.py $GOLD_PREFIX/test20.mt_tag_same_part $PRE_PREFIX/test20.mt_tag_same_part.pred
+echo "d unseen_part"
+python3 mello_scripts/tool/estimate_word.py $GOLD_PREFIX/test20.mt_tag_unseen_part $PRE_PREFIX/test20.mt_tag_unseen_part.pred
+echo "c+d same_and_unseen_part"
+python3 mello_scripts/tool/estimate_word.py $GOLD_PREFIX/test20.mt_tag_same_and_unseen_part $PRE_PREFIX/test20.mt_tag_same_and_unseen_part.pred
 
 """

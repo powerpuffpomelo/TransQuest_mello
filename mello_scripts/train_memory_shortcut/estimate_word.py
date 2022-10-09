@@ -1,7 +1,7 @@
 # coding=utf-8
 import numpy as np
 from sklearn.metrics import accuracy_score
-from sklearn.metrics import f1_score, precision_score, recall_score
+from sklearn.metrics import f1_score, precision_score, recall_score, matthews_corrcoef
 import sys
 
 def read_File(filePath):
@@ -58,10 +58,12 @@ if __name__ == '__main__':
     if 'enzh-word' not in sys.argv[1]:
         preList = BPE2word(preList, sys.argv[3])
     """
+    mcc = matthews_corrcoef(goldList, preList)
     acc = accuracy_score(goldList, preList)
     f1_bad, f1_ok = f1_score(goldList, preList, average=None, pos_label=None)
     precision_bad, precision_ok = precision_score(goldList, preList, average=None)
     recall_bad, recall_ok = recall_score(goldList, preList, average=None)
+    print("mcc = %.4f" % mcc)
     print("accuracy = %.4f" % acc)
     print("f1-ok = %.4f" % f1_ok)
     print("f1-bad = %.4f" % f1_bad)
@@ -75,11 +77,11 @@ if __name__ == '__main__':
 """
 # 注意gold和pred不要写反
 
-# transquest
-lang_pair=si-en
+# transquest whole test
+lang_pair=en-de
 GOLD_PREFIX=data/test/${lang_pair}-test20
-PRE_PREFIX=train_result_${lang_pair}/prediction
-python3 scripts/estimate_word.py $GOLD_PREFIX/test20.mt_tag $PRE_PREFIX/test20.mt_tag.pred
+PRE_PREFIX=train_result_memory_shortcut_adv_en-de_adv_lambda_-0.5/prediction
+python3 mello_scripts/train_memory_shortcut/estimate_word.py $GOLD_PREFIX/test20.mt_tag $PRE_PREFIX/test20.mt_tag.pred
 
 # robust train memory
 lang_pair=si-en
