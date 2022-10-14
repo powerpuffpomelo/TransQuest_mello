@@ -13,56 +13,16 @@ class XLMRobertaForTokenClassificationAndRegressionConfig(XLMRobertaConfig):
         self.reg_lambda = reg_lambda
 
 
-class RobertaTokenRegressionHead(nn.Module):
-    """Head for token-level regression tasks."""
-
-    def __init__(self, config):
-        super().__init__()
-        self.dense = nn.Linear(config.hidden_size, config.hidden_size)
-        classifier_dropout = (
-            config.classifier_dropout if config.classifier_dropout is not None else config.hidden_dropout_prob
-        )
-        self.dropout = nn.Dropout(classifier_dropout)
-        self.out_proj = nn.Linear(config.hidden_size, 1)
-
-    def forward(self, features, **kwargs):
-        x = self.dropout(features)
-        x = self.dense(x)
-        x = torch.tanh(x)
-        x = self.dropout(x)
-        x = self.out_proj(x)
-        return x
-
-
-class RobertaForTokenClassificationAndRegressionOutput(ModelOutput):
+class XLMRobertaForTokenClassificationAndRegression(RobertaForTokenClassificationAndRegression):
     """
-    class for outputs of token classification and regression models.
-    Args:
-        loss (`torch.FloatTensor` of shape `(1,)`, *optional*, returned when `labels` is provided) :
-            Classification loss.
-        token_cls_logits (`torch.FloatTensor` of shape `(batch_size, sequence_length, config.num_labels)`):
-            Classification scores (before SoftMax).
-        token_reg_logits (`torch.FloatTensor` of shape `(batch_size, sequence_length)`):
-            Regression scores.
-        hidden_states (`tuple(torch.FloatTensor)`, *optional*, returned when `output_hidden_states=True` is passed or when `config.output_hidden_states=True`):
-            Tuple of `torch.FloatTensor` (one for the output of the embeddings, if the model has an embedding layer, +
-            one for the output of each layer) of shape `(batch_size, sequence_length, hidden_size)`.
-            Hidden-states of the model at the output of each layer plus the optional initial embedding outputs.
-        attentions (`tuple(torch.FloatTensor)`, *optional*, returned when `output_attentions=True` is passed or when `config.output_attentions=True`):
-            Tuple of `torch.FloatTensor` (one for each layer) of shape `(batch_size, num_heads, sequence_length,
-            sequence_length)`.
-            Attentions weights after the attention softmax, used to compute the weighted average in the self-attention
-            heads.
+    This class overrides [`RobertaForTokenClassificationAndRegression`]. Please check the superclass for the appropriate
+    documentation alongside usage examples.
     """
 
-    loss: Optional[torch.FloatTensor] = None
-    token_cls_logits: torch.FloatTensor = None
-    token_reg_logits: torch.FloatTensor = None
-    hidden_states: Optional[Tuple[torch.FloatTensor]] = None
-    attentions: Optional[Tuple[torch.FloatTensor]] = None
+    config_class = XLMRobertaConfig
 
 
-class RobertaForTokenClassificationAndRegression(RobertaPreTrainedModel):
+class RobertaForTLM(RobertaPreTrainedModel):
     _keys_to_ignore_on_load_unexpected = [r"pooler"]
     _keys_to_ignore_on_load_missing = [r"position_ids"]
 
@@ -75,11 +35,7 @@ class RobertaForTokenClassificationAndRegression(RobertaPreTrainedModel):
             config.classifier_dropout if config.classifier_dropout is not None else config.hidden_dropout_prob
         )
         self.dropout = nn.Dropout(classifier_dropout)
-        self.classifier = nn.Linear(config.hidden_size, config.num_labels)
-        self.reg_head = nn.Linear(config.hidden_size, 1)        # 简单reg头
-        # self.reg_head = RobertaTokenRegressionHead(config)    # 复杂reg头
-
-        self.reg_lambda = config.reg_lambda
+        self.tlm_head = nn.Linear(config.hidden_size, config.vocab_size)
 
         # Initialize weights and apply final processing
         self.post_init()
@@ -92,17 +48,17 @@ class RobertaForTokenClassificationAndRegression(RobertaPreTrainedModel):
         position_ids: Optional[torch.LongTensor] = None,
         head_mask: Optional[torch.FloatTensor] = None,
         inputs_embeds: Optional[torch.FloatTensor] = None,
-        token_cls_labels: Optional[torch.LongTensor] = None,
-        token_reg_labels: Optional[torch.FloatTensor] = None,
+        token_translation_labels: Optional[torch.LongTensor] = None,
+        token_qe_labels: Optional[torch.LongTensor] = None,
         output_attentions: Optional[bool] = None,
         output_hidden_states: Optional[bool] = None,
         return_dict: Optional[bool] = None,
-    ) -> Union[Tuple[torch.Tensor], RobertaForTokenClassificationAndRegressionOutput]:
+    ) -> Union[Tuple[torch.Tensor], RobertaForTLMOutput]:
         r"""
-        cls_labels (`torch.LongTensor` of shape `(batch_size, sequence_length)`, *optional*):
+        token_translation_labels (`torch.LongTensor` of shape `(batch_size, sequence_length)`, *optional*):
             Labels for computing the token classification loss. Indices should be in `[0, ..., config.num_labels - 1]`.
-        reg_labels (`torch.FloatTensor` of shape `(batch_size, sequence_length)`, *optional*):
-            Labels for computing the token regression loss. Indices should be in `[0, ..., config.num_labels - 1]`.
+        token_qe_labels (`torch.LongTensor` of shape `(batch_size, sequence_length)`, *optional*):
+            Labels for computing the token classification loss. Indices should be in `[0, ..., config.num_labels - 1]`.
         """
         return_dict = return_dict if return_dict is not None else self.config.use_return_dict
 
@@ -119,56 +75,41 @@ class RobertaForTokenClassificationAndRegression(RobertaPreTrainedModel):
         )
 
         sequence_output = outputs[0]
-
         sequence_output = self.dropout(sequence_output)
-        token_cls_logits = self.classifier(sequence_output)
-        token_reg_logits = self.reg_head(sequence_output)
 
+        loss_fct = CrossEntropyLoss()
         loss = None
 
-        token_cls_loss = None
-        if token_cls_labels is not None:
-            loss_fct = CrossEntropyLoss()
-            token_cls_loss = loss_fct(token_cls_logits.view(-1, self.num_labels), token_cls_labels.view(-1))
+        if token_translation_labels is not None:
+            token_translation_logits = self.translation_head(sequence_output)
+            loss = loss_fct(token_translation_logits.view(-1, self.num_labels), token_translation_labels.view(-1))
+            if not return_dict:
+                output = (token_translation_logits, ) + outputs[2:]
+                return ((loss,) + output) if (loss is not None) else output
 
-        token_reg_loss = None
-        if token_reg_labels is not None:
-            loss_fct = MSELoss(reduction='none')
-            token_reg_loss_temp = loss_fct(token_reg_logits.view(-1), token_reg_labels.view(-1))
-            token_reg_mask = token_reg_labels.ge(0).view(-1)
-            token_reg_loss = torch.mean(token_reg_loss_temp * token_reg_mask)
-            limit = 5
-            limit_tensor = torch.ones_like(token_reg_loss) * limit
-            token_reg_loss = torch.where(token_reg_loss > limit, limit_tensor, token_reg_loss)
+            return RobertaForTranslationAndQEOutput(
+                loss=loss,
+                token_translation_logits=token_translation_logits,
+                hidden_states=outputs.hidden_states,
+                attentions=outputs.attentions,
+            )
 
-        if token_cls_loss is not None and token_reg_loss is not None:
-            loss = token_cls_loss + token_reg_loss * self.reg_lambda
-        elif token_cls_loss is not None:
-            loss = token_cls_loss
+        if token_qe_labels is not None:
+            token_qe_logits = self.qe_head(sequence_output)
+            loss = loss_fct(token_qe_logits.view(-1, self.num_labels), token_qe_labels.view(-1))
+            if not return_dict:
+                output = (token_qe_logits, ) + outputs[2:]
+                return ((loss,) + output) if (loss is not None) else output
 
-        if not return_dict:
-            output = (token_cls_logits, token_reg_logits, ) + outputs[2:]
-            return ((loss,) + output) if (token_cls_loss is not None and token_reg_loss is not None) else output
-
-        return RobertaForTokenClassificationAndRegressionOutput(
-            loss=loss,
-            token_cls_logits=token_cls_logits,
-            token_reg_logits=token_reg_logits,
-            hidden_states=outputs.hidden_states,
-            attentions=outputs.attentions,
-        )
+            return RobertaForTLMOutput(
+                loss=loss,
+                token_qe_logits=token_qe_logits,
+                hidden_states=outputs.hidden_states,
+                attentions=outputs.attentions,
+            )
 
 
-class XLMRobertaForTokenClassificationAndRegression(RobertaForTokenClassificationAndRegression):
-    """
-    This class overrides [`RobertaForTokenClassificationAndRegression`]. Please check the superclass for the appropriate
-    documentation alongside usage examples.
-    """
-
-    config_class = XLMRobertaConfig
-
-
-class RobertaForTranslationAndQEOutput(ModelOutput):
+class RobertaForTLMAndQEOutput(ModelOutput):
     """
     class for outputs of token classification and regression models.
     Args:
@@ -196,7 +137,7 @@ class RobertaForTranslationAndQEOutput(ModelOutput):
     attentions: Optional[Tuple[torch.FloatTensor]] = None
 
 
-class RobertaForTranslationAndQE(RobertaPreTrainedModel):
+class RobertaForTLMAndQE(RobertaPreTrainedModel):
     _keys_to_ignore_on_load_unexpected = [r"pooler"]
     _keys_to_ignore_on_load_missing = [r"position_ids"]
 
@@ -228,7 +169,7 @@ class RobertaForTranslationAndQE(RobertaPreTrainedModel):
         output_attentions: Optional[bool] = None,
         output_hidden_states: Optional[bool] = None,
         return_dict: Optional[bool] = None,
-    ) -> Union[Tuple[torch.Tensor], RobertaForTranslationAndQEOutput]:
+    ) -> Union[Tuple[torch.Tensor], RobertaForTLMAndQEOutput]:
         r"""
         token_translation_labels (`torch.LongTensor` of shape `(batch_size, sequence_length)`, *optional*):
             Labels for computing the token classification loss. Indices should be in `[0, ..., config.num_labels - 1]`.

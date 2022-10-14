@@ -16,13 +16,14 @@ from transquest.algo.word_level.microtransquest.run_model import MicroTQWithAdvH
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--lang_pair', '-l', type=str)
+parser.add_argument('--adv_limit', type=float, default=1)
 parser.add_argument('--adv_lambda', type=float, default=-0.1)
 args = parser.parse_args()
 lang_pair = args.lang_pair
 TRAIN_PATH = "data/train/" + lang_pair + "-train/"
 DEV_PATH = "data/dev/" + lang_pair + "-dev/"
 TEST_PATH = "data/test/" + lang_pair + "-test20/"
-temp_prefix = "train_result_memory_shortcut_adv_" + lang_pair + "_adv_lambda_" + str(args.adv_lambda)
+temp_prefix = "train_result_memory_shortcut_adv_" + lang_pair + "_adv_limit_" + str(int(args.adv_limit)) + "_lambda_" + str(args.adv_lambda)
 TEMP_DIRECTORY = temp_prefix + "/data"
 microtransquest_config['output_dir'] = temp_prefix + '/outputs/'
 microtransquest_config['best_model_dir'] = temp_prefix + "/outputs/best_model"

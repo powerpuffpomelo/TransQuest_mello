@@ -282,7 +282,7 @@ class MicroTransQuestModel:
                 " Use --overwrite_output_dir to overcome.".format(output_dir)
             )
 
-        train_data = prepare_data(train_data, self.args)
+        train_data = prepare_data(train_data, self.args)   # pd
         eval_data = prepare_data(eval_data, self.args)
 
         self._move_model_to_device()

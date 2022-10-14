@@ -80,13 +80,22 @@ if __name__ == '__main__':
 # transquest whole test
 lang_pair=en-de
 GOLD_PREFIX=data/test/${lang_pair}-test20
-PRE_PREFIX=train_result_memory_shortcut_adv_en-de_adv_lambda_-0.5/prediction
+PRE_PREFIX=train_result_memory_shortcut_adv_en-de_adv_limit_5_lambda_-1.0/prediction
 python3 mello_scripts/train_memory_shortcut/estimate_word.py $GOLD_PREFIX/test20.mt_tag $PRE_PREFIX/test20.mt_tag.pred
 
-# robust train memory
-lang_pair=si-en
+# robust train memory / part test
+lang_pair=en-de
 GOLD_PREFIX=data/test/${lang_pair}-test20
-PRE_PREFIX=transquest_model/train_result_${lang_pair}/prediction
+PRE_PREFIX=train_result_memory_shortcut_adv_en-de_adv_limit_5_lambda_-0.5/prediction
+echo "a popular_part"
+python3 mello_scripts/train_memory_shortcut/estimate_word.py $GOLD_PREFIX/test20.mt_tag_popular_part $PRE_PREFIX/test20.mt_tag_popular_part.pred
+echo "b niche_part"
+python3 mello_scripts/train_memory_shortcut/estimate_word.py $GOLD_PREFIX/test20.mt_tag_niche_part $PRE_PREFIX/test20.mt_tag_niche_part.pred
+echo "c same_part"
+python3 mello_scripts/train_memory_shortcut/estimate_word.py $GOLD_PREFIX/test20.mt_tag_same_part $PRE_PREFIX/test20.mt_tag_same_part.pred
+echo "d unseen_part"
+python3 mello_scripts/train_memory_shortcut/estimate_word.py $GOLD_PREFIX/test20.mt_tag_unseen_part $PRE_PREFIX/test20.mt_tag_unseen_part.pred
+echo "c+d same_and_unseen_part"
 python3 mello_scripts/train_memory_shortcut/estimate_word.py $GOLD_PREFIX/test20.mt_tag_same_and_unseen_part $PRE_PREFIX/test20.mt_tag_same_and_unseen_part.pred
 
 """
