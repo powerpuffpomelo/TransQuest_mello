@@ -4,7 +4,7 @@ import argparse
 
 from sklearn.model_selection import train_test_split
 
-from examples.word_level.common.util import reader, prepare_testdata
+from mlqe_word_level.utils import reader, prepare_testdata
 from mlqe_word_level.microtransquest_config import TRAIN_PATH, TRAIN_SOURCE_FILE, \
     TRAIN_SOURCE_TAGS_FILE, \
     TRAIN_TARGET_FILE, \
@@ -12,7 +12,7 @@ from mlqe_word_level.microtransquest_config import TRAIN_PATH, TRAIN_SOURCE_FILE
     TEST_TARGET_FILE, TEMP_DIRECTORY, TEST_SOURCE_TAGS_FILE, TEST_TARGET_TAGS_FLE, SEED, DEV_TARGET_TAGS_FILE_SUB, \
     DEV_SOURCE_TAGS_FILE_SUB, DEV_PATH, DEV_SOURCE_FILE, DEV_TARGET_FILE, DEV_SOURCE_TAGS_FILE, DEV_TARGET_TAGS_FLE, \
     TRAIN_TARGET_ADV_TAGS_FILE, DEV_TARGET_ADV_TAGS_FILE, TRAIN_SOURCE_ADV_TAGS_FILE, DEV_SOURCE_ADV_TAGS_FILE
-from transquest.algo.word_level.microtransquest.run_model import MicroTQWithAdvHead
+from mlqe_word_level.run_model import MicroTQWithAdvHead
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--lang_pair', '-l', type=str)

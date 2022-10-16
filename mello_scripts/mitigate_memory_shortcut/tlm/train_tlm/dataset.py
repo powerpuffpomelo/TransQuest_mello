@@ -14,15 +14,21 @@ class tlm_collator():
         self.tokenizer = tokenizer
         self.random = random.Random(666)
 
-    def __call__(self, data):
-        batch_sample = self.tokenizer(data, padding='max_length', truncation=True, max_length=512)
+    def __call__(self, data):   # 一个batch的data
+        print("hhhhhhhhhhhhhh")
+        #print(data)
 
         input_ids_list = []
         label_list = []
         attention_mask_list = []
 
-        for idx in range(len(batch_sample['input_ids'])):
-            sample = batch_sample['input_ids'][idx]
+        for idx in range(len(data)):
+            sample = data[idx]
+            print(sample)
+            sample = self.tokenizer(sample, padding='max_length', truncation=True, max_length=512)
+            print(sample)
+            decoded = self.tokenizer.decode(sample['input_ids'][1])
+            print(decoded)
             _label = []
             _input_id = []
             for token_id in sample:
@@ -52,11 +58,15 @@ class tlm_collator():
 
 class Dataset(Data.Dataset):
     def __init__(self, src_file, tgt_file) -> None:
-        data = []
+        # data = []
+        # with open(src_file, 'r', encoding='utf-8') as fsrc, open(tgt_file, 'r', encoding='utf-8') as ftgt:
+        #     for src_line, tgt_line in zip(fsrc.readlines(), ftgt.readlines()):
+        #         data.append([src_line.strip('\n'), tgt_line.strip('\n')])
+        # self.data = pd.DataFrame(data, columns=['src', 'tgt'])
+        self.data = []
         with open(src_file, 'r', encoding='utf-8') as fsrc, open(tgt_file, 'r', encoding='utf-8') as ftgt:
             for src_line, tgt_line in zip(fsrc.readlines(), ftgt.readlines()):
-                data.append([src_line.strip('\n'), tgt_line.strip('\n')])
-        self.data = pd.DataFrame(data, columns=['src', 'tgt'])
+                self.data.append([src_line.strip('\n'), tgt_line.strip('\n')])
     
     def __getitem__(self, index):
         return self.data[index]

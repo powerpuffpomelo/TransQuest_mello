@@ -7,6 +7,7 @@ TRAIN_SOURCE_FILE = "train.src"
 TRAIN_SOURCE_TAGS_FILE = "train.source_tags"
 TRAIN_TARGET_FILE = "train.mt"
 TRAIN_TARGET_TAGS_FLE = "train.tags"
+TRAIN_PE_FILE = "train.pe"
 TRAIN_SOURCE_ADV_TAGS_FILE = "train.src_ok_ratio_tag"
 TRAIN_TARGET_ADV_TAGS_FILE = "train.mtgap_ok_ratio_tag"
 
@@ -15,12 +16,14 @@ DEV_SOURCE_FILE = "dev.src"
 DEV_SOURCE_TAGS_FILE = "dev.source_tags"
 DEV_TARGET_FILE = "dev.mt"
 DEV_TARGET_TAGS_FLE = "dev.tags"
+DEV_PE_FILE = "dev.pe"
 DEV_SOURCE_ADV_TAGS_FILE = "dev.src_ok_ratio_tag"
 DEV_TARGET_ADV_TAGS_FILE = "dev.mtgap_ok_ratio_tag"
 
 TEST_PATH = "data/test/" + lang_pair + "-test20/"
 TEST_SOURCE_FILE = "test20.src"
 TEST_TARGET_FILE = "test20.mt"
+TEST_PE_FILE = "test20.pe"
 
 TEST_SOURCE_TAGS_FILE = "test_predictions_src.txt"
 TEST_TARGET_TAGS_FLE = "test_predictions_mt.txt"
@@ -33,7 +36,7 @@ TEMP_DIRECTORY = "train_result_" + lang_pair + "/data"
 GOOGLE_DRIVE = False
 DRIVE_FILE_ID = None
 MODEL_TYPE = "xlmroberta"
-MODEL_NAME = "transformers/xlm-roberta-large-for-tc"
+MODEL_NAME = "transformers/xlm-roberta-large-for-mlm"
 
 microtransquest_config = {
     'output_dir': 'train_result_' + lang_pair + '/outputs/',
@@ -46,9 +49,9 @@ microtransquest_config = {
     'train_batch_size': 8,
     'gradient_accumulation_steps': 1,
     'eval_batch_size': 8,
-    'num_train_epochs': 3,
+    'num_train_epochs': 10,
     'weight_decay': 0,
-    'learning_rate': 2e-5,
+    'learning_rate': 5e-5,
     'adam_epsilon': 1e-8,
     'warmup_ratio': 0.1,
     'warmup_steps': 0,
@@ -61,7 +64,7 @@ microtransquest_config = {
     "no_save": False,
     "save_recent_only": True,
     'save_model_every_epoch': False,
-    'n_fold': 3,
+    'n_fold': 1,
     'evaluate_during_training': True,
     "evaluate_during_training_silent": True,
     'evaluate_during_training_steps': 300,
@@ -109,5 +112,4 @@ microtransquest_config = {
     "source_tags_column": "source_tags",
     "target_tags_column": "target_tags",
 
-    "reg_lambda": -0.5,
 }

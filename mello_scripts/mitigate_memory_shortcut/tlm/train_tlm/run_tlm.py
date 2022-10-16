@@ -122,6 +122,10 @@ def main():
         cur_epoch += 1
         epoch_loss = 0.
         model.train()
+
+        for batch_num, batch_data in enumerate(train_dataloader):
+            batch_input, batch_label = batch_data
+            assert 1==2
         
         with tqdm(total = len(train_dataloader), ncols=200) as pbar:
             for batch_num, batch_data in enumerate(train_dataloader):

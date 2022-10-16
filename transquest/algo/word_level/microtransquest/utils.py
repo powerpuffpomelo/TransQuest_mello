@@ -21,6 +21,7 @@ import linecache
 from io import open
 from multiprocessing import Pool, cpu_count
 
+import random
 import torch
 from torch.functional import split
 from torch.nn import CrossEntropyLoss
@@ -44,6 +45,26 @@ class InputExample(object):
         self.words = words
         self.labels = labels
         self.adv_labels = adv_labels
+        if x0 is None:
+            self.bboxes = None
+        else:
+            self.bboxes = [[a, b, c, d] for a, b, c, d in zip(x0, y0, x1, y1)]
+
+
+class InputExampleForTLM(object):
+    """A single training/test example for token classification."""
+
+    def __init__(self, guid, words, x0=None, y0=None, x1=None, y1=None):
+        """Constructs a InputExample.
+        Args:
+            guid: Unique id for the example.
+            words: list. The words of the sequence.
+            labels: (Optional) list. The labels for each word of the sequence. This should be
+            specified for train and dev examples, but not for test examples.
+            bbox: (Optional) list. The bounding boxes for each word of the sequence.
+        """
+        self.guid = guid
+        self.words = words
         if x0 is None:
             self.bboxes = None
         else:
@@ -164,14 +185,146 @@ def get_examples_from_df(data, bbox=False):
                 InputExample(guid=sentence_id, words=sentence_df["words"].tolist(), labels=sentence_df["labels"].tolist(), adv_labels=sentence_df["adv_labels"].tolist())
                 for sentence_id, sentence_df in data.groupby(["sentence_id"])
             ]
-        else:
+        elif "labels" in data.columns:
             return [
                 InputExample(guid=sentence_id, words=sentence_df["words"].tolist(), labels=sentence_df["labels"].tolist(), )
+                for sentence_id, sentence_df in data.groupby(["sentence_id"])
+            ]
+        else:
+            return [
+                InputExampleForTLM(guid=sentence_id, words=sentence_df["words"].tolist())
                 for sentence_id, sentence_df in data.groupby(["sentence_id"])
             ]
 
 
 def convert_example_to_feature(example_row):
+    (
+        example,
+        label_map,
+        max_seq_length,
+        tokenizer,
+        cls_token_at_end,
+        cls_token,
+        cls_token_segment_id,
+        sep_token,
+        sep_token_extra,
+        pad_on_left,
+        pad_token,
+        pad_token_segment_id,
+        pad_token_label_id,
+        sequence_a_segment_id,
+        mask_padding_with_zero,
+    ) = example_row
+
+    tokens = []
+    label_ids = []
+    bboxes = []
+    if example.bboxes:
+        for word, label, bbox in zip(example.words, example.labels, example.bboxes):
+            word_tokens = tokenizer.tokenize(word)
+            tokens.extend(word_tokens)
+            # Use the real label id for the first token of the word, and padding ids for the remaining tokens
+            label_ids.extend([label_map[label]] + [pad_token_label_id] * (len(word_tokens) - 1))
+            bboxes.extend([bbox] * len(word_tokens))
+
+        cls_token_box = [0, 0, 0, 0]
+        sep_token_box = [1000, 1000, 1000, 1000]
+        pad_token_box = [0, 0, 0, 0]
+
+    else:
+        for word, label in zip(example.words, example.labels):
+            word_tokens = tokenizer.tokenize(word)
+            tokens.extend(word_tokens)
+            # Use the real label id for the first token of the word, and padding ids for the remaining tokens
+            if word_tokens:  # avoid non printable character like '\u200e' which are tokenized as a void token ''
+                label_ids.extend([label_map[label]] + [pad_token_label_id] * (len(word_tokens) - 1))
+
+    # Account for [CLS] and [SEP] with "- 2" and with "- 3" for RoBERTa.
+    special_tokens_count = 3 if sep_token_extra else 2
+    if len(tokens) > max_seq_length - special_tokens_count:
+        tokens = tokens[: (max_seq_length - special_tokens_count)]
+        label_ids = label_ids[: (max_seq_length - special_tokens_count)]
+        if bboxes:
+            bboxes = bboxes[: (max_seq_length - special_tokens_count)]
+
+    # The convention in BERT is:
+    # (a) For sequence pairs:
+    #  tokens:   [CLS] is this jack ##son ##ville ? [SEP] no it is not . [SEP]
+    #  type_ids:   0   0  0    0    0     0       0   0   1  1  1  1   1   1
+    # (b) For single sequences:
+    #  tokens:   [CLS] the dog is hairy . [SEP]
+    #  type_ids:   0   0   0   0  0     0   0
+    #
+    # Where "type_ids" are used to indicate whether this is the first
+    # sequence or the second sequence. The embedding vectors for `type=0` and
+    # `type=1` were learned during pre-training and are added to the wordpiece
+    # embedding vector (and position vector). This is not *strictly* necessary
+    # since the [SEP] token unambiguously separates the sequences, but it makes
+    # it easier for the model to learn the concept of sequences.
+    #
+    # For classification tasks, the first vector (corresponding to [CLS]) is
+    # used as as the "sentence vector". Note that this only makes sense because
+    # the entire model is fine-tuned.
+    tokens += [sep_token]
+    label_ids += [pad_token_label_id]
+    if bboxes:
+        bboxes += [sep_token_box]
+    if sep_token_extra:
+        # roberta uses an extra separator b/w pairs of sentences
+        tokens += [sep_token]
+        label_ids += [pad_token_label_id]
+        if bboxes:
+            bboxes += [sep_token_box]
+    segment_ids = [sequence_a_segment_id] * len(tokens)
+
+    if cls_token_at_end:
+        tokens += [cls_token]
+        label_ids += [pad_token_label_id]
+        segment_ids += [cls_token_segment_id]
+    else:
+        tokens = [cls_token] + tokens
+        label_ids = [pad_token_label_id] + label_ids
+        segment_ids = [cls_token_segment_id] + segment_ids
+        if bboxes:
+            bboxes = [cls_token_box] + bboxes
+
+    input_ids = tokenizer.convert_tokens_to_ids(tokens)
+
+    # The mask has 1 for real tokens and 0 for padding tokens. Only real
+    # tokens are attended to.
+    input_mask = [1 if mask_padding_with_zero else 0] * len(input_ids)
+
+    # Zero-pad up to the sequence length.
+    padding_length = max_seq_length - len(input_ids)
+    if pad_on_left:
+        input_ids = ([pad_token] * padding_length) + input_ids
+        input_mask = ([0 if mask_padding_with_zero else 1] * padding_length) + input_mask
+        segment_ids = ([pad_token_segment_id] * padding_length) + segment_ids
+        label_ids = ([pad_token_label_id] * padding_length) + label_ids
+    else:
+        input_ids += [pad_token] * padding_length
+        input_mask += [0 if mask_padding_with_zero else 1] * padding_length
+        segment_ids += [pad_token_segment_id] * padding_length
+        label_ids += [pad_token_label_id] * padding_length
+        if bboxes:
+            bboxes += [pad_token_box] * padding_length
+
+    assert len(input_ids) == max_seq_length
+    assert len(input_mask) == max_seq_length
+    assert len(segment_ids) == max_seq_length
+    assert len(label_ids) == max_seq_length
+    if bboxes:
+        assert len(bboxes) == max_seq_length
+
+    if bboxes:
+        return InputFeatures(
+            input_ids=input_ids, input_mask=input_mask, segment_ids=segment_ids, label_ids=label_ids, bboxes=bboxes
+        )
+    else:
+        return InputFeatures(input_ids=input_ids, input_mask=input_mask, segment_ids=segment_ids, label_ids=label_ids, )
+
+
+def convert_example_to_feature_adv(example_row):
     (
         example,
         label_map,
@@ -217,6 +370,9 @@ def convert_example_to_feature(example_row):
 
     else:
         # 经过这里
+        # print(example)  # InputExample
+
+        # assert 1==2
         if example.adv_labels is not None:
             for word, label, adv_label in zip(example.words, example.labels, example.adv_labels):
                 word_tokens = tokenizer.tokenize(word)
@@ -391,6 +547,110 @@ def convert_example_to_feature(example_row):
             return InputFeatures(input_ids=input_ids, input_mask=input_mask, segment_ids=segment_ids, label_ids=label_ids, )
 
 
+def convert_example_to_feature_tlm(example_row):
+    (
+        example,
+        label_map,
+        max_seq_length,
+        tokenizer,
+        cls_token_at_end,
+        cls_token,
+        cls_token_segment_id,
+        sep_token,
+        sep_token_extra,
+        pad_on_left,
+        pad_token,
+        pad_token_segment_id,
+        pad_token_label_id,   # -100
+        sequence_a_segment_id,
+        mask_padding_with_zero,
+    ) = example_row
+
+    input_ids = []
+    label_ids = []
+    random_tool = random.Random(322)
+    # print(tokenizer.mask_token_id)  # 250001
+
+    for word in example.words:
+        word_tokens = tokenizer.tokenize(word)
+        word_tokens_ids = tokenizer.convert_tokens_to_ids(word_tokens)
+        if random_tool.random() < 0.3:
+            input_ids.extend([tokenizer.mask_token_id] * len(word_tokens_ids))
+            label_ids.extend(word_tokens_ids)
+        else:
+            input_ids.extend(word_tokens_ids)
+            label_ids.extend([-100] * len(word_tokens_ids))
+
+    # Account for [CLS] and [SEP] with "- 2" and with "- 3" for RoBERTa.
+    special_tokens_count = 3 if sep_token_extra else 2
+    if len(input_ids) > max_seq_length - special_tokens_count:
+        input_ids = input_ids[: (max_seq_length - special_tokens_count)]
+        label_ids = label_ids[: (max_seq_length - special_tokens_count)]
+
+    # The convention in BERT is:
+    # (a) For sequence pairs:
+    #  tokens:   [CLS] is this jack ##son ##ville ? [SEP] no it is not . [SEP]
+    #  type_ids:   0   0  0    0    0     0       0   0   1  1  1  1   1   1
+    # (b) For single sequences:
+    #  tokens:   [CLS] the dog is hairy . [SEP]
+    #  type_ids:   0   0   0   0  0     0   0
+    #
+    # Where "type_ids" are used to indicate whether this is the first
+    # sequence or the second sequence. The embedding vectors for `type=0` and
+    # `type=1` were learned during pre-training and are added to the wordpiece
+    # embedding vector (and position vector). This is not *strictly* necessary
+    # since the [SEP] token unambiguously separates the sequences, but it makes
+    # it easier for the model to learn the concept of sequences.
+    #
+    # For classification tasks, the first vector (corresponding to [CLS]) is
+    # used as as the "sentence vector". Note that this only makes sense because
+    # the entire model is fine-tuned.
+    sep_token_id = tokenizer.convert_tokens_to_ids(sep_token)
+    cls_token_id = tokenizer.convert_tokens_to_ids(cls_token)
+
+    input_ids += [sep_token_id]
+    label_ids += [pad_token_label_id]
+
+    if sep_token_extra:
+        # roberta uses an extra separator b/w pairs of sentences
+        input_ids += [sep_token_id]
+        label_ids += [pad_token_label_id]
+    segment_ids = [sequence_a_segment_id] * len(input_ids)
+
+    if cls_token_at_end:
+        input_ids += [cls_token_id]
+        label_ids += [pad_token_label_id]
+        segment_ids += [cls_token_segment_id]
+    else:
+        input_ids = [cls_token_id] + input_ids
+        label_ids = [pad_token_label_id] + label_ids
+        segment_ids = [cls_token_segment_id] + segment_ids
+
+    # The mask has 1 for real tokens and 0 for padding tokens. Only real
+    # tokens are attended to.
+    input_mask = [1 if mask_padding_with_zero else 0] * len(input_ids)
+
+    # Zero-pad up to the sequence length.
+    padding_length = max_seq_length - len(input_ids)
+    if pad_on_left:
+        input_ids = ([pad_token] * padding_length) + input_ids
+        input_mask = ([0 if mask_padding_with_zero else 1] * padding_length) + input_mask
+        segment_ids = ([pad_token_segment_id] * padding_length) + segment_ids
+        label_ids = ([pad_token_label_id] * padding_length) + label_ids
+    else:
+        input_ids += [pad_token] * padding_length
+        input_mask += [0 if mask_padding_with_zero else 1] * padding_length
+        segment_ids += [pad_token_segment_id] * padding_length
+        label_ids += [pad_token_label_id] * padding_length
+
+    assert len(input_ids) == max_seq_length
+    assert len(input_mask) == max_seq_length
+    assert len(segment_ids) == max_seq_length
+    assert len(label_ids) == max_seq_length
+
+    return InputFeatures(input_ids=input_ids, input_mask=input_mask, segment_ids=segment_ids, label_ids=label_ids, )
+
+
 def convert_examples_to_features(
         examples,
         label_list,
@@ -419,6 +679,12 @@ def convert_examples_to_features(
         `cls_token_segment_id` define the segment id associated to the CLS token (0 for BERT, 2 for XLNet)
     """
 
+    feature_fn = convert_example_to_feature
+    if hasattr(examples[0], 'adv_labels') and examples[0].adv_labels is not None:
+        feature_fn = convert_example_to_feature_adv
+    elif not hasattr(examples[0], 'labels'):
+        feature_fn = convert_example_to_feature_tlm
+
     label_map = {label: i for i, label in enumerate(label_list)}
 
     examples = [
@@ -446,7 +712,7 @@ def convert_examples_to_features(
         with Pool(process_count) as p:
             features = list(
                 tqdm(
-                    p.imap(convert_example_to_feature, examples, chunksize=chunksize),
+                    p.imap(feature_fn, examples, chunksize=chunksize),
                     total=len(examples),
                     disable=silent,
                 )
@@ -454,7 +720,7 @@ def convert_examples_to_features(
     else:
         features = []
         for example in tqdm(examples):
-            features.append(convert_example_to_feature(example))
+            features.append(feature_fn(example))
     return features
 
 
@@ -540,3 +806,4 @@ class LazyQEDataset(Dataset):
 
     def __len__(self):
         return self.num_entries
+
