@@ -1800,7 +1800,7 @@ class MicroTQForTLM(MicroTransQuestModel):
         args = self.args
 
         tb_writer = SummaryWriter(logdir=args.tensorboard_dir)
-        
+
         train_dataset = self.load_and_cache_examples(train_data)
         train_sampler = RandomSampler(train_dataset)
         train_dataloader = DataLoader(
@@ -1978,13 +1978,25 @@ class MicroTQForTLM(MicroTransQuestModel):
 
             scaler = amp.GradScaler()
 
-        for _ in train_iterator:
+        for _ in train_iterator:   # 每个epoch
             model.train()
             # true_predict_count = 0
             # total_predict_count = 0
             if epochs_trained > 0:
                 epochs_trained -= 1
                 continue
+
+            # 动态mask，就在这里加载dataloader好了
+            train_dataset = self.load_and_cache_examples(train_data)
+            train_sampler = RandomSampler(train_dataset)
+            train_dataloader = DataLoader(
+                dataset=train_dataset,
+                sampler=train_sampler,
+                batch_size=args.train_batch_size,
+                #collate_fn=self.load_and_cache_examples,
+                num_workers=self.args.dataloader_num_workers,
+            )
+
             train_iterator.set_description(f"Epoch {epoch_number + 1} of {args.num_train_epochs}")
             batch_iterator = tqdm(
                 train_dataloader,
@@ -2280,7 +2292,6 @@ class MicroTQForTLM(MicroTransQuestModel):
         device = self.device
         model = self.model
         args = self.args
-        pad_token_label_id = self.pad_token_label_id
         eval_output_dir = output_dir
 
         results = {}
@@ -2331,7 +2342,7 @@ class MicroTQForTLM(MicroTransQuestModel):
         
         result = {
             "eval_loss": eval_loss,
-            "acc": true_predict_count / total_predict_count,
+            "eval_acc": true_predict_count / total_predict_count,
         }
 
         results.update(result)
@@ -2354,7 +2365,7 @@ class MicroTQForTLM(MicroTransQuestModel):
             "global_step": [],
             "train_loss": [],
             "eval_loss": [],
-            "acc": [],
+            "eval_acc": [],
             **extra_metrics,
         }
 

@@ -1,11 +1,11 @@
 # 只得到idx处的预测tag存起来，其余tag不care
 
 # lang_pairs = ['en-de', 'en-zh', 'et-en', 'ne-en', 'ro-en', 'ru-en', 'si-en']
-lang_pairs = ['en-de', 'en-zh']
+lang_pairs = ['en-de']
 parts = ['popular', 'niche', 'same', 'unseen', 'same_and_unseen']
 
 for lang_pair in lang_pairs:
-    test_prefix = "train_result_finetune_qe_from_tlm_" + lang_pair + "/prediction/"
+    test_prefix = "train_result_finetune_qe_from_tlm_lr4e-5_mask0.3_" + lang_pair + "/prediction/"
     all_tag_path = test_prefix + "test20.mt_tag.pred"
     for part in parts:
         robust_idx_path = "data/test/" + lang_pair + "-test20/test20.mt_" + part + "_idx"

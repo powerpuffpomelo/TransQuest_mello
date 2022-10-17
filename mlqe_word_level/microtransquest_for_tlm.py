@@ -20,13 +20,13 @@ TRAIN_PATH = "data/train/" + lang_pair + "-train/"
 DEV_PATH = "data/dev/" + lang_pair + "-dev/"
 TEST_PATH = "data/test/" + lang_pair + "-test20/"
 temp_prefix = "train_result_" + args.save_name + "_" + lang_pair
+if not os.path.exists(temp_prefix):
+    os.makedirs(temp_prefix)
 TEMP_DIRECTORY = temp_prefix + "/data"
 microtransquest_config['output_dir'] = temp_prefix + '/outputs/'
 microtransquest_config['best_model_dir'] = temp_prefix + "/outputs/best_model"
 microtransquest_config['cache_dir'] = temp_prefix + '/cache_dir/'
 
-if not os.path.exists(TEMP_DIRECTORY):
-    os.makedirs(TEMP_DIRECTORY)
 raw_train_df = reader(path=TRAIN_PATH, source_file=TRAIN_SOURCE_FILE, target_file=TRAIN_PE_FILE)
 raw_dev_df = reader(path=DEV_PATH, source_file=DEV_SOURCE_FILE, target_file=DEV_PE_FILE)
 # raw_test_df = reader(path=TEST_PATH, source_file=TEST_SOURCE_FILE, target_file=TEST_PE_FILE)

@@ -49,4 +49,4 @@ with open(os.path.join(RESULT_DIRECTORY, TEST_TARGET_TAGS_FILE), 'w', encoding='
         fg.write(strg.strip() + '\n')
 
 
-# python3 mello_scripts/mitigate_memory_shortcut/tlm/finetune_qe_from_tlm/predict_tag.py --lang_pair en-de --save_name finetune_qe_from_tlm
+# python3 mello_scripts/mitigate_memory_shortcut/tlm/finetune_qe_from_tlm/predict_tag.py --lang_pair en-zh --save_name finetune_qe_from_tlm_lr4e-5_mask0.3

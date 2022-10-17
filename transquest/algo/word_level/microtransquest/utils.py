@@ -574,7 +574,7 @@ def convert_example_to_feature_tlm(example_row):
     for word in example.words:
         word_tokens = tokenizer.tokenize(word)
         word_tokens_ids = tokenizer.convert_tokens_to_ids(word_tokens)
-        if random_tool.random() < 0.3:
+        if random_tool.random() < 0.15:
             input_ids.extend([tokenizer.mask_token_id] * len(word_tokens_ids))
             label_ids.extend(word_tokens_ids)
         else:
