@@ -3,12 +3,17 @@ import os
 import pandas as pd
 
 
-def reader(path, source_file, target_file, source_tags_file=None, target_tags_file=None, source_adv_tags_file=None, target_adv_tags_file=None):
+def reader(path, source_file, target_file=None, pe_file=None, source_tags_file=None, target_tags_file=None, source_adv_tags_file=None, target_adv_tags_file=None):
     with open(os.path.join(path, source_file)) as f:
         source_sentences = f.read().splitlines()
 
-    with open(os.path.join(path, target_file)) as f:
-        target_sentences = f.read().splitlines()
+    if target_file is not None:
+        with open(os.path.join(path, target_file)) as f:
+            target_sentences = f.read().splitlines()
+
+    if pe_file is not None:
+        with open(os.path.join(path, pe_file)) as f:
+            pe_sentences = f.read().splitlines()
 
     if source_adv_tags_file is not None and target_adv_tags_file is not None:
         with open(os.path.join(path, source_tags_file)) as f:
@@ -41,14 +46,25 @@ def reader(path, source_file, target_file, source_tags_file=None, target_tags_fi
         with open(os.path.join(path, target_tags_file)) as f:
             target_tags = f.read().splitlines()
 
-        df = pd.DataFrame(
-            {
-                "source": source_sentences,
-                "target": target_sentences,
-                "source_tags": source_tags,
-                "target_tags": target_tags
-            }
-        )
+        if pe_file is not None:
+            df = pd.DataFrame(
+                {
+                    "source": source_sentences,
+                    "target": target_sentences,
+                    "pe": pe_sentences,
+                    "source_tags": source_tags,
+                    "target_tags": target_tags
+                }
+            )
+        else:
+            df = pd.DataFrame(
+                {
+                    "source": source_sentences,
+                    "target": target_sentences,
+                    "source_tags": source_tags,
+                    "target_tags": target_tags
+                }
+            )
 
     else:
         df = pd.DataFrame(

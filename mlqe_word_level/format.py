@@ -4,7 +4,10 @@ import random
 
 def prepare_data(raw_df, args):
     source_sentences = raw_df["source"].tolist()
-    target_sentences = raw_df["target"].tolist()
+    if "target" in raw_df.columns:
+        target_sentences = raw_df["target"].tolist()
+    elif "pe" in raw_df.columns:
+        target_sentences = raw_df["pe"].tolist()
     # source_tags = raw_df["source_tags"].tolist()
     # target_tags = raw_df["target_tags"].tolist()
 
@@ -57,6 +60,8 @@ def prepare_data(raw_df, args):
                 data.append([sentence_id, args.tag, target_tags.pop(0)])
 
             sentence_id += 1
+
+        return pd.DataFrame(data, columns=['sentence_id', 'words', 'labels'])
     
     else:
         # only parallel

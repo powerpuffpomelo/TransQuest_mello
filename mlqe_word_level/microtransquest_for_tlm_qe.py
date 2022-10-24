@@ -4,14 +4,15 @@ import argparse
 
 from sklearn.model_selection import train_test_split
 
-from examples.word_level.common.util import reader, prepare_testdata
-from mlqe_word_level.microtransquest_config import TRAIN_PATH, TRAIN_SOURCE_FILE, \
+from mlqe_word_level.utils import reader, prepare_testdata
+from mlqe_word_level.microtransquest_config_for_tlm_qe import TRAIN_PATH, TRAIN_SOURCE_FILE, \
     TRAIN_SOURCE_TAGS_FILE, \
     TRAIN_TARGET_FILE, \
     TRAIN_TARGET_TAGS_FLE, MODEL_TYPE, MODEL_NAME, microtransquest_config, TEST_PATH, TEST_SOURCE_FILE, \
     TEST_TARGET_FILE, TEMP_DIRECTORY, TEST_SOURCE_TAGS_FILE, TEST_TARGET_TAGS_FLE, SEED, DEV_TARGET_TAGS_FILE_SUB, \
-    DEV_SOURCE_TAGS_FILE_SUB, DEV_PATH, DEV_SOURCE_FILE, DEV_TARGET_FILE, DEV_SOURCE_TAGS_FILE, DEV_TARGET_TAGS_FLE
-from mlqe_word_level.run_model import MicroTransQuestModel
+    DEV_SOURCE_TAGS_FILE_SUB, DEV_PATH, DEV_SOURCE_FILE, DEV_TARGET_FILE, DEV_SOURCE_TAGS_FILE, DEV_TARGET_TAGS_FLE, \
+    TRAIN_PE_FILE, DEV_PE_FILE
+from mlqe_word_level.run_model import MicroTQForTLMQE
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--lang_pair', '-l', type=str)
@@ -23,9 +24,9 @@ lang_pair = args.lang_pair
 TRAIN_PATH = "data/train/" + lang_pair + "-train/"
 DEV_PATH = "data/dev/" + lang_pair + "-dev/"
 TEST_PATH = "data/test/" + lang_pair + "-test20/"
-temp_prefix = "train_result_" + lang_pair
+temp_prefix = "checkpoints/train_result_" + lang_pair
 if args.save_name is not None:
-    temp_prefix = "train_result_" + args.save_name + "_" + lang_pair
+    temp_prefix = "checkpoints/train_result_" + args.save_name + "_" + lang_pair
 TEMP_DIRECTORY = temp_prefix + "/data"
 if not os.path.exists(TEMP_DIRECTORY):
     os.makedirs(TEMP_DIRECTORY)
@@ -36,11 +37,11 @@ microtransquest_config['cache_dir'] = temp_prefix + '/cache_dir/'
 if args.model_path is not None:
     MODEL_NAME = args.model_path
 
-raw_train_df = reader(TRAIN_PATH, TRAIN_SOURCE_FILE, TRAIN_TARGET_FILE, TRAIN_SOURCE_TAGS_FILE,
-                      TRAIN_TARGET_TAGS_FLE)
-raw_dev_df = reader(DEV_PATH, DEV_SOURCE_FILE, DEV_TARGET_FILE, DEV_SOURCE_TAGS_FILE,
-                    DEV_TARGET_TAGS_FLE)
-raw_test_df = reader(TEST_PATH, TEST_SOURCE_FILE, TEST_TARGET_FILE)
+raw_train_df = reader(path=TRAIN_PATH, source_file=TRAIN_SOURCE_FILE, target_file=TRAIN_TARGET_FILE, pe_file=TRAIN_PE_FILE, source_tags_file=TRAIN_SOURCE_TAGS_FILE,
+                      target_tags_file=TRAIN_TARGET_TAGS_FLE)
+raw_dev_df = reader(path=DEV_PATH, source_file=DEV_SOURCE_FILE, target_file=DEV_TARGET_FILE, source_tags_file=DEV_SOURCE_TAGS_FILE,
+                    target_tags_file=DEV_TARGET_TAGS_FLE)
+raw_test_df = reader(path=TEST_PATH, source_file=TEST_SOURCE_FILE, target_file=TEST_TARGET_FILE)
 
 test_sentences = prepare_testdata(raw_test_df)
 dev_sentences = prepare_testdata(raw_dev_df)
@@ -58,13 +59,13 @@ for i in range(microtransquest_config["n_fold"]):
 
     if microtransquest_config["evaluate_during_training"]:
         raw_train, raw_eval = train_test_split(raw_train_df, test_size=0.1, random_state=SEED * i)
-        model = MicroTransQuestModel(MODEL_TYPE, MODEL_NAME, labels=["OK", "BAD"], args=microtransquest_config)
+        model = MicroTQForTLMQE(MODEL_TYPE, MODEL_NAME, labels=["OK", "BAD"], args=microtransquest_config)
         model.train_model(raw_train, eval_data=raw_eval)
-        model = MicroTransQuestModel(MODEL_TYPE, microtransquest_config["best_model_dir"], labels=["OK", "BAD"],
+        model = MicroTQForTLMQE(MODEL_TYPE, microtransquest_config["best_model_dir"], labels=["OK", "BAD"],
                                      args=microtransquest_config)
 
     else:
-        model = MicroTransQuestModel(MODEL_TYPE, MODEL_NAME, labels=["OK", "BAD"], args=microtransquest_config)
+        model = MicroTQForTLMQE(MODEL_TYPE, MODEL_NAME, labels=["OK", "BAD"], args=microtransquest_config)
         model.train_model(raw_train_df)
 
     sources_tags, targets_tags = model.predict(test_sentences, split_on_space=True)
