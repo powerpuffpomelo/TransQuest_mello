@@ -79,14 +79,16 @@ if __name__ == '__main__':
 
 # transquest whole test
 lang_pair=en-de
-GOLD_PREFIX=data/test/${lang_pair}-test20
-PRE_PREFIX=checkpoints/train_result_tlm_and_qe_qelambda0.7_${lang_pair}/prediction
-python3 mello_scripts/mitigate_memory_shortcut/tlm/tlm_and_qe/estimate_word.py $GOLD_PREFIX/test20.mt_tag $PRE_PREFIX/test20.mt_tag.pred
+pred_year=2021
+train_year=2021
+GOLD_PREFIX=/opt/tiger/fake_arnold/TransQuest_mello/data/test21/${lang_pair}-test21
+PRE_PREFIX=checkpoints/train_result_${train_year}_${lang_pair}/prediction
+python3 mello_scripts/tool/estimate_word.py $GOLD_PREFIX/test2021.mt_tag $PRE_PREFIX/test${pred_year}.mt_tag.pred
 
 # robust train memory / part test
-lang_pair=en-zh
+lang_pair=si-en
 GOLD_PREFIX=data/test/${lang_pair}-test20
-PRE_PREFIX=checkpoints/train_result_tlm_and_qe_qelambda0.5_${lang_pair}/prediction
+PRE_PREFIX=transquest_model/train_result_${lang_pair}/prediction
 echo "a popular_part"
 python3 mello_scripts/tool/estimate_word.py $GOLD_PREFIX/test20.mt_tag_popular_part $PRE_PREFIX/test20.mt_tag_popular_part.pred
 echo "b niche_part"

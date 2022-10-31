@@ -1,7 +1,7 @@
 import os
 import argparse
 from mlqe_word_level.utils import reader, prepare_testdata
-from mlqe_word_level.microtransquest_config import MODEL_TYPE, microtransquest_config, TEST_SOURCE_FILE, TEST_TARGET_FILE
+from mlqe_word_level.microtransquest_config_for_tlm_qe import MODEL_TYPE, microtransquest_config, TEST_SOURCE_FILE, TEST_TARGET_FILE
 from mlqe_word_level.run_model import MicroTQForTLMQE
 
 parser = argparse.ArgumentParser()
@@ -49,4 +49,4 @@ with open(os.path.join(RESULT_DIRECTORY, TEST_TARGET_TAGS_FILE), 'w', encoding='
         fg.write(strg.strip() + '\n')
 
 
-# python3 mello_scripts/mitigate_memory_shortcut/tlm/tlm_and_qe/predict_tag.py --lang_pair en-zh --save_name finetune_qe_from_tlm_lr4e-5_mask0.3
+# python3 mello_scripts/mitigate_memory_shortcut/tlm/tlm_and_qe/predict_tag.py --lang_pair en-zh --save_name tlm_and_qe_qelambda0.9

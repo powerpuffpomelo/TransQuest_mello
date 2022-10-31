@@ -2,27 +2,22 @@ from multiprocessing import cpu_count
 
 lang_pair = 'en-zh'
 
-TRAIN_PATH = "data/train/" + lang_pair + "-train/"
+path_prefix = '/opt/tiger/fake_arnold/wmt-qe-2019-data/'
+TRAIN_PATH = path_prefix + "/train_" + lang_pair + "/"
 TRAIN_SOURCE_FILE = "train.src"
 TRAIN_SOURCE_TAGS_FILE = "train.source_tags"
 TRAIN_TARGET_FILE = "train.mt"
 TRAIN_TARGET_TAGS_FLE = "train.tags"
-TRAIN_PE_FILE = "train.pe"
-TRAIN_SOURCE_ADV_TAGS_FILE = "train.src_ok_ratio_tag"
-TRAIN_TARGET_ADV_TAGS_FILE = "train.mtgap_ok_ratio_tag"
 
-DEV_PATH = "data/dev/" + lang_pair + "-dev/"
+DEV_PATH = path_prefix + "/dev_" + lang_pair + "/"
 DEV_SOURCE_FILE = "dev.src"
 DEV_SOURCE_TAGS_FILE = "dev.source_tags"
 DEV_TARGET_FILE = "dev.mt"
 DEV_TARGET_TAGS_FLE = "dev.tags"
-DEV_PE_FILE = "dev.pe"
-DEV_SOURCE_ADV_TAGS_FILE = "dev.src_ok_ratio_tag"
-DEV_TARGET_ADV_TAGS_FILE = "dev.mtgap_ok_ratio_tag"
 
-TEST_PATH = "data/test/" + lang_pair + "-test20/"
-TEST_SOURCE_FILE = "test20.src"
-TEST_TARGET_FILE = "test20.mt"
+TEST_PATH = path_prefix + "/test_" + lang_pair + "/"
+TEST_SOURCE_FILE = "test.src"
+TEST_TARGET_FILE = "test.mt"
 
 TEST_SOURCE_TAGS_FILE = "test_predictions_src.txt"
 TEST_TARGET_TAGS_FLE = "test_predictions_mt.txt"
@@ -61,9 +56,9 @@ microtransquest_config = {
     'save_steps': 300,
     "no_cache": False,
     "no_save": False,
-    "save_recent_only": False,
+    "save_recent_only": True,
     'save_model_every_epoch': False,
-    'n_fold': 3,
+    'n_fold': 1,
     'evaluate_during_training': True,
     "evaluate_during_training_silent": True,
     'evaluate_during_training_steps': 300,
@@ -111,5 +106,5 @@ microtransquest_config = {
     "source_tags_column": "source_tags",
     "target_tags_column": "target_tags",
 
-    "qe_lambda": 0.8,
+    "reg_lambda": -0.5,
 }

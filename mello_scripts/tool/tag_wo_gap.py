@@ -1,10 +1,10 @@
 # 把mt+gap tag分离
 
-lang_pair = 'si-en'
-tag_path_prefix = "/opt/tiger/fake_arnold/TransQuest_mello/data/train/" + lang_pair + "-train/"
-tag_path = tag_path_prefix + "train.tags"
-mt_tag_path = tag_path_prefix + "train.mt_tag"
-gap_tag_path = tag_path_prefix + "train.gap_tag"
+lang_pair = 'en-de'
+tag_path_prefix = "/opt/tiger/fake_arnold/wmt-qe-2019-data/test_" + lang_pair + "/"
+tag_path = tag_path_prefix + "test.tags"
+mt_tag_path = tag_path_prefix + "test.mt_tag"
+gap_tag_path = tag_path_prefix + "test.gap_tag"
 
 def read_data(path):
 	with open(path, 'r', encoding='utf-8') as f:
@@ -27,4 +27,4 @@ with open(mt_tag_path, 'w', encoding='utf-8') as fmt, open(gap_tag_path, 'w', en
 		fgap.write(str.strip()+'\n')
 
 
-# python3 scripts/tag_wo_gap.py
+# python3 /opt/tiger/fake_arnold/TransQuest_mello/mello_scripts/tool/tag_wo_gap.py
