@@ -7,8 +7,10 @@ lang_pair = 'en-de'
 save_name = '2019'
 TEST_PATH = "/opt/tiger/fake_arnold/wmt-qe-2019-data/test_en-de"
 pred_model_name = '2021'
-microtransquest_config['best_model_dir'] = "checkpoints/train_result_" + pred_model_name + "_" + lang_pair + "/outputs/best_model"
-RESULT_DIRECTORY = "checkpoints/train_result_" + pred_model_name + "_" + lang_pair + "/prediction"
+#microtransquest_config['best_model_dir'] = "checkpoints/train_result_" + pred_model_name + "_" + lang_pair + "/outputs/best_model"
+microtransquest_config['best_model_dir'] = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_finetune_qe_from_tlm_lr4e-5_mask0.3_en-de/outputs/best_model'
+#RESULT_DIRECTORY = "checkpoints/train_result_" + pred_model_name + "_" + lang_pair + "/prediction"
+RESULT_DIRECTORY = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_finetune_qe_from_tlm_lr4e-5_mask0.3_en-de/prediction'
 if not os.path.exists(RESULT_DIRECTORY):
     os.makedirs(RESULT_DIRECTORY)
 TEST_SOURCE_TAGS_FILE = "test" + save_name + ".src_tag.pred"

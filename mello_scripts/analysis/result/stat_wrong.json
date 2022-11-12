@@ -1,0 +1,7067 @@
+{
+    "verwendet": {
+        "gold_label_list": [
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 8,
+        "other_train_freq": 367,
+        "this_train_freq": 8,
+        "other_train_ok_ratio": 0.7983651226158038,
+        "this_train_ok_ratio": 0.75
+    },
+    "Graut\u00f6ne": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": -1
+    },
+    "verkn\u00fcpft": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 30,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7666666666666667,
+        "this_train_ok_ratio": -1
+    },
+    "zuzugreifen": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 22,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9090909090909091,
+        "this_train_ok_ratio": -1
+    },
+    "\u00fcberpr\u00fcfen": {
+        "gold_label_list": [
+            "OK",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 3,
+        "other_train_freq": 41,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7804878048780488,
+        "this_train_ok_ratio": -1
+    },
+    "ganzseitigen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Contribute-Bearbeitungssymbolleiste": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "werden": {
+        "gold_label_list": [
+            "OK",
+            "OK",
+            "OK",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 9,
+        "other_train_freq": 1902,
+        "this_train_freq": 78,
+        "other_train_ok_ratio": 0.8280757097791798,
+        "this_train_ok_ratio": 0.8333333333333334
+    },
+    "soll": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 219,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.8538812785388128,
+        "this_train_ok_ratio": 1.0
+    },
+    "_": {
+        "gold_label_list": [
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 8,
+        "other_train_freq": 696,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7686781609195402,
+        "this_train_ok_ratio": -1
+    },
+    "de": {
+        "gold_label_list": [
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 6,
+        "other_train_freq": 294,
+        "this_train_freq": 48,
+        "other_train_ok_ratio": 0.3401360544217687,
+        "this_train_ok_ratio": 1.0
+    },
+    "Beibehalten": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Transformierenbedienfeld": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8571428571428571,
+        "this_train_ok_ratio": -1
+    },
+    "3D-Drehung": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.5,
+        "this_train_ok_ratio": -1
+    },
+    "drehen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 50,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.94,
+        "this_train_ok_ratio": -1
+    },
+    "Gilt": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Verkn\u00fcpfen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "eine": {
+        "gold_label_list": [
+            "BAD",
+            "BAD",
+            "OK",
+            "OK",
+            "OK",
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 7,
+        "other_train_freq": 2219,
+        "this_train_freq": 443,
+        "other_train_ok_ratio": 0.8733663812528166,
+        "this_train_ok_ratio": 0.8284424379232506
+    },
+    "mit": {
+        "gold_label_list": [
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 5,
+        "other_train_freq": 2339,
+        "this_train_freq": 952,
+        "other_train_ok_ratio": 0.8435228730226593,
+        "this_train_ok_ratio": 0.8539915966386554
+    },
+    "dem": {
+        "gold_label_list": [
+            "BAD",
+            "BAD",
+            "OK",
+            "BAD",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 6,
+        "other_train_freq": 1383,
+        "this_train_freq": 436,
+        "other_train_ok_ratio": 0.8380332610267535,
+        "this_train_ok_ratio": 0.7912844036697247
+    },
+    "Namen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 223,
+        "this_train_freq": 5,
+        "other_train_ok_ratio": 0.9013452914798207,
+        "this_train_ok_ratio": 1.0
+    },
+    "csServer": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "http": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 177,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.943502824858757,
+        "this_train_ok_ratio": -1
+    },
+    "diese": {
+        "gold_label_list": [
+            "OK",
+            "BAD"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 482,
+        "this_train_freq": 49,
+        "other_train_ok_ratio": 0.9294605809128631,
+        "this_train_ok_ratio": 0.7959183673469388
+    },
+    "Muster-": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.0,
+        "this_train_ok_ratio": -1
+    },
+    "l\u00f6schenden": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 6,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": -1
+    },
+    "beibehalten": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 86,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.8604651162790697,
+        "this_train_ok_ratio": 0.5
+    },
+    "flash.display.MovieClipboard": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "ExternalInterface.addPage": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "wird": {
+        "gold_label_list": [
+            "BAD",
+            "BAD",
+            "OK",
+            "BAD",
+            "BAD",
+            "OK",
+            "BAD",
+            "BAD",
+            "OK",
+            "BAD",
+            "BAD",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 13,
+        "other_train_freq": 1721,
+        "this_train_freq": 54,
+        "other_train_ok_ratio": 0.8303312027890761,
+        "this_train_ok_ratio": 0.7037037037037037
+    },
+    "(": {
+        "gold_label_list": [
+            "OK",
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 3,
+        "other_train_freq": 1922,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9479708636836629,
+        "this_train_ok_ratio": -1
+    },
+    "Fireworks-Startseite": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "-Arbeitsumgebung": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "BufferingBar-Instanz": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Bedienfeld": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 285,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9052631578947369,
+        "this_train_ok_ratio": -1
+    },
+    "schwebenden": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "\u00dcberpr\u00fcfungen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 10,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9,
+        "this_train_ok_ratio": -1
+    },
+    "\u00dcberpr\u00fcfung": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 50,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.86,
+        "this_train_ok_ratio": -1
+    },
+    "In": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 72,
+        "this_train_freq": 203,
+        "other_train_ok_ratio": 0.8472222222222222,
+        "this_train_ok_ratio": 0.916256157635468
+    },
+    "Zeitleiste": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 82,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9512195121951219,
+        "this_train_ok_ratio": -1
+    },
+    "wiedergegeben": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 31,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8064516129032258,
+        "this_train_ok_ratio": -1
+    },
+    "Vektorinhalt": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "neu": {
+        "gold_label_list": [
+            "OK",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 3,
+        "other_train_freq": 112,
+        "this_train_freq": 18,
+        "other_train_ok_ratio": 0.8214285714285714,
+        "this_train_ok_ratio": 0.9444444444444444
+    },
+    "erstellen": {
+        "gold_label_list": [
+            "OK",
+            "OK",
+            "OK",
+            "OK",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 6,
+        "other_train_freq": 582,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8711340206185567,
+        "this_train_ok_ratio": -1
+    },
+    "den": {
+        "gold_label_list": [
+            "OK",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "OK",
+            "OK",
+            "OK",
+            "OK",
+            "OK",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 13,
+        "other_train_freq": 2645,
+        "this_train_freq": 1175,
+        "other_train_ok_ratio": 0.8241965973534972,
+        "this_train_ok_ratio": 0.8536170212765958
+    },
+    "wenn": {
+        "gold_label_list": [
+            "OK",
+            "BAD",
+            "OK"
+        ],
+        "pred_wrong_freq": 3,
+        "other_train_freq": 2091,
+        "this_train_freq": 52,
+        "other_train_ok_ratio": 0.9512195121951219,
+        "this_train_ok_ratio": 0.7692307692307693
+    },
+    "ein": {
+        "gold_label_list": [
+            "BAD",
+            "BAD",
+            "OK",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 9,
+        "other_train_freq": 1953,
+        "this_train_freq": 455,
+        "other_train_ok_ratio": 0.8791602662570405,
+        "this_train_ok_ratio": 0.8087912087912088
+    },
+    "Pixelbild": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": -1
+    },
+    "Zuschneiden": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 12,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8333333333333334,
+        "this_train_ok_ratio": -1
+    },
+    "23a": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.0,
+        "this_train_ok_ratio": -1
+    },
+    "SmileString": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Kontrollk\u00e4stchen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 34,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8529411764705882,
+        "this_train_ok_ratio": -1
+    },
+    "f\u00fcr": {
+        "gold_label_list": [
+            "OK",
+            "BAD",
+            "BAD",
+            "BAD",
+            "OK",
+            "BAD",
+            "BAD",
+            "BAD",
+            "OK",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 14,
+        "other_train_freq": 1933,
+        "this_train_freq": 482,
+        "other_train_ok_ratio": 0.8147956544231764,
+        "this_train_ok_ratio": 0.7780082987551867
+    },
+    "verketteten": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Event.Swf": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "fertig": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 11,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.9090909090909091,
+        "this_train_ok_ratio": 0.5
+    },
+    "wurde": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 188,
+        "this_train_freq": 198,
+        "other_train_ok_ratio": 0.7978723404255319,
+        "this_train_ok_ratio": 0.8535353535353535
+    },
+    "angezeigt": {
+        "gold_label_list": [
+            "BAD",
+            "BAD",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 4,
+        "other_train_freq": 571,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8739054290718039,
+        "this_train_ok_ratio": -1
+    },
+    "Erstellen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 147,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9047619047619048,
+        "this_train_ok_ratio": -1
+    },
+    "ist": {
+        "gold_label_list": [
+            "BAD",
+            "BAD",
+            "OK",
+            "BAD"
+        ],
+        "pred_wrong_freq": 4,
+        "other_train_freq": 1101,
+        "this_train_freq": 77,
+        "other_train_ok_ratio": 0.8501362397820164,
+        "this_train_ok_ratio": 0.8311688311688312
+    },
+    "zu": {
+        "gold_label_list": [
+            "OK",
+            "BAD",
+            "BAD",
+            "OK",
+            "OK",
+            "OK",
+            "OK",
+            "OK",
+            "BAD"
+        ],
+        "pred_wrong_freq": 9,
+        "other_train_freq": 2287,
+        "this_train_freq": 903,
+        "other_train_ok_ratio": 0.8543944031482291,
+        "this_train_ok_ratio": 0.8106312292358804
+    },
+    "verwenden": {
+        "gold_label_list": [
+            "OK",
+            "OK",
+            "BAD",
+            "OK"
+        ],
+        "pred_wrong_freq": 4,
+        "other_train_freq": 641,
+        "this_train_freq": 4,
+        "other_train_ok_ratio": 0.8845553822152886,
+        "this_train_ok_ratio": 1.0
+    },
+    "Popupschieberegler": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Kapit\u00e4lchen": {
+        "gold_label_list": [
+            "OK",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 3,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8571428571428571,
+        "this_train_ok_ratio": -1
+    },
+    "Rahmen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 109,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": 0.6788990825688074,
+        "this_train_ok_ratio": 0.6666666666666666
+    },
+    "anstelle": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 35,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.8285714285714286,
+        "this_train_ok_ratio": 0.5
+    },
+    "Text": {
+        "gold_label_list": [
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 535,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.8728971962616823,
+        "this_train_ok_ratio": 1.0
+    },
+    "importieren": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 114,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9912280701754386,
+        "this_train_ok_ratio": -1
+    },
+    "gedreht": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 13,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.9230769230769231,
+        "this_train_ok_ratio": 0.0
+    },
+    "Begradigen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Einf\u00fcgemarke": {
+        "gold_label_list": [
+            "OK",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 3,
+        "other_train_freq": 34,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8235294117647058,
+        "this_train_ok_ratio": -1
+    },
+    "einem": {
+        "gold_label_list": [
+            "OK",
+            "BAD",
+            "OK"
+        ],
+        "pred_wrong_freq": 3,
+        "other_train_freq": 818,
+        "this_train_freq": 337,
+        "other_train_ok_ratio": 0.823960880195599,
+        "this_train_ok_ratio": 0.857566765578635
+    },
+    "Wellenformdaten": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "aktivieren": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 199,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.9346733668341709,
+        "this_train_ok_ratio": 1.0
+    },
+    "sch\u00e4rfer": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.2,
+        "this_train_ok_ratio": -1
+    },
+    "CCITT": {
+        "gold_label_list": [
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "erstellt": {
+        "gold_label_list": [
+            "OK",
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 3,
+        "other_train_freq": 260,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.8153846153846154,
+        "this_train_ok_ratio": 0.5
+    },
+    "in": {
+        "gold_label_list": [
+            "BAD",
+            "BAD",
+            "BAD",
+            "OK",
+            "BAD",
+            "BAD",
+            "OK",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 9,
+        "other_train_freq": 3452,
+        "this_train_freq": 1797,
+        "other_train_ok_ratio": 0.8577636152954808,
+        "this_train_ok_ratio": 0.8447412353923205
+    },
+    "Block": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": 0.0
+    },
+    "Regler": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 36,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.75,
+        "this_train_ok_ratio": 0.0
+    },
+    "Druckfahnen-": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 6,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": -1
+    },
+    "unterschiedliche": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 14,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": 0.6428571428571429,
+        "this_train_ok_ratio": 1.0
+    },
+    "Tag-Marken": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "das": {
+        "gold_label_list": [
+            "BAD",
+            "BAD",
+            "BAD",
+            "OK",
+            "BAD",
+            "OK",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 8,
+        "other_train_freq": 2786,
+        "this_train_freq": 522,
+        "other_train_ok_ratio": 0.8614501076812635,
+        "this_train_ok_ratio": 0.8295019157088123
+    },
+    "Verwenden": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 53,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9433962264150944,
+        "this_train_ok_ratio": -1
+    },
+    "gerastert": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 8,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.75,
+        "this_train_ok_ratio": -1
+    },
+    "auf": {
+        "gold_label_list": [
+            "BAD",
+            "BAD",
+            "OK",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 5,
+        "other_train_freq": 3577,
+        "this_train_freq": 657,
+        "other_train_ok_ratio": 0.913894324853229,
+        "this_train_ok_ratio": 0.7397260273972602
+    },
+    "exportieren": {
+        "gold_label_list": [
+            "OK",
+            "BAD"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 108,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9722222222222222,
+        "this_train_ok_ratio": -1
+    },
+    "zum": {
+        "gold_label_list": [
+            "BAD",
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 3,
+        "other_train_freq": 526,
+        "this_train_freq": 106,
+        "other_train_ok_ratio": 0.8593155893536122,
+        "this_train_ok_ratio": 0.8018867924528302
+    },
+    "Kodierungsprofil": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "zul\u00e4ssige": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": 1.0
+    },
+    "Helligkeitsbereich": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "sich": {
+        "gold_label_list": [
+            "OK",
+            "BAD",
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 4,
+        "other_train_freq": 556,
+        "this_train_freq": 758,
+        "other_train_ok_ratio": 0.7607913669064749,
+        "this_train_ok_ratio": 0.866754617414248
+    },
+    "Sie": {
+        "gold_label_list": [
+            "BAD",
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 3,
+        "other_train_freq": 11337,
+        "this_train_freq": 227,
+        "other_train_ok_ratio": 0.9672752932874659,
+        "this_train_ok_ratio": 0.933920704845815
+    },
+    "Editoren": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Durchgestrichen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.5,
+        "this_train_ok_ratio": -1
+    },
+    "Ein-Tasten-Tastaturbefehl": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "beschneiden": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 10,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": 1.0
+    },
+    "Blogverbindung": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Hilfslinien": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 70,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9,
+        "this_train_ok_ratio": -1
+    },
+    "Arbeitsbereich": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 36,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8611111111111112,
+        "this_train_ok_ratio": -1
+    },
+    "Smart-Objekt": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "die": {
+        "gold_label_list": [
+            "OK",
+            "OK",
+            "OK",
+            "OK",
+            "BAD",
+            "BAD",
+            "OK",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "OK",
+            "OK",
+            "OK",
+            "BAD",
+            "BAD",
+            "BAD",
+            "OK",
+            "BAD"
+        ],
+        "pred_wrong_freq": 20,
+        "other_train_freq": 8892,
+        "this_train_freq": 2461,
+        "other_train_ok_ratio": 0.8816914080071975,
+        "this_train_ok_ratio": 0.8724095895977245
+    },
+    "darin": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 18,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.8333333333333334,
+        "this_train_ok_ratio": 1.0
+    },
+    "enthaltenen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 10,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9,
+        "this_train_ok_ratio": -1
+    },
+    "erhalten": {
+        "gold_label_list": [
+            "OK",
+            "OK",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 4,
+        "other_train_freq": 92,
+        "this_train_freq": 10,
+        "other_train_ok_ratio": 0.8369565217391305,
+        "this_train_ok_ratio": 0.8
+    },
+    "importierten": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 19,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.7894736842105263,
+        "this_train_ok_ratio": 1.0
+    },
+    "ohne": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 139,
+        "this_train_freq": 31,
+        "other_train_ok_ratio": 0.920863309352518,
+        "this_train_ok_ratio": 0.8709677419354839
+    },
+    "Umschalttaste": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 75,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9866666666666667,
+        "this_train_ok_ratio": -1
+    },
+    "numOcTake": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Okta-": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Bild": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 444,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8873873873873874,
+        "this_train_ok_ratio": -1
+    },
+    "der": {
+        "gold_label_list": [
+            "BAD",
+            "OK",
+            "BAD",
+            "BAD",
+            "OK",
+            "OK",
+            "OK",
+            "BAD",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 10,
+        "other_train_freq": 5310,
+        "this_train_freq": 2232,
+        "other_train_ok_ratio": 0.8564971751412429,
+        "this_train_ok_ratio": 0.8597670250896058
+    },
+    "Gegenrichtung": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Wiederholen-y": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Textmakrobedienfelds": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Fehlertypen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.5,
+        "this_train_ok_ratio": -1
+    },
+    "allgemeine": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 9,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": 0.8888888888888888,
+        "this_train_ok_ratio": 0.6666666666666666
+    },
+    "EOFError-Fehler": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "visuell": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Slice-Symbol": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "im": {
+        "gold_label_list": [
+            "BAD",
+            "BAD",
+            "OK"
+        ],
+        "pred_wrong_freq": 3,
+        "other_train_freq": 2744,
+        "this_train_freq": 461,
+        "other_train_ok_ratio": 0.9231049562682215,
+        "this_train_ok_ratio": 0.8763557483731019
+    },
+    "verwendeten": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 43,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8372093023255814,
+        "this_train_ok_ratio": -1
+    },
+    "erledigen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "bei": {
+        "gold_label_list": [
+            "BAD",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 640,
+        "this_train_freq": 183,
+        "other_train_ok_ratio": 0.7828125,
+        "this_train_ok_ratio": 0.7923497267759563
+    },
+    "unterst\u00fctzen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 28,
+        "this_train_freq": 4,
+        "other_train_ok_ratio": 0.8928571428571429,
+        "this_train_ok_ratio": 1.0
+    },
+    "\"": {
+        "gold_label_list": [
+            "BAD",
+            "BAD",
+            "OK",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "OK"
+        ],
+        "pred_wrong_freq": 8,
+        "other_train_freq": 17542,
+        "this_train_freq": 1078,
+        "other_train_ok_ratio": 0.9577585224033748,
+        "this_train_ok_ratio": 0.7448979591836735
+    },
+    "handleX": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "handleY": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Griff": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 10,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.8,
+        "this_train_ok_ratio": 1.0
+    },
+    "und": {
+        "gold_label_list": [
+            "OK",
+            "BAD",
+            "BAD",
+            "OK",
+            "BAD"
+        ],
+        "pred_wrong_freq": 5,
+        "other_train_freq": 4965,
+        "this_train_freq": 3962,
+        "other_train_ok_ratio": 0.9222557905337362,
+        "this_train_ok_ratio": 0.9618879353861686
+    },
+    "horizontal": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 20,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9,
+        "this_train_ok_ratio": -1
+    },
+    "Layoutansicht": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 9,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "verschiedene": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 75,
+        "this_train_freq": 16,
+        "other_train_ok_ratio": 0.8133333333333334,
+        "this_train_ok_ratio": 1.0
+    },
+    "unregelm\u00e4\u00dfiger": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "leicht": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 9,
+        "this_train_freq": 16,
+        "other_train_ok_ratio": 0.2222222222222222,
+        "this_train_ok_ratio": 0.8125
+    },
+    "realistischeren": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.0,
+        "this_train_ok_ratio": -1
+    },
+    "Acquire-Zusatzmodulen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "N\u00e4chste": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.42857142857142855,
+        "this_train_ok_ratio": -1
+    },
+    "Vorherige": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 6,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.3333333333333333,
+        "this_train_ok_ratio": -1
+    },
+    "Frame": {
+        "gold_label_list": [
+            "OK",
+            "OK",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 4,
+        "other_train_freq": 34,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8235294117647058,
+        "this_train_ok_ratio": -1
+    },
+    "Textebene": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 14,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9285714285714286,
+        "this_train_ok_ratio": -1
+    },
+    "verkettet": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8,
+        "this_train_ok_ratio": -1
+    },
+    "Freistellen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.3333333333333333,
+        "this_train_ok_ratio": -1
+    },
+    "enth\u00e4lt": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 277,
+        "this_train_freq": 21,
+        "other_train_ok_ratio": 0.8592057761732852,
+        "this_train_ok_ratio": 0.7619047619047619
+    },
+    "exportierte": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 14,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7857142857142857,
+        "this_train_ok_ratio": -1
+    },
+    "int": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 10,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "uint": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8571428571428571,
+        "this_train_ok_ratio": -1
+    },
+    "Stammordner": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "des": {
+        "gold_label_list": [
+            "BAD",
+            "OK",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 6,
+        "other_train_freq": 1504,
+        "this_train_freq": 570,
+        "other_train_ok_ratio": 0.8690159574468085,
+        "this_train_ok_ratio": 0.8894736842105263
+    },
+    "Stammordners": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.0,
+        "this_train_ok_ratio": -1
+    },
+    "l\u00f6schen": {
+        "gold_label_list": [
+            "OK",
+            "OK",
+            "OK",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 5,
+        "other_train_freq": 182,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.9065934065934066,
+        "this_train_ok_ratio": 1.0
+    },
+    "deaktiviert": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 48,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9375,
+        "this_train_ok_ratio": -1
+    },
+    "sie": {
+        "gold_label_list": [
+            "OK",
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 3,
+        "other_train_freq": 386,
+        "this_train_freq": 590,
+        "other_train_ok_ratio": 0.7694300518134715,
+        "this_train_ok_ratio": 0.8949152542372881
+    },
+    "loslassen": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 13,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9230769230769231,
+        "this_train_ok_ratio": -1
+    },
+    "Pipette-Werkzeug": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 16,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6875,
+        "this_train_ok_ratio": -1
+    },
+    "Niedrig": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": 1.0
+    },
+    "kleinstm\u00f6gliche": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": -1
+    },
+    "erzielt": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": 0.5
+    },
+    "Ereignis": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 28,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.7857142857142857,
+        "this_train_ok_ratio": 1.0
+    },
+    "geht": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 7,
+        "this_train_freq": 13,
+        "other_train_ok_ratio": 0.7142857142857143,
+        "this_train_ok_ratio": 0.7692307692307693
+    },
+    "besteht": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 34,
+        "this_train_freq": 32,
+        "other_train_ok_ratio": 0.7941176470588235,
+        "this_train_ok_ratio": 0.9375
+    },
+    "zuvor": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 23,
+        "this_train_freq": 6,
+        "other_train_ok_ratio": 0.9130434782608695,
+        "this_train_ok_ratio": 1.0
+    },
+    "ActionScript-Programmierern": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.0,
+        "this_train_ok_ratio": -1
+    },
+    "Nativ": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Pr\u00fcfung": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 15,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": 1.0
+    },
+    "3vMatrixObjekten": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Fluchtpunkt": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 16,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.875,
+        "this_train_ok_ratio": -1
+    },
+    "Fl\u00e4che": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 35,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6285714285714286,
+        "this_train_ok_ratio": -1
+    },
+    "deckende": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.5714285714285714,
+        "this_train_ok_ratio": -1
+    },
+    "um": {
+        "gold_label_list": [
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 2123,
+        "this_train_freq": 349,
+        "other_train_ok_ratio": 0.9246349505416863,
+        "this_train_ok_ratio": 0.8567335243553008
+    },
+    "wieder": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 43,
+        "this_train_freq": 134,
+        "other_train_ok_ratio": 0.5116279069767442,
+        "this_train_ok_ratio": 0.7238805970149254
+    },
+    "meisten": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 56,
+        "this_train_freq": 54,
+        "other_train_ok_ratio": 0.8214285714285714,
+        "this_train_ok_ratio": 0.9074074074074074
+    },
+    "gleichen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 58,
+        "this_train_freq": 8,
+        "other_train_ok_ratio": 0.7413793103448276,
+        "this_train_ok_ratio": 0.875
+    },
+    "Verlaufsbedienfeld": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 6,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Sperren": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 8,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.875,
+        "this_train_ok_ratio": -1
+    },
+    "Ebene": {
+        "gold_label_list": [
+            "OK",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 3,
+        "other_train_freq": 263,
+        "this_train_freq": 5,
+        "other_train_ok_ratio": 0.9049429657794676,
+        "this_train_ok_ratio": 0.4
+    },
+    "verhindert": {
+        "gold_label_list": [
+            "OK",
+            "BAD",
+            "OK"
+        ],
+        "pred_wrong_freq": 3,
+        "other_train_freq": 15,
+        "this_train_freq": 5,
+        "other_train_ok_ratio": 0.7333333333333333,
+        "this_train_ok_ratio": 0.8
+    },
+    "S\u00e4ttigung": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 23,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9565217391304348,
+        "this_train_ok_ratio": -1
+    },
+    "Verlaufsf\u00fcllung": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Softwareverfasser": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Ebenensichtbarkeit": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.5,
+        "this_train_ok_ratio": -1
+    },
+    "Korrektureinstellungen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 6,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8333333333333334,
+        "this_train_ok_ratio": -1
+    },
+    "unter": {
+        "gold_label_list": [
+            "OK",
+            "OK",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 4,
+        "other_train_freq": 634,
+        "this_train_freq": 117,
+        "other_train_ok_ratio": 0.916403785488959,
+        "this_train_ok_ratio": 0.8717948717948718
+    },
+    "unterbrechen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 4,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": 0.0
+    },
+    "A5": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Schriftartsymbole": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "ziehen": {
+        "gold_label_list": [
+            "OK",
+            "BAD"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 290,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.9482758620689655,
+        "this_train_ok_ratio": 1.0
+    },
+    "Ver\u00f6ffentlichungsprofil": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "es": {
+        "gold_label_list": [
+            "OK",
+            "BAD",
+            "OK"
+        ],
+        "pred_wrong_freq": 3,
+        "other_train_freq": 382,
+        "this_train_freq": 158,
+        "other_train_ok_ratio": 0.7696335078534031,
+        "this_train_ok_ratio": 0.7721518987341772
+    },
+    "strahlt": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Rand": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 72,
+        "this_train_freq": 7,
+        "other_train_ok_ratio": 0.75,
+        "this_train_ok_ratio": 0.5714285714285714
+    },
+    "bettet": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6,
+        "this_train_ok_ratio": -1
+    },
+    "Schrift-Designer": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "haben": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 287,
+        "this_train_freq": 64,
+        "other_train_ok_ratio": 0.8466898954703833,
+        "this_train_ok_ratio": 0.734375
+    },
+    "fahren": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 4,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": 0.75,
+        "this_train_ok_ratio": 1.0
+    },
+    "flash.display-Paket": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8,
+        "this_train_ok_ratio": -1
+    },
+    "angeglichen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Pr\u00fcfen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8,
+        "this_train_ok_ratio": -1
+    },
+    "Pfad": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 170,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.9176470588235294,
+        "this_train_ok_ratio": 0.5
+    },
+    "duplizieren": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 24,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9583333333333334,
+        "this_train_ok_ratio": -1
+    },
+    "testen": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 49,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.9795918367346939,
+        "this_train_ok_ratio": 1.0
+    },
+    "FLV-Dateien": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 15,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9333333333333333,
+        "this_train_ok_ratio": -1
+    },
+    "Projektdatei": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "for": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 13,
+        "other_train_ok_ratio": 0.8,
+        "this_train_ok_ratio": 0.7692307692307693
+    },
+    "Array.snot": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "ausgeblendete": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8571428571428571,
+        "this_train_ok_ratio": -1
+    },
+    "beginnen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 36,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.6944444444444444,
+        "this_train_ok_ratio": 1.0
+    },
+    "Z-Achse": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 4,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.5,
+        "this_train_ok_ratio": -1
+    },
+    "Drehung": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 30,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7333333333333333,
+        "this_train_ok_ratio": -1
+    },
+    ",": {
+        "gold_label_list": [
+            "OK",
+            "BAD",
+            "OK",
+            "BAD",
+            "OK",
+            "OK",
+            "BAD",
+            "OK",
+            "BAD"
+        ],
+        "pred_wrong_freq": 9,
+        "other_train_freq": 11135,
+        "this_train_freq": 6542,
+        "other_train_ok_ratio": 0.9315671306690615,
+        "this_train_ok_ratio": 0.9191378783246713
+    },
+    "durch": {
+        "gold_label_list": [
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 4,
+        "other_train_freq": 371,
+        "this_train_freq": 239,
+        "other_train_ok_ratio": 0.77088948787062,
+        "this_train_ok_ratio": 0.7824267782426778
+    },
+    "\u00fcberlappenden": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 9,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": -1
+    },
+    "Auswahlrahmen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 14,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "\u00fcberschreibt": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 4,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.5,
+        "this_train_ok_ratio": -1
+    },
+    "Transparenzeinstellungen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "ablegen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 8,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.625,
+        "this_train_ok_ratio": -1
+    },
+    "sind": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 526,
+        "this_train_freq": 114,
+        "other_train_ok_ratio": 0.7661596958174905,
+        "this_train_ok_ratio": 0.8859649122807017
+    },
+    "Quadrate": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.42857142857142855,
+        "this_train_ok_ratio": -1
+    },
+    "italic": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "optisches": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.5,
+        "this_train_ok_ratio": -1
+    },
+    "Aussehen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 27,
+        "this_train_freq": 6,
+        "other_train_ok_ratio": 0.7407407407407407,
+        "this_train_ok_ratio": 0.5
+    },
+    "Eigenschafteninspektor": {
+        "gold_label_list": [
+            "OK",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 3,
+        "other_train_freq": 72,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9305555555555556,
+        "this_train_ok_ratio": -1
+    },
+    "quadratischen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7142857142857143,
+        "this_train_ok_ratio": -1
+    },
+    "beschreibendem": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "gef\u00e4rbt": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": 1.0
+    },
+    "Skin-Farbe": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "mc": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 12,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "gemeinsame": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 25,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.64,
+        "this_train_ok_ratio": 0.0
+    },
+    "Verwaltung": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 9,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": 0.8888888888888888,
+        "this_train_ok_ratio": 0.6666666666666666
+    },
+    "Live-Auswahlrahmen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "bearbeitende": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 9,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": -1
+    },
+    "Schrifteinbettung": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "aus": {
+        "gold_label_list": [
+            "BAD",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 1418,
+        "this_train_freq": 404,
+        "other_train_ok_ratio": 0.921015514809591,
+        "this_train_ok_ratio": 0.8539603960396039
+    },
+    "nicht": {
+        "gold_label_list": [
+            "BAD",
+            "OK",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 7,
+        "other_train_freq": 919,
+        "this_train_freq": 113,
+        "other_train_ok_ratio": 0.8226332970620239,
+        "this_train_ok_ratio": 0.8407079646017699
+    },
+    "dom": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "wiedergeben": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 6,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": -1
+    },
+    "Anzeigelisten": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "z-Achsenwerten": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Art": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 29,
+        "this_train_freq": 14,
+        "other_train_ok_ratio": 0.7931034482758621,
+        "this_train_ok_ratio": 0.8571428571428571
+    },
+    "ShaderAlpha-": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "ShaderFarbe": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Eigenschaft": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 101,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7821782178217822,
+        "this_train_ok_ratio": -1
+    },
+    "Index": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 38,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9473684210526315,
+        "this_train_ok_ratio": -1
+    },
+    "InDesign-Formate": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "besitzen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 4,
+        "this_train_freq": 5,
+        "other_train_ok_ratio": 0.75,
+        "this_train_ok_ratio": 0.8
+    },
+    "denselben": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 21,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": 0.7142857142857143,
+        "this_train_ok_ratio": 0.6666666666666666
+    },
+    "Beinen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.0,
+        "this_train_ok_ratio": 1.0
+    },
+    "einzubeziehen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 4,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.75,
+        "this_train_ok_ratio": -1
+    },
+    "Sitzungen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "anpassen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 58,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.9137931034482759,
+        "this_train_ok_ratio": 0.0
+    },
+    "Diffus-Texturmap": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.0,
+        "this_train_ok_ratio": -1
+    },
+    "3D-Anzeigeobjekt": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Variable": {
+        "gold_label_list": [
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 44,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7954545454545454,
+        "this_train_ok_ratio": -1
+    },
+    "\u00fcbergeordnetes": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.3333333333333333,
+        "this_train_ok_ratio": -1
+    },
+    "Element": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 125,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.816,
+        "this_train_ok_ratio": -1
+    },
+    "platzieren": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 74,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.918918918918919,
+        "this_train_ok_ratio": -1
+    },
+    "auch": {
+        "gold_label_list": [
+            "OK",
+            "BAD"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 387,
+        "this_train_freq": 313,
+        "other_train_ok_ratio": 0.8423772609819121,
+        "this_train_ok_ratio": 0.9329073482428115
+    },
+    "Ebenen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 225,
+        "this_train_freq": 6,
+        "other_train_ok_ratio": 0.9155555555555556,
+        "this_train_ok_ratio": 0.8333333333333334
+    },
+    "Punkt-": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Spotlichter": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Tabulatorbedienfeld": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "AbschnittAnsicht": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "einfach": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 35,
+        "this_train_freq": 7,
+        "other_train_ok_ratio": 0.8857142857142857,
+        "this_train_ok_ratio": 0.8571428571428571
+    },
+    "per": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 10,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": 0.6,
+        "this_train_ok_ratio": 1.0
+    },
+    "Nachricht": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 6,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8333333333333334,
+        "this_train_ok_ratio": -1
+    },
+    "angegebenen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 47,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8297872340425532,
+        "this_train_ok_ratio": -1
+    },
+    "W\u00f6rtern": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 17,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7647058823529411,
+        "this_train_ok_ratio": -1
+    },
+    "Cue-Points": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 13,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8461538461538461,
+        "this_train_ok_ratio": -1
+    },
+    "Nur": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 37,
+        "this_train_freq": 6,
+        "other_train_ok_ratio": 0.8108108108108109,
+        "this_train_ok_ratio": 1.0
+    },
+    "Movieclips": {
+        "gold_label_list": [
+            "OK",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 3,
+        "other_train_freq": 38,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9210526315789473,
+        "this_train_ok_ratio": -1
+    },
+    "gef\u00fcllt": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 26,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7692307692307693,
+        "this_train_ok_ratio": -1
+    },
+    "Zusatzmodule": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 19,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8421052631578947,
+        "this_train_ok_ratio": -1
+    },
+    "ActionScript": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 267,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9288389513108615,
+        "this_train_ok_ratio": -1
+    },
+    "zeigen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 40,
+        "this_train_freq": 10,
+        "other_train_ok_ratio": 0.8,
+        "this_train_ok_ratio": 0.9
+    },
+    "definiert": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 106,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8962264150943396,
+        "this_train_ok_ratio": -1
+    },
+    "erkennen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 15,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.7333333333333333,
+        "this_train_ok_ratio": 1.0
+    },
+    "URLLoader-Klasse": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "gedr\u00fcckter": {
+        "gold_label_list": [
+            "OK",
+            "OK",
+            "OK",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 5,
+        "other_train_freq": 123,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9512195121951219,
+        "this_train_ok_ratio": -1
+    },
+    "Tween-Bereich": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 12,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8333333333333334,
+        "this_train_ok_ratio": -1
+    },
+    "Schl\u00fcsselbilder": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 12,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.4166666666666667,
+        "this_train_ok_ratio": -1
+    },
+    "vid01917": {
+        "gold_label_list": [
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "ausgew\u00e4hlte": {
+        "gold_label_list": [
+            "BAD",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 3,
+        "other_train_freq": 87,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8275862068965517,
+        "this_train_ok_ratio": -1
+    },
+    "harte": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": 1.0
+    },
+    "weichen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": 1.0
+    },
+    "Kanten": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 61,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.819672131147541,
+        "this_train_ok_ratio": 1.0
+    },
+    "F\u00fcr": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 28,
+        "this_train_freq": 14,
+        "other_train_ok_ratio": 0.8928571428571429,
+        "this_train_ok_ratio": 0.6428571428571429
+    },
+    "Web": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 45,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.8444444444444444,
+        "this_train_ok_ratio": 1.0
+    },
+    "Ger\u00e4te": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 21,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9523809523809523,
+        "this_train_ok_ratio": -1
+    },
+    "Bitmap-Darstellung": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "dargestellt": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 43,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.8604651162790697,
+        "this_train_ok_ratio": 1.0
+    },
+    "Zu": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 6,
+        "this_train_freq": 36,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": 0.9444444444444444
+    },
+    "Schleife": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": 0.6,
+        "this_train_ok_ratio": 0.0
+    },
+    "oddZahlen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Befehlstaste": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 38,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9473684210526315,
+        "this_train_ok_ratio": -1
+    },
+    "Absatz": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 30,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7666666666666667,
+        "this_train_ok_ratio": -1
+    },
+    "r\u00fccken": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.0,
+        "this_train_ok_ratio": -1
+    },
+    "zulassen": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 14,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.8571428571428571,
+        "this_train_ok_ratio": 0.0
+    },
+    "Medien-Clip": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "ung\u00fcltigen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 4,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.25,
+        "this_train_ok_ratio": -1
+    },
+    "regul\u00e4ren": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 15,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.8,
+        "this_train_ok_ratio": 1.0
+    },
+    "Ausdruck": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 35,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.9714285714285714,
+        "this_train_ok_ratio": 0.5
+    },
+    "Tags": {
+        "gold_label_list": [
+            "OK",
+            "BAD"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 118,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.8220338983050848,
+        "this_train_ok_ratio": 0.0
+    },
+    "versehen": {
+        "gold_label_list": [
+            "OK",
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 3,
+        "other_train_freq": 33,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": 0.696969696969697,
+        "this_train_ok_ratio": 0.3333333333333333
+    },
+    "erzielen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 35,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8,
+        "this_train_ok_ratio": -1
+    },
+    "Textmodus-Editor": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "beschriebenen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6,
+        "this_train_ok_ratio": -1
+    },
+    "anzuzeigen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 175,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9485714285714286,
+        "this_train_ok_ratio": -1
+    },
+    "Standardwert": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 27,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8148148148148148,
+        "this_train_ok_ratio": -1
+    },
+    "Abstand": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 77,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7142857142857143,
+        "this_train_ok_ratio": -1
+    },
+    "linearen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": 0.3333333333333333,
+        "this_train_ok_ratio": 1.0
+    },
+    "radialen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.3333333333333333,
+        "this_train_ok_ratio": 1.0
+    },
+    "Verl\u00e4ufen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8571428571428571,
+        "this_train_ok_ratio": -1
+    },
+    "Breite": {
+        "gold_label_list": [
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 78,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.8461538461538461,
+        "this_train_ok_ratio": 1.0
+    },
+    "lassen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 36,
+        "this_train_freq": 5,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": 0.6
+    },
+    "zuweisen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 30,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9,
+        "this_train_ok_ratio": -1
+    },
+    "dient": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 16,
+        "this_train_freq": 4,
+        "other_train_ok_ratio": 0.75,
+        "this_train_ok_ratio": 0.75
+    },
+    "von": {
+        "gold_label_list": [
+            "BAD",
+            "OK",
+            "OK",
+            "OK",
+            "BAD",
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 7,
+        "other_train_freq": 1830,
+        "this_train_freq": 1418,
+        "other_train_ok_ratio": 0.8295081967213115,
+        "this_train_ok_ratio": 0.8737658674188998
+    },
+    "pro": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 43,
+        "this_train_freq": 19,
+        "other_train_ok_ratio": 0.8604651162790697,
+        "this_train_ok_ratio": 0.9473684210526315
+    },
+    "Kanal": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 33,
+        "this_train_freq": 8,
+        "other_train_ok_ratio": 0.7878787878787878,
+        "this_train_ok_ratio": 0.5
+    },
+    "StapelRendering": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Tween": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 14,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7857142857142857,
+        "this_train_ok_ratio": -1
+    },
+    "aussparen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Erneutes": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Anwenden": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 38,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9473684210526315,
+        "this_train_ok_ratio": -1
+    },
+    "psStrom": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "B": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 12,
+        "this_train_freq": 11,
+        "other_train_ok_ratio": 0.8333333333333334,
+        "this_train_ok_ratio": 0.9090909090909091
+    },
+    "Zeichenfolge": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.4,
+        "this_train_ok_ratio": -1
+    },
+    "einrichten": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 31,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7741935483870968,
+        "this_train_ok_ratio": -1
+    },
+    "automatischen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": 0.0
+    },
+    "so": {
+        "gold_label_list": [
+            "BAD",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 129,
+        "this_train_freq": 40,
+        "other_train_ok_ratio": 0.7829457364341085,
+        "this_train_ok_ratio": 0.8
+    },
+    "Nachzeichnung": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "nachzeichnen": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "interaktive": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 22,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8181818181818182,
+        "this_train_ok_ratio": -1
+    },
+    "dazu": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 23,
+        "this_train_freq": 24,
+        "other_train_ok_ratio": 0.7391304347826086,
+        "this_train_ok_ratio": 0.875
+    },
+    "f\u00fchren": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 82,
+        "this_train_freq": 14,
+        "other_train_ok_ratio": 0.8292682926829268,
+        "this_train_ok_ratio": 0.7857142857142857
+    },
+    "Masken-Rahmen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.5,
+        "this_train_ok_ratio": -1
+    },
+    "Medien-Rahmen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.0,
+        "this_train_ok_ratio": -1
+    },
+    "Pinsel": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 23,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.8695652173913043,
+        "this_train_ok_ratio": 0.0
+    },
+    "Kante": {
+        "gold_label_list": [
+            "BAD",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 70,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6285714285714286,
+        "this_train_ok_ratio": -1
+    },
+    "dass": {
+        "gold_label_list": [
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 372,
+        "this_train_freq": 127,
+        "other_train_ok_ratio": 0.8790322580645161,
+        "this_train_ok_ratio": 0.9291338582677166
+    },
+    "Vorschau": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 105,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9428571428571428,
+        "this_train_ok_ratio": -1
+    },
+    "keinen": {
+        "gold_label_list": [
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 19,
+        "this_train_freq": 4,
+        "other_train_ok_ratio": 0.8947368421052632,
+        "this_train_ok_ratio": 0.5
+    },
+    "anderen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 275,
+        "this_train_freq": 74,
+        "other_train_ok_ratio": 0.8145454545454546,
+        "this_train_ok_ratio": 0.8783783783783784
+    },
+    "passt": {
+        "gold_label_list": [
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 19,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.6842105263157895,
+        "this_train_ok_ratio": 1.0
+    },
+    "Grundlage": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 12,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.9166666666666666,
+        "this_train_ok_ratio": 0.0
+    },
+    "Neigung": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8,
+        "this_train_ok_ratio": -1
+    },
+    "Zeichnungs-Stifts": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.0,
+        "this_train_ok_ratio": -1
+    },
+    "an": {
+        "gold_label_list": [
+            "BAD",
+            "OK",
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 4,
+        "other_train_freq": 799,
+        "this_train_freq": 462,
+        "other_train_ok_ratio": 0.7984981226533167,
+        "this_train_ok_ratio": 0.8051948051948052
+    },
+    "\u00dcberf\u00fcllungs-Engine": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "verwerfen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 7,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": 0.0
+    },
+    "Textes": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 19,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8947368421052632,
+        "this_train_ok_ratio": -1
+    },
+    "ge\u00e4ndert": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 64,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.703125,
+        "this_train_ok_ratio": -1
+    },
+    "Movieclip": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 35,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9142857142857143,
+        "this_train_ok_ratio": -1
+    },
+    "alle": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 434,
+        "this_train_freq": 67,
+        "other_train_ok_ratio": 0.8940092165898618,
+        "this_train_ok_ratio": 0.8507462686567164
+    },
+    "Originalstruktur": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Sicherheit": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 25,
+        "this_train_freq": 4,
+        "other_train_ok_ratio": 0.88,
+        "this_train_ok_ratio": 0.75
+    },
+    "Bildpixel": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.0,
+        "this_train_ok_ratio": -1
+    },
+    "entwickeln": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.6,
+        "this_train_ok_ratio": 1.0
+    },
+    "gleichm\u00e4\u00dfig": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 24,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7083333333333334,
+        "this_train_ok_ratio": -1
+    },
+    "Wiedergabegeschwindigkeit": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Gehe": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 13,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8461538461538461,
+        "this_train_ok_ratio": -1
+    },
+    "Struktur": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 61,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": 0.7540983606557377,
+        "this_train_ok_ratio": 1.0
+    },
+    "entfernen": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 135,
+        "this_train_freq": 4,
+        "other_train_ok_ratio": 0.8814814814814815,
+        "this_train_ok_ratio": 0.5
+    },
+    "Umkehren": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 8,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.875,
+        "this_train_ok_ratio": 1.0
+    },
+    "umzukehren": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 4,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": 1.0
+    },
+    "Verlauf": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 41,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8536585365853658,
+        "this_train_ok_ratio": -1
+    },
+    "Farbkorrekturen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Formularen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 6,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Bildma\u00dfe": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Steuern": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 9,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.8888888888888888,
+        "this_train_ok_ratio": 1.0
+    },
+    "Entw\u00fcrfe": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 16,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.9375,
+        "this_train_ok_ratio": 1.0
+    },
+    "initialisieren": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "myFr": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "reagieren": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 8,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.75,
+        "this_train_ok_ratio": 1.0
+    },
+    "Nummerierung": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 10,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9,
+        "this_train_ok_ratio": -1
+    },
+    "Beenden": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 4,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.5,
+        "this_train_ok_ratio": -1
+    },
+    "sowohl": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 33,
+        "this_train_freq": 40,
+        "other_train_ok_ratio": 0.8787878787878788,
+        "this_train_ok_ratio": 0.9
+    },
+    "Online-Werkzeuge": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Parametersatzname": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Symbolologie": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "langsam": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 8,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": 1.0
+    },
+    "Frei": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Transformieren": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 23,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9130434782608695,
+        "this_train_ok_ratio": -1
+    },
+    "Flamstadt": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "www.poor.com": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Versatzabstand": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 4,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.75,
+        "this_train_ok_ratio": -1
+    },
+    "komprimiert": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 7,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": 0.0
+    },
+    "Drucken": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 91,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9120879120879121,
+        "this_train_ok_ratio": -1
+    },
+    "Graphics.drawPath": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "-Methode": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 127,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9133858267716536,
+        "this_train_ok_ratio": -1
+    },
+    "einpassen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Dateihandhabung": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "arguments-Objekt": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Inspektorbedienfeld": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Endmarken": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "wie": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 469,
+        "this_train_freq": 214,
+        "other_train_ok_ratio": 0.8592750533049041,
+        "this_train_ok_ratio": 0.9158878504672897
+    },
+    "Titel": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 19,
+        "this_train_freq": 17,
+        "other_train_ok_ratio": 0.8947368421052632,
+        "this_train_ok_ratio": 0.9411764705882353
+    },
+    "Interaktiv": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 10,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "-Anwendungen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.5714285714285714,
+        "this_train_ok_ratio": -1
+    },
+    "Vordergrund": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 11,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.9090909090909091,
+        "this_train_ok_ratio": 0.0
+    },
+    "erzwingen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 6,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.5,
+        "this_train_ok_ratio": -1
+    },
+    "markieren": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 46,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8478260869565217,
+        "this_train_ok_ratio": -1
+    },
+    "ersetzen": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 82,
+        "this_train_freq": 8,
+        "other_train_ok_ratio": 0.9146341463414634,
+        "this_train_ok_ratio": 0.875
+    },
+    "ActionScript-Tags": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "einfache": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 24,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.75,
+        "this_train_ok_ratio": 1.0
+    },
+    "Ein-": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 24,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.75,
+        "this_train_ok_ratio": -1
+    },
+    "Ausgabehilfen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "BlendMode.Asynchron": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "F\u00fcllmethode": {
+        "gold_label_list": [
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 18,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7222222222222222,
+        "this_train_ok_ratio": -1
+    },
+    "Rechteck": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 15,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8,
+        "this_train_ok_ratio": -1
+    },
+    "oder": {
+        "gold_label_list": [
+            "BAD",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 2433,
+        "this_train_freq": 242,
+        "other_train_ok_ratio": 0.9235511713933415,
+        "this_train_ok_ratio": 0.9669421487603306
+    },
+    "dritten": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 17,
+        "other_train_ok_ratio": 0.8,
+        "this_train_ok_ratio": 0.7647058823529411
+    },
+    "exchange": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 9,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7777777777777778,
+        "this_train_ok_ratio": -1
+    },
+    "Mustervorlage": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 20,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9,
+        "this_train_ok_ratio": -1
+    },
+    "Musterdruckbogen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Ohne": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 22,
+        "this_train_freq": 4,
+        "other_train_ok_ratio": 0.9090909090909091,
+        "this_train_ok_ratio": 0.75
+    },
+    "negative": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 4,
+        "other_train_ok_ratio": 0.8,
+        "this_train_ok_ratio": 0.75
+    },
+    "k\u00f6nnen": {
+        "gold_label_list": [
+            "BAD",
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 3,
+        "other_train_freq": 1918,
+        "this_train_freq": 72,
+        "other_train_ok_ratio": 0.9077163712200208,
+        "this_train_ok_ratio": 0.9583333333333334
+    },
+    "Contribute": {
+        "gold_label_list": [
+            "OK",
+            "BAD"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 147,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9183673469387755,
+        "this_train_ok_ratio": -1
+    },
+    "hingewiesen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    ")": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1918,
+        "this_train_freq": 27,
+        "other_train_ok_ratio": 0.9468196037539103,
+        "this_train_ok_ratio": 0.9629629629629629
+    },
+    "Access": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "+": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 128,
+        "this_train_freq": 8,
+        "other_train_ok_ratio": 0.9453125,
+        "this_train_ok_ratio": 1.0
+    },
+    "Fu\u00dfnotenverweis": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "jedes": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 103,
+        "this_train_freq": 7,
+        "other_train_ok_ratio": 0.7864077669902912,
+        "this_train_ok_ratio": 0.7142857142857143
+    },
+    "Farbstichen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.0,
+        "this_train_ok_ratio": -1
+    },
+    "Pfadtext": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 4,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.75,
+        "this_train_ok_ratio": -1
+    },
+    "Tiefen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 15,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.8,
+        "this_train_ok_ratio": 1.0
+    },
+    "Effekt": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 61,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9180327868852459,
+        "this_train_ok_ratio": -1
+    },
+    "F\u00fcllung": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 19,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7894736842105263,
+        "this_train_ok_ratio": -1
+    },
+    "Platzhaltertext": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 4,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.5,
+        "this_train_ok_ratio": -1
+    },
+    "wei\u00dfen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 6,
+        "this_train_freq": 9,
+        "other_train_ok_ratio": 0.5,
+        "this_train_ok_ratio": 0.8888888888888888
+    },
+    "bedruckten": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Papier": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 16,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": 0.875,
+        "this_train_ok_ratio": 0.6666666666666666
+    },
+    "mehr": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 96,
+        "this_train_freq": 40,
+        "other_train_ok_ratio": 0.7916666666666666,
+        "this_train_ok_ratio": 0.85
+    },
+    "sehen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 32,
+        "this_train_freq": 6,
+        "other_train_ok_ratio": 0.84375,
+        "this_train_ok_ratio": 0.8333333333333334
+    },
+    "Server": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 78,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9102564102564102,
+        "this_train_ok_ratio": -1
+    },
+    "erforderliche": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 14,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.5,
+        "this_train_ok_ratio": -1
+    },
+    "keine": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 195,
+        "this_train_freq": 12,
+        "other_train_ok_ratio": 0.8,
+        "this_train_ok_ratio": 0.8333333333333334
+    },
+    "mehrere": {
+        "gold_label_list": [
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 189,
+        "this_train_freq": 36,
+        "other_train_ok_ratio": 0.9047619047619048,
+        "this_train_ok_ratio": 0.9444444444444444
+    },
+    "Symbole": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 32,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.8125,
+        "this_train_ok_ratio": 1.0
+    },
+    "angenommen": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 10,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "ver\u00f6ffentlichen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 52,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.9615384615384616,
+        "this_train_ok_ratio": 1.0
+    },
+    "Website": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 174,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.9195402298850575,
+        "this_train_ok_ratio": 1.0
+    },
+    "urspr\u00fcnglichen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 40,
+        "this_train_freq": 9,
+        "other_train_ok_ratio": 0.925,
+        "this_train_ok_ratio": 1.0
+    },
+    "Sichtbarkeitseinstellungen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "fest": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 230,
+        "this_train_freq": 4,
+        "other_train_ok_ratio": 0.9130434782608695,
+        "this_train_ok_ratio": 0.75
+    },
+    "Zeichnen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 31,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8064516129032258,
+        "this_train_ok_ratio": -1
+    },
+    "Malen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 15,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8666666666666667,
+        "this_train_ok_ratio": -1
+    },
+    "-Tag": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 9,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.2222222222222222,
+        "this_train_ok_ratio": -1
+    },
+    "Grundtypen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "erfordert": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 9,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.7777777777777778,
+        "this_train_ok_ratio": 1.0
+    },
+    "00002": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "andere": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 232,
+        "this_train_freq": 58,
+        "other_train_ok_ratio": 0.8318965517241379,
+        "this_train_ok_ratio": 0.9310344827586207
+    },
+    "ActionScript-Code": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 25,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.84,
+        "this_train_ok_ratio": -1
+    },
+    "einzeiliges": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.0,
+        "this_train_ok_ratio": -1
+    },
+    "Seitenbedienfelds": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 9,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8888888888888888,
+        "this_train_ok_ratio": -1
+    },
+    "Technik": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": 0.0
+    },
+    "Streaming-Streaming": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "as2lr": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 24,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": -1
+    },
+    "Auschecken": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "MovieClip.tableChildren": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "MovieClip.tabEnabledible": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.0,
+        "this_train_ok_ratio": -1
+    },
+    "TextField.tabEnabledible": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Bereich": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 216,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9212962962962963,
+        "this_train_ok_ratio": -1
+    },
+    "Clip": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 9,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8888888888888888,
+        "this_train_ok_ratio": -1
+    },
+    "9-teiligen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8,
+        "this_train_ok_ratio": -1
+    },
+    "Segmentraster": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Kuler-Bedienfeld": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "komplexer": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7142857142857143,
+        "this_train_ok_ratio": -1
+    },
+    "relativen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 8,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.75,
+        "this_train_ok_ratio": -1
+    },
+    "Skripterstellungsoperationen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "-Anwendung": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 4,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.25,
+        "this_train_ok_ratio": -1
+    },
+    "suchen": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 114,
+        "this_train_freq": 4,
+        "other_train_ok_ratio": 0.8771929824561403,
+        "this_train_ok_ratio": 0.75
+    },
+    "beim": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 310,
+        "this_train_freq": 31,
+        "other_train_ok_ratio": 0.8709677419354839,
+        "this_train_ok_ratio": 0.8064516129032258
+    },
+    "Gr\u00f6\u00dfe": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 156,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.8269230769230769,
+        "this_train_ok_ratio": 0.0
+    },
+    "Textstring": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8,
+        "this_train_ok_ratio": -1
+    },
+    "geschw\u00e4rzten": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": 1.0
+    },
+    "Simplex-": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "jede": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 110,
+        "this_train_freq": 7,
+        "other_train_ok_ratio": 0.8454545454545455,
+        "this_train_ok_ratio": 0.7142857142857143
+    },
+    "Paketbegrenzungen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "neue": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 168,
+        "this_train_freq": 31,
+        "other_train_ok_ratio": 0.8988095238095238,
+        "this_train_ok_ratio": 0.9032258064516129
+    },
+    "als": {
+        "gold_label_list": [
+            "OK",
+            "BAD"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 767,
+        "this_train_freq": 684,
+        "other_train_ok_ratio": 0.8748370273794003,
+        "this_train_ok_ratio": 0.9400584795321637
+    },
+    "urspr\u00fcngliche": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 26,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.8846153846153846,
+        "this_train_ok_ratio": 1.0
+    },
+    "Kontur": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 49,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6938775510204082,
+        "this_train_ok_ratio": -1
+    },
+    "statischen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 9,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": -1
+    },
+    "dynamische": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 17,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7058823529411765,
+        "this_train_ok_ratio": -1
+    },
+    "Wert": {
+        "gold_label_list": [
+            "BAD",
+            "BAD"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 301,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.8571428571428571,
+        "this_train_ok_ratio": 0.5
+    },
+    "versetzt": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.0,
+        "this_train_ok_ratio": -1
+    },
+    "Textabschnitt": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 33,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8787878787878788,
+        "this_train_ok_ratio": -1
+    },
+    "erweitern": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 35,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9142857142857143,
+        "this_train_ok_ratio": -1
+    },
+    "reduzieren": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 39,
+        "this_train_freq": 5,
+        "other_train_ok_ratio": 0.8717948717948718,
+        "this_train_ok_ratio": 0.8
+    },
+    "benutzerdefinierten": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 40,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9,
+        "this_train_ok_ratio": -1
+    },
+    "integrierten": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 12,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9166666666666666,
+        "this_train_ok_ratio": -1
+    },
+    "Punkt": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 68,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": 0.7352941176470589,
+        "this_train_ok_ratio": 0.6666666666666666
+    },
+    "einen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1140,
+        "this_train_freq": 303,
+        "other_train_ok_ratio": 0.8535087719298246,
+        "this_train_ok_ratio": 0.8052805280528053
+    },
+    "schlie\u00dfen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 61,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.9508196721311475,
+        "this_train_ok_ratio": 1.0
+    },
+    "eines": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 354,
+        "this_train_freq": 59,
+        "other_train_ok_ratio": 0.8531073446327684,
+        "this_train_ok_ratio": 0.9322033898305084
+    },
+    "Filter": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 119,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8991596638655462,
+        "this_train_ok_ratio": -1
+    },
+    "zugeschnitten": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.4,
+        "this_train_ok_ratio": -1
+    },
+    "Verlaufspunkte": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Microphone-Objekt": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Position": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 117,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.811965811965812,
+        "this_train_ok_ratio": 1.0
+    },
+    "Schriftgrad": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 10,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9,
+        "this_train_ok_ratio": -1
+    },
+    "Gesamte": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "H\u00f6he": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 43,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.9302325581395349,
+        "this_train_ok_ratio": 1.0
+    },
+    "Dokumentmeldungsleiste": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 6,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8333333333333334,
+        "this_train_ok_ratio": -1
+    },
+    "Zur\u00fcckweisen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "transformieren-": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": -1
+    },
+    "Steuerungsbedienfeld": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 33,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9090909090909091,
+        "this_train_ok_ratio": -1
+    },
+    "XMLConnection-Inhalt": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "unterscheidet": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 15,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.8,
+        "this_train_ok_ratio": 0.0
+    },
+    "indem": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 196,
+        "this_train_freq": 76,
+        "other_train_ok_ratio": 0.8622448979591837,
+        "this_train_ok_ratio": 0.9605263157894737
+    },
+    "DatenBindungsfunktionen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Innendekoratoren": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "definieren": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 57,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.8596491228070176,
+        "this_train_ok_ratio": 1.0
+    },
+    "einzuf\u00fcgende": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.5,
+        "this_train_ok_ratio": -1
+    },
+    "Uhrzeit": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 8,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.625,
+        "this_train_ok_ratio": -1
+    },
+    "aufnehmen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 14,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9285714285714286,
+        "this_train_ok_ratio": -1
+    },
+    "Schl\u00fcsselbild": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 42,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6190476190476191,
+        "this_train_ok_ratio": -1
+    },
+    "-Dokument": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.14285714285714285,
+        "this_train_ok_ratio": -1
+    },
+    "einfaches": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 8,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.625,
+        "this_train_ok_ratio": -1
+    },
+    "Pixelberechnungen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Array.SCREHDY": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "setzen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 54,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.9259259259259259,
+        "this_train_ok_ratio": 0.0
+    },
+    "Graustufenbilder": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 4,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.75,
+        "this_train_ok_ratio": -1
+    },
+    "Malwerkzeugen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "komprimieren": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "CS3-Dokumente": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "\u00dcberlagerungen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 4,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Ausgabe": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 48,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.8541666666666666,
+        "this_train_ok_ratio": 1.0
+    },
+    "Beschnittzugabe": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": -1
+    },
+    "versehenes": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "\u00fcbergeordneten": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 29,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8620689655172413,
+        "this_train_ok_ratio": -1
+    },
+    "sein": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 125,
+        "this_train_freq": 52,
+        "other_train_ok_ratio": 0.744,
+        "this_train_ok_ratio": 0.8653846153846154
+    },
+    "sollen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 92,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.8369565217391305,
+        "this_train_ok_ratio": 1.0
+    },
+    "einf\u00fcgen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 135,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8962962962962963,
+        "this_train_ok_ratio": -1
+    },
+    "Wei\u00df": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 31,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.8709677419354839,
+        "this_train_ok_ratio": 1.0
+    },
+    "weniger": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 32,
+        "this_train_freq": 24,
+        "other_train_ok_ratio": 0.84375,
+        "this_train_ok_ratio": 0.9166666666666666
+    },
+    "82": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 6,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": 0.8333333333333334
+    },
+    "befinden": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 82,
+        "this_train_freq": 4,
+        "other_train_ok_ratio": 0.7073170731707317,
+        "this_train_ok_ratio": 0.25
+    },
+    "Starten": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 11,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9090909090909091,
+        "this_train_ok_ratio": -1
+    },
+    "dynamischen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 13,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6923076923076923,
+        "this_train_ok_ratio": -1
+    },
+    "Bereichs": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 24,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9583333333333334,
+        "this_train_ok_ratio": -1
+    },
+    "Seed-Werte": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Fu\u00dfzeile": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "\u00fcberdrucken": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.5714285714285714,
+        "this_train_ok_ratio": -1
+    },
+    "Preflight-Profil": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "dpi": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 10,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Profil": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 42,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.9047619047619048,
+        "this_train_ok_ratio": 1.0
+    },
+    "UV-Zuordnung": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.5,
+        "this_train_ok_ratio": -1
+    },
+    "Zeile": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 65,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.8923076923076924,
+        "this_train_ok_ratio": 1.0
+    },
+    "Benutzern": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 21,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7619047619047619,
+        "this_train_ok_ratio": -1
+    },
+    "Alle": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 81,
+        "this_train_freq": 8,
+        "other_train_ok_ratio": 0.9506172839506173,
+        "this_train_ok_ratio": 1.0
+    },
+    "Fundstellen": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7142857142857143,
+        "this_train_ok_ratio": -1
+    },
+    "Punkte": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 43,
+        "this_train_freq": 4,
+        "other_train_ok_ratio": 0.6744186046511628,
+        "this_train_ok_ratio": 1.0
+    },
+    "Druckbogen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 36,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6388888888888888,
+        "this_train_ok_ratio": -1
+    },
+    "einzelne": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 79,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.9113924050632911,
+        "this_train_ok_ratio": 1.0
+    },
+    "sichere": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "dies": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 149,
+        "this_train_freq": 13,
+        "other_train_ok_ratio": 0.8926174496644296,
+        "this_train_ok_ratio": 1.0
+    },
+    "Operation": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 6,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": 0.8333333333333334
+    },
+    "abgeflachte": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 19,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.3684210526315789,
+        "this_train_ok_ratio": 0.0
+    },
+    "Konturenf\u00fchrungsbedienfelds": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.0,
+        "this_train_ok_ratio": -1
+    },
+    "Abbrechen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 10,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9,
+        "this_train_ok_ratio": -1
+    },
+    "Auswahl": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 256,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.91015625,
+        "this_train_ok_ratio": 1.0
+    },
+    "erh\u00f6ht": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 25,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": 0.6,
+        "this_train_ok_ratio": 1.0
+    },
+    "Gleiche": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 9,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": -1
+    },
+    "Abschnitt": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 36,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9166666666666666,
+        "this_train_ok_ratio": -1
+    },
+    "Anpassen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 23,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9130434782608695,
+        "this_train_ok_ratio": -1
+    },
+    "Protokoll": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 14,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7142857142857143,
+        "this_train_ok_ratio": -1
+    },
+    "marketing": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "embed": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 9,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.3333333333333333,
+        "this_train_ok_ratio": -1
+    },
+    "zerst\u00f6rungsfreie": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "integrieren": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 4,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": 0.5
+    },
+    "h\u00f6here": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 16,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.625,
+        "this_train_ok_ratio": 1.0
+    },
+    "Einstellung": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 52,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.8461538461538461,
+        "this_train_ok_ratio": 0.0
+    },
+    "Wasserzeichen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 22,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.5909090909090909,
+        "this_train_ok_ratio": -1
+    },
+    "h\u00f6heren": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 10,
+        "this_train_freq": 6,
+        "other_train_ok_ratio": 0.8,
+        "this_train_ok_ratio": 1.0
+    },
+    "wurden": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 120,
+        "this_train_freq": 142,
+        "other_train_ok_ratio": 0.7833333333333333,
+        "this_train_ok_ratio": 0.8943661971830986
+    },
+    "Farbfeldbedienfeld": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 26,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8076923076923077,
+        "this_train_ok_ratio": -1
+    },
+    "genannten": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 14,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.5,
+        "this_train_ok_ratio": -1
+    },
+    "Farben": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 243,
+        "this_train_freq": 9,
+        "other_train_ok_ratio": 0.831275720164609,
+        "this_train_ok_ratio": 0.8888888888888888
+    },
+    "Sekunden": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 10,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": 0.7,
+        "this_train_ok_ratio": 1.0
+    },
+    "kombinierten": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": 1.0
+    },
+    "NetzwerkByte-Reihenfolge": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "aufgenommen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 16,
+        "this_train_freq": 14,
+        "other_train_ok_ratio": 0.8125,
+        "this_train_ok_ratio": 0.5714285714285714
+    },
+    "Cartoon-Instanz": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "ClipboardFormat-Klasse": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Formatierung": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 27,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9259259259259259,
+        "this_train_ok_ratio": -1
+    },
+    "PostScript-Dateien": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8571428571428571,
+        "this_train_ok_ratio": -1
+    },
+    "externen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 33,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8787878787878788,
+        "this_train_ok_ratio": -1
+    },
+    "Artikelabschnitt": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "senden": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 61,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8524590163934426,
+        "this_train_ok_ratio": -1
+    },
+    "FileData": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "verschachtelte": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 17,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "verschachtelten": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 9,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7777777777777778,
+        "this_train_ok_ratio": -1
+    },
+    "festgelegten": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 33,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8787878787878788,
+        "this_train_ok_ratio": -1
+    },
+    "Camera.Namen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "CheckBox-Komponenten": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Authoring": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 9,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "zur": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 300,
+        "this_train_freq": 93,
+        "other_train_ok_ratio": 0.8133333333333334,
+        "this_train_ok_ratio": 0.7526881720430108
+    },
+    "Laufzeit": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 20,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.65,
+        "this_train_ok_ratio": -1
+    },
+    "Platzieren": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 30,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9666666666666667,
+        "this_train_ok_ratio": -1
+    },
+    "Zahl": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 23,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": 0.9130434782608695,
+        "this_train_ok_ratio": 1.0
+    },
+    "versucht": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 14,
+        "this_train_freq": 23,
+        "other_train_ok_ratio": 0.7857142857142857,
+        "this_train_ok_ratio": 0.9565217391304348
+    },
+    "216": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 8,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.375,
+        "this_train_ok_ratio": 1.0
+    },
+    "je": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 67,
+        "this_train_freq": 8,
+        "other_train_ok_ratio": 0.8805970149253731,
+        "this_train_ok_ratio": 0.625
+    },
+    "Ebenenbedienfeld": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 63,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7936507936507936,
+        "this_train_ok_ratio": -1
+    },
+    "Photomerge": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 4,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Verkr\u00fcmmungen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "onIDInfotained": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Benutzerdefinierte": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 10,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9,
+        "this_train_ok_ratio": -1
+    },
+    "\u00fcberdruckt": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.0,
+        "this_train_ok_ratio": -1
+    },
+    "kyrillisch": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Auswirkung": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 4,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "einzustellen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8571428571428571,
+        "this_train_ok_ratio": -1
+    },
+    "Startskripte": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": -1
+    },
+    "geometrische": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": 1.0
+    },
+    "Messungen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 15,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": -1
+    },
+    "GDT": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Anschnitt": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 6,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8333333333333334,
+        "this_train_ok_ratio": -1
+    },
+    "enthalten": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 163,
+        "this_train_freq": 21,
+        "other_train_ok_ratio": 0.7668711656441718,
+        "this_train_ok_ratio": 0.8571428571428571
+    },
+    "Workflows": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8571428571428571,
+        "this_train_ok_ratio": -1
+    },
+    "Funktionen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 77,
+        "this_train_freq": 2,
+        "other_train_ok_ratio": 0.8571428571428571,
+        "this_train_ok_ratio": 1.0
+    },
+    "/": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1374,
+        "this_train_freq": 97,
+        "other_train_ok_ratio": 0.8187772925764192,
+        "this_train_ok_ratio": 0.9587628865979382
+    },
+    "relative": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 8,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "gibt": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 114,
+        "this_train_freq": 22,
+        "other_train_ok_ratio": 0.8333333333333334,
+        "this_train_ok_ratio": 0.9090909090909091
+    },
+    "einzelnen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 107,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": 0.7850467289719626,
+        "this_train_ok_ratio": 1.0
+    },
+    "Pipette": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Lichter": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 18,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": -1
+    },
+    "Reflexionslichtern": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "geben": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 476,
+        "this_train_freq": 3,
+        "other_train_ok_ratio": 0.9453781512605042,
+        "this_train_ok_ratio": 0.3333333333333333
+    },
+    "Scharfzeichnen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 9,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7777777777777778,
+        "this_train_ok_ratio": -1
+    },
+    "ss.play": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "\u00fcbergeben": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 37,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.918918918918919,
+        "this_train_ok_ratio": -1
+    },
+    "anwenden": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 114,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8508771929824561,
+        "this_train_ok_ratio": -1
+    },
+    "Skalierungswerte": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "entnommenen": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Zeitleisten-Tastaturbefehle": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Wahltaste": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 46,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9782608695652174,
+        "this_train_ok_ratio": -1
+    },
+    "ausgew\u00e4hlt": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 158,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9113924050632911,
+        "this_train_ok_ratio": -1
+    },
+    "Festlegen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 44,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9772727272727273,
+        "this_train_ok_ratio": -1
+    },
+    "Weich": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.6666666666666666,
+        "this_train_ok_ratio": -1
+    },
+    "mischen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "verkn\u00fcpfen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 31,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7741935483870968,
+        "this_train_ok_ratio": -1
+    },
+    "rtf": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Anmeldung": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "ge\u00f6ffnet": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 75,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9333333333333333,
+        "this_train_ok_ratio": -1
+    },
+    "Hintergrundbildern": {
+        "gold_label_list": [
+            "BAD"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.0,
+        "this_train_ok_ratio": -1
+    },
+    "Kan\u00e4lebedienfeld": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Radiergummi": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 9,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8888888888888888,
+        "this_train_ok_ratio": -1
+    },
+    "Tagsbedienfeld": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 12,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.75,
+        "this_train_ok_ratio": -1
+    },
+    "Tag": {
+        "gold_label_list": [
+            "OK",
+            "OK"
+        ],
+        "pred_wrong_freq": 2,
+        "other_train_freq": 40,
+        "this_train_freq": 28,
+        "other_train_ok_ratio": 0.85,
+        "this_train_ok_ratio": 0.8928571428571429
+    },
+    "gespeichert": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 76,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8552631578947368,
+        "this_train_ok_ratio": -1
+    },
+    "initialisiert": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 2,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "Film": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 32,
+        "this_train_freq": 16,
+        "other_train_ok_ratio": 0.9375,
+        "this_train_ok_ratio": 1.0
+    },
+    "\u00fcberschrieben": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 17,
+        "this_train_freq": 1,
+        "other_train_ok_ratio": 0.8823529411764706,
+        "this_train_ok_ratio": 0.0
+    },
+    "Preflight-Fehlern": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Hotspots": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 3,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "\u00dcberf\u00fcllen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 4,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.75,
+        "this_train_ok_ratio": -1
+    },
+    "Beschriftung": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 15,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.7333333333333333,
+        "this_train_ok_ratio": -1
+    },
+    "Socketverbindung": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "obersten": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 16,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8125,
+        "this_train_ok_ratio": -1
+    },
+    "\u00fcbereinstimmenden": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 7,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.2857142857142857,
+        "this_train_ok_ratio": -1
+    },
+    "Symbolinstanzen": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 13,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8461538461538461,
+        "this_train_ok_ratio": -1
+    },
+    "rastert": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 5,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.4,
+        "this_train_ok_ratio": -1
+    },
+    "laden": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 65,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.8769230769230769,
+        "this_train_ok_ratio": -1
+    },
+    "Modifizieren": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 38,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9736842105263158,
+        "this_train_ok_ratio": -1
+    },
+    "Weiche": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 4,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.5,
+        "this_train_ok_ratio": -1
+    },
+    "dekomprimiert": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 0,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": -1,
+        "this_train_ok_ratio": -1
+    },
+    "Symbol-gestalten-Werkzeug": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    },
+    "klicken": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1790,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 0.9832402234636871,
+        "this_train_ok_ratio": -1
+    },
+    "Instanzeigenschaften": {
+        "gold_label_list": [
+            "OK"
+        ],
+        "pred_wrong_freq": 1,
+        "other_train_freq": 1,
+        "this_train_freq": 0,
+        "other_train_ok_ratio": 1.0,
+        "this_train_ok_ratio": -1
+    }
+}

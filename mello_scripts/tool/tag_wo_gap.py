@@ -1,10 +1,10 @@
 # 把mt+gap tag分离
 
 lang_pair = 'en-de'
-tag_path_prefix = "/opt/tiger/fake_arnold/wmt-qe-2019-data/test_" + lang_pair + "/"
-tag_path = tag_path_prefix + "test.tags"
-mt_tag_path = tag_path_prefix + "test.mt_tag"
-gap_tag_path = tag_path_prefix + "test.gap_tag"
+tag_path_prefix = "/opt/tiger/fake_arnold/wmt-qe-2019-data/train_" + lang_pair + "/"
+tag_path = tag_path_prefix + "train.tags"
+mt_tag_path = tag_path_prefix + "train.mt_tag"
+gap_tag_path = tag_path_prefix + "train.gap_tag"
 
 def read_data(path):
 	with open(path, 'r', encoding='utf-8') as f:

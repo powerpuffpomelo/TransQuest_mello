@@ -1,3 +1,13 @@
+# ======================= 22 ======================= #
+# data_prefix=/opt/tiger/fake_arnold/wmt-qe-2022-data/train-dev_data/task1_word-level/train/en-de
+
+# cd $data_prefix
+# for lp in en-de; do
+#     for split in train.2021 dev.2021 test.2020; do
+#         tar zxvf ${data_prefix}/${lp}-${split}.tar.gz
+#     done
+# done
+
 # ======================= test21 ======================= #
 # data_prefix=/opt/tiger/fake_arnold/mlqe-pe-21/data/test21_goldlabels
 
@@ -26,24 +36,24 @@
 #     done
 # done
 
+# ======================= 18 ======================= #
+# data_prefix=/opt/tiger/fake_arnold/wmt-qe-2018-data
+
+# cd $data_prefix
+# for split in test training; do
+#     tar zxvf ${data_prefix}/word_level_${split}.tar.gz
+# done
+
 # ======================= 17 ======================= #
 data_prefix=/opt/tiger/fake_arnold/wmt-qe-2017-data
 
 cd $data_prefix
-for lp in en-de; do
-    for split in test training-dev; do
-        tar zxvf ${data_prefix}/task2_${lp}_${split}.tar.gz
-    done
-done
-
-# ======================= 22 ======================= #
-# data_prefix=/opt/tiger/fake_arnold/wmt-qe-2022-data/train-dev_data/task1_word-level/train/en-de
-
-# cd $data_prefix
 # for lp in en-de; do
-#     for split in train.2021 dev.2021 test.2020; do
-#         tar zxvf ${data_prefix}/${lp}-${split}.tar.gz
+#     for split in test training-dev; do
+#         tar zxvf ${data_prefix}/task2_${lp}_${split}.tar.gz
 #     done
 # done
+
+tar zxvf ${data_prefix}/wmt17_en-de_gold.tar.gz
 
 # bash /opt/tiger/fake_arnold/TransQuest_mello/mello_scripts/data_process/data_process.sh

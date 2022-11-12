@@ -79,11 +79,11 @@ if __name__ == '__main__':
 
 # transquest whole test
 lang_pair=en-de
-pred_year=2021
+pred_year=2019
 train_year=2021
-GOLD_PREFIX=/opt/tiger/fake_arnold/TransQuest_mello/data/test21/${lang_pair}-test21
-PRE_PREFIX=checkpoints/train_result_${train_year}_${lang_pair}/prediction
-python3 mello_scripts/tool/estimate_word.py $GOLD_PREFIX/test2021.mt_tag $PRE_PREFIX/test${pred_year}.mt_tag.pred
+GOLD_PREFIX=/opt/tiger/fake_arnold/wmt-qe-2019-data/test_en-de
+PRE_PREFIX=/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_finetune_qe_from_tlm_lr4e-5_mask0.3_en-de/prediction
+python3 mello_scripts/tool/estimate_word.py $GOLD_PREFIX/test.mt_tag $PRE_PREFIX/test${pred_year}.mt_tag.pred
 
 # robust train memory / part test
 lang_pair=si-en
