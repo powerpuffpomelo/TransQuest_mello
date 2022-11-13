@@ -219,6 +219,7 @@ def convert_example_to_feature(example_row):
     tokens = []
     label_ids = []
     bboxes = []
+
     if example.bboxes:
         for word, label, bbox in zip(example.words, example.labels, example.bboxes):
             word_tokens = tokenizer.tokenize(word)

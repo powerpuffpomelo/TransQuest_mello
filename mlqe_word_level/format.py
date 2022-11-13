@@ -95,7 +95,10 @@ def format_to_test(to_test, args):
 def post_process(predicted_sentences, test_sentences, args):
     sources_tags = []
     targets_tags = []
+
     for predicted_sentence, test_sentence in zip(predicted_sentences, test_sentences):
+        # print(predicted_sentence) # [{'duplicates': 'BAD'}, {'the': 'OK'}, {'current': 'OK'}, {'set': 'OK'}, {'.': 'OK'}, {'[SEP]': 'OK'}, {'_': 'OK'}, {'Duiert': 'BAD'}, {'_': 'OK'}, {'den': 'OK'}, {'_': 'OK'}, {'aktuellen': 'OK'}, {'_': 'OK'}, {'Satz': 'OK'}, {'_': 'OK'}, {'.': 'OK'}, {'_': 'OK'}]
+        # print(test_sentence) # duplicates the current set . [SEP] _ Duiert _ den _ aktuellen _ Satz _ . _
         source_tags = []
         target_tags = []
         words = test_sentence.split()
@@ -130,6 +133,56 @@ def post_process(predicted_sentences, test_sentences, args):
         targets_tags.append(target_tags)
 
     return sources_tags, targets_tags
+
+def post_process_with_confidence(predicted_sentences, preds_confidences, test_sentences, args):
+    sources_tags = []
+    targets_tags = []
+    sources_confidence = []
+    targets_confidence = []
+
+    for predicted_sentence, preds_confidence, test_sentence in zip(predicted_sentences, preds_confidences, test_sentences):
+        # print(predicted_sentence) # [{'duplicates': 'BAD'}, {'the': 'OK'}, {'current': 'OK'}, {'set': 'OK'}, {'.': 'OK'}, {'[SEP]': 'OK'}, {'_': 'OK'}, {'Duiert': 'BAD'}, {'_': 'OK'}, {'den': 'OK'}, {'_': 'OK'}, {'aktuellen': 'OK'}, {'_': 'OK'}, {'Satz': 'OK'}, {'_': 'OK'}, {'.': 'OK'}, {'_': 'OK'}]
+        # print(test_sentence) # duplicates the current set . [SEP] _ Duiert _ den _ aktuellen _ Satz _ . _
+        source_tags = []
+        target_tags = []
+        source_confidence = []
+        target_confidence = []
+        words = test_sentence.split()
+        is_source_sentence = True
+        source_sentence = test_sentence.split("[SEP]")[0]
+        target_sentence = test_sentence.split("[SEP]")[1]
+
+        for idx, word in enumerate(words):
+
+            if word == "[SEP]":
+                is_source_sentence = False
+                continue
+            if is_source_sentence:
+                if idx < len(predicted_sentence):
+                    source_tags.append(list(predicted_sentence[idx].values())[0])
+                    source_confidence.append(list(preds_confidence[idx].values())[0])
+                else:
+                    source_tags.append(args.default_quality)
+            else:
+                if idx < len(predicted_sentence):
+                    target_tags.append(list(predicted_sentence[idx].values())[0])
+                    target_confidence.append(list(preds_confidence[idx].values())[0])
+                else:
+                    target_tags.append(args.default_quality)
+
+        assert len(source_tags) == len(source_sentence.split())
+
+        if len(target_sentence.split()) > len(target_tags):
+            target_tags = target_tags + [args.default_quality for x in
+                                         range(len(target_sentence.split()) - len(target_tags))]
+
+        assert len(target_tags) == len(target_sentence.split())
+        sources_tags.append(source_tags)
+        targets_tags.append(target_tags)
+        sources_confidence.append(source_confidence)
+        targets_confidence.append(target_confidence)
+
+    return sources_tags, targets_tags, sources_confidence, targets_confidence
 
 # def post_process(predicted_sentences, test_sentences):
 #     sources_tags = []

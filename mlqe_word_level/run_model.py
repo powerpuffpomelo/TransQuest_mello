@@ -46,7 +46,7 @@ from transformers.optimization import (
     get_polynomial_decay_schedule_with_warmup,
 )
 
-from mlqe_word_level.format import post_process, prepare_data, format_to_test
+from mlqe_word_level.format import post_process, prepare_data, format_to_test, post_process_with_confidence
 from transquest.algo.word_level.microtransquest.model_args import MicroTransQuestArgs
 from transquest.algo.word_level.microtransquest.utils import sweep_config_to_sweep_values, InputExample, \
     read_examples_from_file, get_examples_from_df, convert_examples_to_features, LazyQEDataset
@@ -1136,6 +1136,201 @@ class MicroTransQuestModel:
         sources_tags, targets_tags = post_process(preds, to_predict, args=self.args)
 
         return sources_tags, targets_tags
+
+    def predict_with_confidence(self, to_predict, split_on_space=True):
+        """
+        Performs predictions on a list of text.
+
+        Args:
+            to_predict: A python list of text (str) to be sent to the model for prediction.
+            split_on_space: If True, each sequence will be split by spaces for assigning labels.
+                            If False, to_predict must be a a list of lists, with the inner list being a
+                            list of strings consisting of the split sequences. The outer list is the list of sequences to
+                            predict on.
+
+        Returns:
+            preds: A Python list of lists with dicts containing each word mapped to its NER tag.
+            model_outputs: A Python list of lists with dicts containing each word mapped to its list with raw model output.
+        """  # noqa: ignore flake8"
+
+        device = self.device
+        model = self.model
+        args = self.args
+        pad_token_label_id = self.pad_token_label_id
+        preds = None
+
+        to_predict = format_to_test(to_predict, self.args)  # list of 'src+tgt' string
+
+        if split_on_space:
+            if self.args.model_type == "layoutlm":
+                predict_examples = [
+                    InputExample(
+                        i, sentence.split(), [self.args.labels_list[0] for word in sentence.split()], x0, y0, x1, y1
+                    )
+                    for i, (sentence, x0, y0, x1, y1) in enumerate(to_predict)
+                ]
+                to_predict = [sentence for sentence, *_ in to_predict]
+            else:
+                predict_examples = [
+                    InputExample(i, sentence.split(), [self.args.labels_list[0] for word in sentence.split()])
+                    for i, sentence in enumerate(to_predict)
+                ]
+        else:
+            if self.args.model_type == "layoutlm":
+                predict_examples = [
+                    InputExample(i, sentence, [self.args.labels_list[0] for word in sentence], x0, y0, x1, y1)
+                    for i, (sentence, x0, y0, x1, y1) in enumerate(to_predict)
+                ]
+                to_predict = [sentence for sentence, *_ in to_predict]
+            else:
+                predict_examples = [
+                    InputExample(i, sentence, [self.args.labels_list[0] for word in sentence])
+                    for i, sentence in enumerate(to_predict)
+                ]
+
+        eval_dataset = self.load_and_cache_examples(None, to_predict=predict_examples)
+
+        eval_sampler = SequentialSampler(eval_dataset)
+        eval_dataloader = DataLoader(eval_dataset, sampler=eval_sampler, batch_size=args.eval_batch_size)
+
+        if self.args.onnx:
+            model_inputs = self.tokenizer.batch_encode_plus(
+                to_predict, return_tensors="pt", padding=True, truncation=True
+            )
+
+            for input_ids, attention_mask in zip(model_inputs["input_ids"], model_inputs["attention_mask"]):
+                input_ids = input_ids.unsqueeze(0).detach().cpu().numpy()
+                attention_mask = attention_mask.unsqueeze(0).detach().cpu().numpy()
+                inputs_onnx = {"input_ids": input_ids, "attention_mask": attention_mask}
+
+                # Run the model (None = get all the outputs)
+                output = self.model.run(None, inputs_onnx)
+
+                if preds is None:
+                    preds = output[0]
+                    out_input_ids = inputs_onnx["input_ids"]
+                    out_attention_mask = inputs_onnx["attention_mask"]
+                else:
+                    preds = np.append(preds, output[0], axis=0)
+                    out_input_ids = np.append(out_input_ids, inputs_onnx["input_ids"], axis=0)
+                    out_attention_mask = np.append(out_attention_mask, inputs_onnx["attention_mask"], axis=0, )
+            out_label_ids = np.zeros_like(out_input_ids)
+            for index in range(len(out_label_ids)):
+                out_label_ids[index][0] = -100
+                out_label_ids[index][-1] = -100
+        else:
+            self._move_model_to_device()
+
+            eval_loss = 0.0
+            nb_eval_steps = 0
+            preds = None
+            out_label_ids = None
+            model.eval()
+
+            if args.n_gpu > 1:
+                model = torch.nn.DataParallel(model)
+
+            if self.args.fp16:
+                from torch.cuda import amp
+
+            for batch in tqdm(eval_dataloader, disable=args.silent, desc="Running Prediction"):
+                batch = tuple(t.to(device) for t in batch)
+
+                with torch.no_grad():
+                    inputs = self._get_inputs_dict(batch)
+                    if self.model.__class__.__name__ == 'XLMRobertaForTokenClassificationAndRegression' and "labels" in inputs:
+                        inputs['token_cls_labels'] = inputs.pop('labels')
+
+                    if self.args.fp16:
+                        with amp.autocast():
+                            outputs = model(**inputs)
+                            tmp_eval_loss, logits = outputs[:2]
+                    else:
+                        outputs = model(**inputs)
+                        tmp_eval_loss, logits = outputs[:2]
+
+                    if self.args.n_gpu > 1:
+                        tmp_eval_loss = tmp_eval_loss.mean()
+                    eval_loss += tmp_eval_loss.item()
+
+                nb_eval_steps += 1
+
+                # print(logits.size())    # [batch_size, seq_len, num_cls]
+                if preds is None:
+                    preds = logits.detach().cpu().numpy()
+                    if "labels" in inputs:
+                        out_label_ids = inputs["labels"].detach().cpu().numpy()
+                    else:
+                        out_label_ids = inputs["token_cls_labels"].detach().cpu().numpy()
+                    out_input_ids = inputs["input_ids"].detach().cpu().numpy()
+                    out_attention_mask = inputs["attention_mask"].detach().cpu().numpy()
+                else:
+                    preds = np.append(preds, logits.detach().cpu().numpy(), axis=0)
+                    if "labels" in inputs:
+                        out_label_ids = np.append(out_label_ids, inputs["labels"].detach().cpu().numpy(), axis=0)  # 虚假的labels
+                    else:
+                        out_label_ids = np.append(out_label_ids, inputs["token_cls_labels"].detach().cpu().numpy(), axis=0)
+                    out_input_ids = np.append(out_input_ids, inputs["input_ids"].detach().cpu().numpy(), axis=0)
+                    out_attention_mask = np.append(
+                        out_attention_mask, inputs["attention_mask"].detach().cpu().numpy(), axis=0,
+                    )
+
+            eval_loss = eval_loss / nb_eval_steps
+        token_logits = preds   # [num_data_sample, max_seq_len, num_cls]
+        preds_confidence = np.max(preds, axis=2)  # [num_data_sample, max_seq_len]
+        preds = np.argmax(preds, axis=2)  # [num_data_sample, max_seq_len]
+
+        label_map = {i: label for i, label in enumerate(self.args.labels_list)}
+        # print(out_label_ids.shape)  # [num_data_sample, max_seq_len]
+        out_label_list = [[] for _ in range(out_label_ids.shape[0])]
+        preds_list = [[] for _ in range(out_label_ids.shape[0])]
+        preds_confidence_list = [[] for _ in range(out_label_ids.shape[0])]  # logits max的值的大小
+
+        for i in range(out_label_ids.shape[0]):
+            for j in range(out_label_ids.shape[1]):
+                if out_label_ids[i, j] != pad_token_label_id:
+                    out_label_list[i].append(label_map[out_label_ids[i][j]])  # 根本用不到
+                    preds_list[i].append(label_map[preds[i][j]])
+                    preds_confidence_list[i].append(preds_confidence[i][j])
+
+        if split_on_space:   # 是的，空格分格
+            preds = [
+                [{word: preds_list[i][j]} for j, word in enumerate(sentence.split()[: len(preds_list[i])])]
+                for i, sentence in enumerate(to_predict)
+            ]
+            preds_confidence = [
+                [{word: preds_confidence_list[i][j]} for j, word in enumerate(sentence.split()[: len(preds_list[i])])]
+                for i, sentence in enumerate(to_predict)
+            ]
+        else:
+            preds = [
+                [{word: preds_list[i][j]} for j, word in enumerate(sentence[: len(preds_list[i])])]
+                for i, sentence in enumerate(to_predict)
+            ]
+
+        # word_tokens = []
+        # for n, sentence in enumerate(to_predict):
+        #     w_log = self._convert_tokens_to_word_logits(
+        #         out_input_ids[n], out_label_ids[n], out_attention_mask[n], token_logits[n],
+        #     )
+        #     word_tokens.append(w_log)
+        #     # print(w_log)
+        #     # [[[-0.122321, 0.5477483], [0.29194292, 0.25243184]], [[1.2884886, -0.32543716]], [[1.3269836, -0.7110777]], [[1.3455405, -0.35163462]], [[3.097056, -2.6140301], [2.3970132, -1.6225919]], [[4.5594597, -4.267489], [0.9773269, -0.5990794], [1.8215134, -1.1516997], [3.07208, -2.2448995]], [[1.5491418, -0.39506057]], [[-0.2085904, 1.0702324], [0.06467484, 0.5441629]], [[1.9133635, -0.7946717]], [[1.021127, 0.005990462]], [[2.6714847, -1.7314744]], [[1.4567714, -0.5617716]], [[2.8285592, -1.8737324]], [[1.2771648, -0.25786245]], [[1.2210628, -0.10261182]], [[2.439749, -2.8596659], [2.231847, -1.7220887]], [[3.9709387, -3.7806177]]]
+            
+        # if split_on_space:
+        #     model_outputs = [
+        #         [{word: word_tokens[i][j]} for j, word in enumerate(sentence.split()[: len(preds_list[i])])]
+        #         for i, sentence in enumerate(to_predict)
+        #     ]
+        # else:
+        #     model_outputs = [
+        #         [{word: word_tokens[i][j]} for j, word in enumerate(sentence[: len(preds_list[i])])]
+        #         for i, sentence in enumerate(to_predict)
+        #     ]
+
+        sources_tags, targets_tags, sources_confidence, targets_confidence = post_process_with_confidence(preds, preds_confidence, to_predict, args=self.args)
+
+        return sources_tags, targets_tags, sources_confidence, targets_confidence
 
     def _convert_tokens_to_word_logits(self, input_ids, label_ids, attention_mask, logits):
 
