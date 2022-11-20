@@ -78,10 +78,8 @@ if __name__ == '__main__':
 # 注意gold和pred不要写反
 
 # transquest whole test
-gold_label=/opt/tiger/fake_arnold/qe_data/wmt-qe-2019-data/test_en-de/test.mt_tag
-pred_label=/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/translation_prob/t5_small_pred_threshold0.001.mt_tag
-gold_label=/opt/tiger/fake_arnold/qe_data/wmt-qe-2019-data/dev_en-de/dev.mt_tag
-pred_label=/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/qe_label_augment_with_confidence/dev2019.mt_tag_conf0.65.pred
+gold_label=/opt/tiger/fake_arnold/qe_data/qe_data_mello_needs/test21/en-de-test21/test2021.mt_tag
+pred_label=/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/qe_label_augment_with_confidence/test2021.mt_tag_conf0.6_prob0.2.pred
 python3 mello_scripts/tool/estimate_word.py $gold_label $pred_label
 
 # robust train memory / part test

@@ -1,19 +1,20 @@
 # 调用外部翻译模型，计算force decoding概率
 import torch
 split = 'dev'
-data_prefix = '/opt/tiger/fake_arnold/qe_data/wmt-qe-2019-data/' + split + '_en-de/'
+data_prefix = '/opt/tiger/fake_arnold/qe_data/wmt-qe-2019-data/dev_en-de/'
 src_path = data_prefix + split + '.src'
 mt_path = data_prefix + split + '.mt'
-prob_save_path = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/translation_prob/t5_small_prob_' + split + '.txt'
+prob_save_path = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/translation_prob/t5_large_prob_' + split + '2019.txt'
 
 # ================================== T5 ================================== #
 from transformers import T5Tokenizer, T5ForConditionalGeneration
 
-mname = '/opt/tiger/fake_arnold/TransQuest_mello/transformers/t5-small'
+mname = '/opt/tiger/fake_arnold/TransQuest_mello/transformers/t5-large'
 tokenizer = T5Tokenizer.from_pretrained(mname)
 model = T5ForConditionalGeneration.from_pretrained(mname)
-# tokenizer.save_pretrained('/opt/tiger/fake_arnold/TransQuest_mello/transformers/t5-small')
-# model.save_pretrained('/opt/tiger/fake_arnold/TransQuest_mello/transformers/t5-small')
+# tokenizer.save_pretrained('/opt/tiger/fake_arnold/TransQuest_mello/transformers/t5-large')
+# model.save_pretrained('/opt/tiger/fake_arnold/TransQuest_mello/transformers/t5-large')
+
 device = 'cuda:0'
 model.to(device)
 

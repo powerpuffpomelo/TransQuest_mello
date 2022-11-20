@@ -1,30 +1,32 @@
 # 预测时，存储模型信心
 import os
 from examples.word_level.common.util import reader, prepare_testdata
-from mlqe_word_level.microtransquest_config_2019 import MODEL_TYPE, microtransquest_config
+from mlqe_word_level.microtransquest_config.microtransquest_config import MODEL_TYPE, microtransquest_config
 from mlqe_word_level.run_model import MicroTransQuestModel
 
 lang_pair = 'en-de'
 split = 'dev'
-save_name = '2019'
-TEST_PATH = "/opt/tiger/fake_arnold/qe_data/wmt-qe-2019-data/" + split + "_en-de"
+
+TEST_PATH = "/opt/tiger/fake_arnold/qe_data/qe_data_mello_needs/test21/en-de-test21"
 microtransquest_config['best_model_dir'] = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_2021_en-de/outputs/best_model'
+
+test_src_file = split + '2021.tok.src'
+test_mt_file = split + '2021.tok.mt'
+
 RESULT_DIRECTORY = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_2021_en-de/prediction_with_confidence'
 if not os.path.exists(RESULT_DIRECTORY):
     os.makedirs(RESULT_DIRECTORY)
 
-test_src_file = split + '.src'
-test_mt_file = split + '.mt'
+pred_year = '2021'
+TEST_SOURCE_TAGS_FILE = split + pred_year + ".src_tag.pred"
+TEST_TARGET_TAGS_FILE = split + pred_year + ".mtgap_tag.pred"
+TEST_MT_TAGS_FILE = split + pred_year + ".mt_tag.pred"
+TEST_GAP_TAGS_FILE = split + pred_year + ".gap_tag.pred"
 
-TEST_SOURCE_TAGS_FILE = split + save_name + ".src_tag.pred"
-TEST_TARGET_TAGS_FILE = split + save_name + ".mtgap_tag.pred"
-TEST_MT_TAGS_FILE = split + save_name + ".mt_tag.pred"
-TEST_GAP_TAGS_FILE = split + save_name + ".gap_tag.pred"
-
-test_src_conf_file = split + save_name + ".src_conf.pred"
-test_tgt_conf_file = split + save_name + ".mtgap_conf.pred"
-test_mt_conf_file = split + save_name + ".mt_conf.pred"
-test_gap_conf_file = split + save_name + ".gap_conf.pred"
+test_src_conf_file = split + pred_year + ".src_conf.pred"
+test_tgt_conf_file = split + pred_year + ".mtgap_conf.pred"
+test_mt_conf_file = split + pred_year + ".mt_conf.pred"
+test_gap_conf_file = split + pred_year + ".gap_conf.pred"
 
 raw_test_df = reader(TEST_PATH, test_src_file, test_mt_file)
 test_sentences = prepare_testdata(raw_test_df)
@@ -76,4 +78,4 @@ with open(os.path.join(RESULT_DIRECTORY, TEST_TARGET_TAGS_FILE), 'w', encoding='
         fcg.write(strg.strip() + '\n')
 
 
-# python3 mello_scripts/analysis/qe_confidence/predict_tag_2019_with_conficence.py
+# python3 mello_scripts/augment_by_confidence/predict_tag_with_conficence.py

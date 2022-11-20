@@ -1,8 +1,8 @@
 # 先导实验，计算force decoding概率 和 qe标签 的相关性，看是否能用force decoding来做qe任务
 from scipy.stats import pearsonr
 
-force_decoding_prob_path = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/translation_prob/t5_prob.txt'
-qe_gold_label_path = '/opt/tiger/fake_arnold/qe_data/wmt-qe-2019-data/test_en-de/test.mt_tag'
+force_decoding_prob_path = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/translation_prob/t5_large_prob_test2021.txt'
+qe_gold_label_path = '/opt/tiger/fake_arnold/qe_data/qe_data_mello_needs/test21/en-de-test21/test2021.mt_tag'
 
 prob_list = []
 label_list = []
