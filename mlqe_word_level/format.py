@@ -143,6 +143,14 @@ def post_process_with_confidence(predicted_sentences, preds_confidences, test_se
     for predicted_sentence, preds_confidence, test_sentence in zip(predicted_sentences, preds_confidences, test_sentences):
         # print(predicted_sentence) # [{'duplicates': 'BAD'}, {'the': 'OK'}, {'current': 'OK'}, {'set': 'OK'}, {'.': 'OK'}, {'[SEP]': 'OK'}, {'_': 'OK'}, {'Duiert': 'BAD'}, {'_': 'OK'}, {'den': 'OK'}, {'_': 'OK'}, {'aktuellen': 'OK'}, {'_': 'OK'}, {'Satz': 'OK'}, {'_': 'OK'}, {'.': 'OK'}, {'_': 'OK'}]
         # print(test_sentence) # duplicates the current set . [SEP] _ Duiert _ den _ aktuellen _ Satz _ . _
+        # assert len(predicted_sentence) == len(preds_confidence)
+        # if len(predicted_sentence) != len(test_sentence.split()):
+        #     print('---------------------------')
+        #     print(len(predicted_sentence))
+        #     print(len(test_sentence.split()))
+        #     print(predicted_sentence)
+        #     print(test_sentence)
+        #     assert 1==2
         source_tags = []
         target_tags = []
         source_confidence = []
@@ -169,6 +177,7 @@ def post_process_with_confidence(predicted_sentences, preds_confidences, test_se
                     target_confidence.append(list(preds_confidence[idx].values())[0])
                 else:
                     target_tags.append(args.default_quality)
+                    target_confidence.append(-1)   # 超长
 
         assert len(source_tags) == len(source_sentence.split())
 
@@ -177,6 +186,7 @@ def post_process_with_confidence(predicted_sentences, preds_confidences, test_se
                                          range(len(target_sentence.split()) - len(target_tags))]
 
         assert len(target_tags) == len(target_sentence.split())
+        assert len(target_tags) == len(target_confidence)
         sources_tags.append(source_tags)
         targets_tags.append(target_tags)
         sources_confidence.append(source_confidence)

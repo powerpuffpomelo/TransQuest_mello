@@ -1,28 +1,32 @@
 # 预测时，存储模型信心
 import os
 from examples.word_level.common.util import reader, prepare_testdata
-from mlqe_word_level.microtransquest_config_2019 import MODEL_TYPE, microtransquest_config, TEST_SOURCE_FILE, TEST_TARGET_FILE
+from mlqe_word_level.microtransquest_config_2019 import MODEL_TYPE, microtransquest_config
 from mlqe_word_level.run_model import MicroTransQuestModel
 
 lang_pair = 'en-de'
+split = 'dev'
 save_name = '2019'
-TEST_PATH = "/opt/tiger/fake_arnold/qe_data/wmt-qe-2019-data/test_en-de"
+TEST_PATH = "/opt/tiger/fake_arnold/qe_data/wmt-qe-2019-data/" + split + "_en-de"
 microtransquest_config['best_model_dir'] = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_2021_en-de/outputs/best_model'
 RESULT_DIRECTORY = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_2021_en-de/prediction_with_confidence'
 if not os.path.exists(RESULT_DIRECTORY):
     os.makedirs(RESULT_DIRECTORY)
 
-TEST_SOURCE_TAGS_FILE = "test" + save_name + ".src_tag.pred"
-TEST_TARGET_TAGS_FILE = "test" + save_name + ".mtgap_tag.pred"
-TEST_MT_TAGS_FILE = "test" + save_name + ".mt_tag.pred"
-TEST_GAP_TAGS_FILE = "test" + save_name + ".gap_tag.pred"
+test_src_file = split + '.src'
+test_mt_file = split + '.mt'
 
-test_src_conf_file = "test" + save_name + ".src_conf.pred"
-test_tgt_conf_file = "test" + save_name + ".mtgap_conf.pred"
-test_mt_conf_file = "test" + save_name + ".mt_conf.pred"
-test_gap_conf_file = "test" + save_name + ".gap_conf.pred"
+TEST_SOURCE_TAGS_FILE = split + save_name + ".src_tag.pred"
+TEST_TARGET_TAGS_FILE = split + save_name + ".mtgap_tag.pred"
+TEST_MT_TAGS_FILE = split + save_name + ".mt_tag.pred"
+TEST_GAP_TAGS_FILE = split + save_name + ".gap_tag.pred"
 
-raw_test_df = reader(TEST_PATH, TEST_SOURCE_FILE, TEST_TARGET_FILE)
+test_src_conf_file = split + save_name + ".src_conf.pred"
+test_tgt_conf_file = split + save_name + ".mtgap_conf.pred"
+test_mt_conf_file = split + save_name + ".mt_conf.pred"
+test_gap_conf_file = split + save_name + ".gap_conf.pred"
+
+raw_test_df = reader(TEST_PATH, test_src_file, test_mt_file)
 test_sentences = prepare_testdata(raw_test_df)
 
 model = MicroTransQuestModel(MODEL_TYPE, microtransquest_config["best_model_dir"], labels=["OK", "BAD"],
@@ -44,7 +48,10 @@ with open(os.path.join(RESULT_DIRECTORY, TEST_TARGET_TAGS_FILE), 'w', encoding='
     open(os.path.join(RESULT_DIRECTORY, test_mt_conf_file), 'w', encoding='utf-8') as fcm, \
     open(os.path.join(RESULT_DIRECTORY, test_gap_conf_file), 'w', encoding='utf-8') as fcg:
     for tgt_tag_line, tgt_conf_line in zip(targets_tags, targets_confidence):
+        assert len(tgt_tag_line) == len(tgt_conf_line)
+        
         tgt_conf_line = list(map(str, tgt_conf_line))
+
         f.write(' '.join(tgt_tag_line) + '\n')
         fc.write(' '.join(tgt_conf_line) + '\n')
 

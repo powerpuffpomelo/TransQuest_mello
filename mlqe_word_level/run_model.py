@@ -1256,8 +1256,9 @@ class MicroTransQuestModel:
                 nb_eval_steps += 1
 
                 # print(logits.size())    # [batch_size, seq_len, num_cls]
+                logits_softmax = torch.nn.functional.softmax(logits, dim=-1)
                 if preds is None:
-                    preds = logits.detach().cpu().numpy()
+                    preds = logits_softmax.detach().cpu().numpy()
                     if "labels" in inputs:
                         out_label_ids = inputs["labels"].detach().cpu().numpy()
                     else:
@@ -1265,7 +1266,7 @@ class MicroTransQuestModel:
                     out_input_ids = inputs["input_ids"].detach().cpu().numpy()
                     out_attention_mask = inputs["attention_mask"].detach().cpu().numpy()
                 else:
-                    preds = np.append(preds, logits.detach().cpu().numpy(), axis=0)
+                    preds = np.append(preds, logits_softmax.detach().cpu().numpy(), axis=0)
                     if "labels" in inputs:
                         out_label_ids = np.append(out_label_ids, inputs["labels"].detach().cpu().numpy(), axis=0)  # 虚假的labels
                     else:
