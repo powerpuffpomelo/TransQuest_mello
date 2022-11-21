@@ -4,20 +4,20 @@ from examples.word_level.common.util import reader, prepare_testdata
 from mlqe_word_level.microtransquest_config.microtransquest_config import MODEL_TYPE, microtransquest_config
 from mlqe_word_level.run_model import MicroTransQuestModel
 
-lang_pair = 'en-de'
-split = 'dev'
+split = 'test'
+pred_year = '21'
 
-TEST_PATH = "/opt/tiger/fake_arnold/qe_data/qe_data_mello_needs/test21/en-de-test21"
+TEST_PATH = '/opt/tiger/fake_arnold/qe_data/qe_data_mello/'+ split + pred_year + '/en-de-' + split + pred_year + '/'
+
+test_src_file = split + pred_year + '.src'
+test_mt_file = split + pred_year + '.mt'
+
+
 microtransquest_config['best_model_dir'] = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_2021_en-de/outputs/best_model'
-
-test_src_file = split + '2021.tok.src'
-test_mt_file = split + '2021.tok.mt'
-
 RESULT_DIRECTORY = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_2021_en-de/prediction_with_confidence'
 if not os.path.exists(RESULT_DIRECTORY):
     os.makedirs(RESULT_DIRECTORY)
-
-pred_year = '2021'
+# 预测结果保存文件
 TEST_SOURCE_TAGS_FILE = split + pred_year + ".src_tag.pred"
 TEST_TARGET_TAGS_FILE = split + pred_year + ".mtgap_tag.pred"
 TEST_MT_TAGS_FILE = split + pred_year + ".mt_tag.pred"

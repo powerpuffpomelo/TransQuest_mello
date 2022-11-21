@@ -1,10 +1,16 @@
 # 调用外部翻译模型，计算force decoding概率
+import os
 import torch
-split = 'dev'
-data_prefix = '/opt/tiger/fake_arnold/qe_data/wmt-qe-2019-data/dev_en-de/'
-src_path = data_prefix + split + '.src'
-mt_path = data_prefix + split + '.mt'
-prob_save_path = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/translation_prob/t5_large_prob_' + split + '2019.txt'
+
+year = '21'
+split = 'test'
+data_prefix = '/opt/tiger/fake_arnold/qe_data/qe_data_mello/' + split + year + '/en-de-' + split + year + '/'
+src_path = data_prefix + split + year + '.src'
+mt_path = data_prefix + split + year + '.mt'
+prob_save_prefix = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/translation_prob/t5_large/'
+prob_save_path = prob_save_prefix + 'prob_' + split + year + '.txt'
+if not os.path.exists(prob_save_prefix):
+    os.makedirs(prob_save_prefix, exist_ok=True)
 
 # ================================== T5 ================================== #
 from transformers import T5Tokenizer, T5ForConditionalGeneration
