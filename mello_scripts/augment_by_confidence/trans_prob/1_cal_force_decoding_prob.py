@@ -2,7 +2,7 @@
 import os
 import torch
 
-year = '21'
+year = '19'
 split = 'test'
 data_prefix = '/opt/tiger/fake_arnold/qe_data/qe_data_mello/' + split + year + '/en-de-' + split + year + '/'
 src_path = data_prefix + split + year + '.src'
@@ -59,4 +59,4 @@ with open(src_path, 'r', encoding='utf-8') as fsrc, \
             fsave.write(' '.join(map(str, probs_word)) + '\n')
 
 
-# python3 mello_scripts/augment_by_confidence/cal_force_decoding_prob.py
+# python3 mello_scripts/augment_by_confidence/trans_prob/1_cal_force_decoding_prob.py

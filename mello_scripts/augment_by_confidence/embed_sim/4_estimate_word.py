@@ -78,23 +78,8 @@ if __name__ == '__main__':
 # 注意gold和pred不要写反
 
 # transquest whole test
-gold_label=/opt/tiger/fake_arnold/qe_data/qe_data_mello_needs/test21/en-de-test21/test2021.mt_tag
-pred_label=/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/qe_label_augment_with_confidence/test2021.mt_tag_conf0.6_prob0.2.pred
+gold_label=/opt/tiger/fake_arnold/qe_data/qe_data_mello/test21/en-de-test21/test21.mt_tag
+pred_label=/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/qe_label_augment_with_confidence/embedding_similarity/entropy_test21.mt_tag_conf0.6_sim1.0.pred
 python3 mello_scripts/tool/estimate_word.py $gold_label $pred_label
-
-# robust train memory / part test
-lang_pair=si-en
-GOLD_PREFIX=data/test/${lang_pair}-test20
-PRE_PREFIX=transquest_model/train_result_${lang_pair}/prediction
-echo "a popular_part"
-python3 mello_scripts/tool/estimate_word.py $GOLD_PREFIX/test20.mt_tag_popular_part $PRE_PREFIX/test20.mt_tag_popular_part.pred
-echo "b niche_part"
-python3 mello_scripts/tool/estimate_word.py $GOLD_PREFIX/test20.mt_tag_niche_part $PRE_PREFIX/test20.mt_tag_niche_part.pred
-echo "c same_part"
-python3 mello_scripts/tool/estimate_word.py $GOLD_PREFIX/test20.mt_tag_same_part $PRE_PREFIX/test20.mt_tag_same_part.pred
-echo "d unseen_part"
-python3 mello_scripts/tool/estimate_word.py $GOLD_PREFIX/test20.mt_tag_unseen_part $PRE_PREFIX/test20.mt_tag_unseen_part.pred
-echo "c+d same_and_unseen_part"
-python3 mello_scripts/tool/estimate_word.py $GOLD_PREFIX/test20.mt_tag_same_and_unseen_part $PRE_PREFIX/test20.mt_tag_same_and_unseen_part.pred
 
 """
