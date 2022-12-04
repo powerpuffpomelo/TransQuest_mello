@@ -1,12 +1,12 @@
 import os
 from examples.word_level.common.util import reader, prepare_testdata
-from mlqe_word_level.microtransquest_config_2021 import MODEL_TYPE, microtransquest_config, TEST_SOURCE_FILE, TEST_TARGET_FILE
+from mlqe_word_level.microtransquest_config.microtransquest_config_2021 import MODEL_TYPE, microtransquest_config, TEST_SOURCE_FILE, TEST_TARGET_FILE
 from transquest.algo.word_level.microtransquest.run_model import MicroTransQuestModel
 
 lang_pair = 'en-de'
-save_name = '2021'
-TEST_PATH = "/opt/tiger/fake_arnold/TransQuest_mello/data/test21/" + lang_pair + "-test21"
-pred_model_name = '2021'
+save_name = '21'
+TEST_PATH = "/opt/tiger/fake_arnold/qe_data/qe_data_mello/test21/" + lang_pair + "-test21"
+pred_model_name = '21_focal_loss'
 microtransquest_config['best_model_dir'] = "checkpoints/train_result_" + pred_model_name + "_" + lang_pair + "/outputs/best_model"
 RESULT_DIRECTORY = "checkpoints/train_result_" + pred_model_name + "_" + lang_pair + "/prediction"
 if not os.path.exists(RESULT_DIRECTORY):

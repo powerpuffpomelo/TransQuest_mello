@@ -47,6 +47,7 @@ from transformers.optimization import (
 )
 
 from mlqe_word_level.format import post_process, prepare_data, format_to_test, post_process_with_confidence
+from mlqe_word_level.loss_func import FocalLoss
 from transquest.algo.word_level.microtransquest.model_args import MicroTransQuestArgs
 from transquest.algo.word_level.microtransquest.utils import sweep_config_to_sweep_values, InputExample, \
     read_examples_from_file, get_examples_from_df, convert_examples_to_features, LazyQEDataset
@@ -177,10 +178,11 @@ class MicroTransQuestModel:
         else:
             if not self.args.quantized_model:
                 self.model = model_class.from_pretrained(model_name, config=self.config, **kwargs)
+
             else:
                 quantized_weights = torch.load(os.path.join(model_name, "pytorch_model.bin"))
                 self.model = model_class.from_pretrained(None, config=self.config, state_dict=quantized_weights)
-
+                
             if self.args.dynamic_quantize:
                 self.model = torch.quantization.quantize_dynamic(self.model, {torch.nn.Linear}, dtype=torch.qint8)
             if self.args.quantized_model:
@@ -510,6 +512,7 @@ class MicroTransQuestModel:
                 batch = tuple(t.to(device) for t in batch)  # input_ids, input_mask, segment_ids, label_ids, adv_label_ids
 
                 inputs = self._get_inputs_dict(batch)
+                # print(inputs['labels'].size())   # [bsz, max_seq_len]
 
                 if self.args.fp16:
                     with amp.autocast():
@@ -519,7 +522,15 @@ class MicroTransQuestModel:
                 else:
                     # forward在这里
                     outputs = model(**inputs)
+                    logits = outputs.logits  # [bsz, seq_len, cls_num]
+
+                    focal_loss_func = FocalLoss()
+                    focal_loss = focal_loss_func(logits, inputs['labels'])
+                    # focal_loss = cal_focal_loss(logits.view(-1, logits.size(-1)), inputs['labels'].view(-1))
                     loss = outputs[0]
+                    loss = focal_loss
+                    # print(loss)
+                    # assert 1==2
 
                 if args.n_gpu > 1:
                     loss = loss.mean()  # mean() to average on multi-gpu parallel training

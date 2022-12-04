@@ -78,10 +78,10 @@ if __name__ == '__main__':
 # 注意gold和pred不要写反
 
 # transquest whole test
-lang_pair=si-en
-GOLD_PREFIX=data/test/${lang_pair}-test20
-PRE_PREFIX=train_result_${lang_pair}/prediction
-python3 mello_scripts/tool/estimate_word.py $GOLD_PREFIX/test20.mt_tag $PRE_PREFIX/test20.mt_tag.pred
+lang_pair=en-de
+GOLD_PREFIX=/opt/tiger/fake_arnold/qe_data/qe_data_mello/test21/en-de-test21
+PRE_PREFIX=/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_21_focal_loss_en-de/prediction
+python3 mello_scripts/tool/estimate_word.py $GOLD_PREFIX/test21.mt_tag $PRE_PREFIX/test21.mt_tag.pred
 
 # robust train memory / part test
 lang_pair=si-en

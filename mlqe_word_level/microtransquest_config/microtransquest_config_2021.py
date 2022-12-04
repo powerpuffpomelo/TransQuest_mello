@@ -1,23 +1,23 @@
 from multiprocessing import cpu_count
 
-lang_pair = 'en-zh'
+lang_pair = 'en-de'
 
-path_prefix = '/opt/tiger/fake_arnold/TransQuest_mello/data/test21/'
-TRAIN_PATH = path_prefix + lang_pair + "/train/"
+path_prefix = '/opt/tiger/fake_arnold/qe_data/qe_data_mello/'
+# TRAIN_PATH = path_prefix + 'train21/' + lang_pair + "-train/"
 TRAIN_SOURCE_FILE = "train.src"
 TRAIN_SOURCE_TAGS_FILE = "train.source_tags"
 TRAIN_TARGET_FILE = "train.mt"
 TRAIN_TARGET_TAGS_FLE = "train.tags"
 
-DEV_PATH = path_prefix + lang_pair + "/dev/"
+# DEV_PATH = path_prefix + 'dev21/' + lang_pair + "-dev/"
 DEV_SOURCE_FILE = "dev.src"
 DEV_SOURCE_TAGS_FILE = "dev.source_tags"
 DEV_TARGET_FILE = "dev.mt"
 DEV_TARGET_TAGS_FLE = "dev.tags"
 
-TEST_PATH = path_prefix + lang_pair + "-test21/"
-TEST_SOURCE_FILE = "test2021.tok.src"
-TEST_TARGET_FILE = "test2021.tok.mt"
+TEST_PATH = path_prefix + 'test21/' + lang_pair + "-test21/"
+TEST_SOURCE_FILE = "test21.src"
+TEST_TARGET_FILE = "test21.mt"
 
 TEST_SOURCE_TAGS_FILE = "test_predictions_src.txt"
 TEST_TARGET_TAGS_FLE = "test_predictions_mt.txt"
@@ -26,7 +26,7 @@ DEV_SOURCE_TAGS_FILE_SUB = "dev_predictions_src.txt"
 DEV_TARGET_TAGS_FILE_SUB = "dev_predictions_mt.txt"
 
 SEED = 777
-TEMP_DIRECTORY = "train_result_" + lang_pair + "/data"
+TEMP_DIRECTORY = "checkpoints/train_result_" + lang_pair + "/data"
 GOOGLE_DRIVE = False
 DRIVE_FILE_ID = None
 MODEL_TYPE = "xlmroberta"
