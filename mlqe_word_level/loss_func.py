@@ -2,8 +2,10 @@ from torch import nn
 import torch
 from torch.nn import functional as F
 
+# 0 ok 1 bad
+
 class FocalLoss(nn.Module):
-    def __init__(self, gamma=2, num_class = 2, reduction='mean'):
+    def __init__(self, alpha=0.25, gamma=2, num_class = 2, reduction='mean'):
         """
         focal_loss损失函数, -α(1-yi)**γ *ce_loss(xi,yi)
         步骤详细的实现了 focal_loss损失函数.
@@ -17,6 +19,7 @@ class FocalLoss(nn.Module):
         :param size_average: 损失计算方式,默认取均值
         """
         super(FocalLoss,self).__init__()
+        self.alpha = alpha
         self.num_class = num_class
         self.reduction = reduction
         self.gamma = gamma
@@ -36,6 +39,9 @@ class FocalLoss(nn.Module):
         mask = labels.ge(0)
         preds = torch.masked_select(preds, mask.unsqueeze(-1)).view(-1, self.num_class)
         labels = torch.masked_select(labels, mask)
+        alpha = [self.alpha if labels[i] == 0 else (1 - self.alpha) for i in range(labels.size(-1))]
+        device = labels.device
+        alpha = torch.Tensor(alpha).to(device)
 
         # 这里并没有直接使用log_softmax, 因为后面会用到softmax的结果(当然也可以使用log_softmax,然后进行exp操作)
         preds_softmax = F.softmax(preds, dim=-1)
@@ -48,7 +54,7 @@ class FocalLoss(nn.Module):
         ce_loss = -logpt  # 对log_softmax再取负，就是交叉熵了  同 torch.nn.CrossEntropyLoss(reduction='none')
 
         pt = torch.exp(logpt)  #对log_softmax取exp，把log消了，就是每个样本在类别标签位置的softmax值了，shape=(bs)
-        focal_loss = (1 - pt) ** self.gamma * ce_loss  # 根据公式计算focal loss，得到每个样本的loss值，shape=(bs)
+        focal_loss = (1 - pt) ** self.gamma * alpha * 10 * ce_loss  # 根据公式计算focal loss，得到每个样本的loss值，shape=(bs)
 
         if self.reduction == 'mean':
             focal_loss = focal_loss.mean()
@@ -56,6 +62,23 @@ class FocalLoss(nn.Module):
             focal_loss = focal_loss.sum()
         return focal_loss
 
+
+class DiceLoss(nn.Module):
+    def __init__(self):
+        super(DiceLoss, self).__init__()
+
+    def forward(self, input, target):
+        N = target.size(0)
+        smooth = 1
+
+        input_flat = input.view(N, -1)
+        target_flat = target.view(N, -1)
+
+        intersection = input_flat * target_flat
+
+        loss = 2 * (intersection.sum(1) + smooth) / (input_flat.sum(1) + target_flat.sum(1) + smooth)
+        # loss = 1 - loss.sum() / N
+        return 1 - loss
 
 # fl = FocalLoss()
 # logit = torch.rand((5, 2))

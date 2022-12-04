@@ -523,10 +523,8 @@ class MicroTransQuestModel:
                     # forward在这里
                     outputs = model(**inputs)
                     logits = outputs.logits  # [bsz, seq_len, cls_num]
-
                     focal_loss_func = FocalLoss()
                     focal_loss = focal_loss_func(logits, inputs['labels'])
-                    # focal_loss = cal_focal_loss(logits.view(-1, logits.size(-1)), inputs['labels'].view(-1))
                     loss = outputs[0]
                     loss = focal_loss
                     # print(loss)
