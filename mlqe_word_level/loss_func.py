@@ -5,7 +5,7 @@ from torch.nn import functional as F
 # 0 ok 1 bad
 
 class FocalLoss(nn.Module):
-    def __init__(self, alpha=0.25, gamma=2, num_class = 2, reduction='mean'):
+    def __init__(self, alpha=0.1, gamma=2, num_class = 2, reduction='mean'):
         """
         focal_loss损失函数, -α(1-yi)**γ *ce_loss(xi,yi)
         步骤详细的实现了 focal_loss损失函数.
