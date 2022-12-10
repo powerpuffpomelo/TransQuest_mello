@@ -5,7 +5,7 @@ from torch.nn import functional as F
 # 0 ok 1 bad
 
 class FocalLoss(nn.Module):
-    def __init__(self, alpha=0.1, gamma=2, num_class = 2, reduction='mean'):
+    def __init__(self, alpha=0.25, gamma=2, num_class = 2, reduction='mean'):
         """
         focal_loss损失函数, -α(1-yi)**γ *ce_loss(xi,yi)
         步骤详细的实现了 focal_loss损失函数.
@@ -64,26 +64,44 @@ class FocalLoss(nn.Module):
 
 
 class DiceLoss(nn.Module):
-    def __init__(self):
-        super(DiceLoss, self).__init__()
+    def __init__(self, num_class=2, eps=1e-8):
+        super().__init__()
+        self.num_class = num_class
+        self.eps = eps
 
-    def forward(self, input, target):
-        N = target.size(0)
-        smooth = 1
+    def forward(self, logits, labels):
+        # assert logits.dim()==2 and labels.dim()==1
+        logits = logits.view(-1, logits.size(-1))   # logits [seq_len, num_cls]
+        labels = labels.view(-1)   # labels [seq_len]
 
-        input_flat = input.view(N, -1)
-        target_flat = target.view(N, -1)
+        mask = labels.ge(0)
+        logits = torch.masked_select(logits, mask.unsqueeze(-1)).view(-1, self.num_class)
+        labels = torch.masked_select(labels, mask)
 
-        intersection = input_flat * target_flat
+        probs = F.softmax(logits, dim=-1)
+        prob_1 = probs[:, 1]
+        prob_0 = probs[:, 0]
+        label_1 = (labels == 1).int()
+        label_0 = (labels == 0).int()
 
-        loss = 2 * (intersection.sum(1) + smooth) / (input_flat.sum(1) + target_flat.sum(1) + smooth)
-        # loss = 1 - loss.sum() / N
-        return 1 - loss
+        intersection_1 = 2 * torch.sum(prob_1 * label_1) + self.eps
+        union_1 = torch.sum(prob_1) + torch.sum(label_1) + self.eps
+        dice_1 = intersection_1 / union_1
 
-# fl = FocalLoss()
-# logit = torch.rand((5, 2))
-# label = torch.tensor([1, 0, 0, -100, -100])
-# loss = fl(logit, label)
+        intersection_0 = 2 * torch.sum(prob_0 * label_0) + self.eps
+        union_0 = torch.sum(prob_0) + torch.sum(label_0) + self.eps
+        dice_0 = intersection_0 / union_0
+
+        dice = dice_1 * dice_0
+        loss = 1 - dice
+
+        return loss
+
+
+dc = DiceLoss()
+logit = torch.rand((5, 2))
+label = torch.tensor([1, 0, 0, -100, -100])
+loss = dc(logit, label)
 # print(loss)
 
 # python3 /opt/tiger/fake_arnold/TransQuest_mello/mlqe_word_level/loss_func.py

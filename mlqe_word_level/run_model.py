@@ -47,7 +47,7 @@ from transformers.optimization import (
 )
 
 from mlqe_word_level.format import post_process, prepare_data, format_to_test, post_process_with_confidence
-from mlqe_word_level.loss_func import FocalLoss
+from mlqe_word_level.loss_func import FocalLoss, DiceLoss
 from transquest.algo.word_level.microtransquest.model_args import MicroTransQuestArgs
 from transquest.algo.word_level.microtransquest.utils import sweep_config_to_sweep_values, InputExample, \
     read_examples_from_file, get_examples_from_df, convert_examples_to_features, LazyQEDataset
@@ -103,6 +103,10 @@ class MicroTransQuestModel:
             self.args.update_from_dict(args)
         elif isinstance(args, MicroTransQuestArgs):
             self.args = args
+        
+        self.args.loss_type = 'ce'
+        if 'loss_type' in args.keys():
+            self.args.loss_type = args['loss_type']
 
         if "sweep_config" in kwargs:
             self.is_sweeping = True
@@ -522,13 +526,18 @@ class MicroTransQuestModel:
                 else:
                     # forward在这里
                     outputs = model(**inputs)
-                    logits = outputs.logits  # [bsz, seq_len, cls_num]
-                    focal_loss_func = FocalLoss()
-                    focal_loss = focal_loss_func(logits, inputs['labels'])
                     loss = outputs[0]
-                    loss = focal_loss
-                    # print(loss)
-                    # assert 1==2
+
+                    if self.args.loss_type == 'focal':
+                        logits = outputs.logits  # [bsz, seq_len, cls_num]
+                        focal_loss_func = FocalLoss()
+                        focal_loss = focal_loss_func(logits, inputs['labels'])
+                        loss = focal_loss
+                    elif self.args.loss_type == 'dice':
+                        logits = outputs.logits  # [bsz, seq_len, cls_num]
+                        dice_loss_func = DiceLoss()
+                        dice_loss = dice_loss_func(logits, inputs['labels'])
+                        loss = dice_loss
 
                 if args.n_gpu > 1:
                     loss = loss.mean()  # mean() to average on multi-gpu parallel training

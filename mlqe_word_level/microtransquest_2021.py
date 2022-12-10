@@ -14,6 +14,7 @@ from mlqe_word_level.run_model import MicroTransQuestModel
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--lang_pair', '-l', type=str)
+parser.add_argument('--loss_type', type=str, default='ce')
 parser.add_argument('--model_path', type=str, default=None)
 parser.add_argument('--save_name', type=str, default=None)
 args = parser.parse_args()
@@ -31,6 +32,7 @@ if not os.path.exists(TEMP_DIRECTORY):
 microtransquest_config['output_dir'] = temp_prefix + '/outputs/'
 microtransquest_config['best_model_dir'] = temp_prefix + "/outputs/best_model"
 microtransquest_config['cache_dir'] = temp_prefix + '/cache_dir/'
+microtransquest_config['loss_type'] = args.loss_type
 
 if args.model_path is not None:
     MODEL_NAME = args.model_path

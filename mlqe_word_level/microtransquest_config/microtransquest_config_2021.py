@@ -106,5 +106,7 @@ microtransquest_config = {
     "source_tags_column": "source_tags",
     "target_tags_column": "target_tags",
 
+    "loss_type": "ce",
+
     "reg_lambda": -0.5,
 }
