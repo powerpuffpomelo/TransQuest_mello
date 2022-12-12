@@ -16,8 +16,8 @@ DEV_TARGET_FILE = "dev.mt"
 DEV_TARGET_TAGS_FLE = "dev.tags"
 
 TEST_PATH = path_prefix + "/test_" + lang_pair + "/"
-TEST_SOURCE_FILE = "test.src"
-TEST_TARGET_FILE = "test.mt"
+TEST_SOURCE_FILE = "test19.src"
+TEST_TARGET_FILE = "test19.mt"
 
 TEST_SOURCE_TAGS_FILE = "test_predictions_src.txt"
 TEST_TARGET_TAGS_FLE = "test_predictions_mt.txt"

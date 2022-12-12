@@ -7,12 +7,12 @@ parser.add_argument('--conf_threshold', '-c', type=float)
 args = parser.parse_args()
 
 split = 'test'
-year = '21'
+year = '19'
 qe_info_prefix = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_2021_en-de/prediction_with_confidence/'
 qe_pred_path = qe_info_prefix + split + year + '.mt_tag.pred'
 qe_confidence_path = qe_info_prefix + split + year + '.mt_conf.pred'
 
-loss_info_prefix = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_21_focal_loss_en-de_gamma2_alpha0.25/prediction_with_confidence/'
+loss_info_prefix = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_21_dice_loss_en-de_mul1/prediction/'
 loss_pred_path = loss_info_prefix + split + year + '.mt_tag.pred'
 save_label_prefix = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/qe_label_augment_with_confidence/change_loss/'
 if not os.path.exists(save_label_prefix):

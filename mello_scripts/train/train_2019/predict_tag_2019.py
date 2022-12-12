@@ -1,17 +1,15 @@
 import os
 from examples.word_level.common.util import reader, prepare_testdata
-from mlqe_word_level.microtransquest_config_2019 import MODEL_TYPE, microtransquest_config, TEST_SOURCE_FILE, TEST_TARGET_FILE
+from mlqe_word_level.microtransquest_config.microtransquest_config_2019 import MODEL_TYPE, microtransquest_config, TEST_SOURCE_FILE, TEST_TARGET_FILE
 from transquest.algo.word_level.microtransquest.run_model import MicroTransQuestModel
 
 lang_pair = 'en-de'
-save_name = '2019'
-split = 'dev'
-TEST_PATH = "/opt/tiger/fake_arnold/wmt-qe-2019-data/" + split + "_en-de"
-pred_model_name = '2021'
-#microtransquest_config['best_model_dir'] = "checkpoints/train_result_" + pred_model_name + "_" + lang_pair + "/outputs/best_model"
-microtransquest_config['best_model_dir'] = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_finetune_qe_from_tlm_lr4e-5_mask0.3_en-de/outputs/best_model'
-#RESULT_DIRECTORY = "checkpoints/train_result_" + pred_model_name + "_" + lang_pair + "/prediction"
-RESULT_DIRECTORY = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_finetune_qe_from_tlm_lr4e-5_mask0.3_en-de/prediction'
+save_name = '19'
+split = 'test'
+TEST_PATH = "/opt/tiger/fake_arnold/qe_data/qe_data_mello/" + split + "19/" + lang_pair + "-" + split + "19"
+pred_model_name = '21_seed_999'
+microtransquest_config['best_model_dir'] = "checkpoints/train_result_" + pred_model_name + "_" + lang_pair + "/outputs/best_model"
+RESULT_DIRECTORY = "checkpoints/train_result_" + pred_model_name + "_" + lang_pair + "/prediction"
 if not os.path.exists(RESULT_DIRECTORY):
     os.makedirs(RESULT_DIRECTORY)
 TEST_SOURCE_TAGS_FILE = split + save_name + ".src_tag.pred"

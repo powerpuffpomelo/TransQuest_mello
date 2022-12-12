@@ -79,6 +79,8 @@ class DiceLoss(nn.Module):
         labels = torch.masked_select(labels, mask)
 
         probs = F.softmax(logits, dim=-1)
+
+        # v1
         prob_1 = probs[:, 1]
         prob_0 = probs[:, 0]
         label_1 = (labels == 1).int()
@@ -94,6 +96,13 @@ class DiceLoss(nn.Module):
 
         dice = dice_1 * dice_0
         loss = 1 - dice
+
+        # v2 很糟没法用
+        # probs = torch.gather(probs, dim=-1, index=labels.view(-1, 1)).squeeze()
+        # intersection = 2 * torch.sum(probs * labels) + self.eps
+        # union = torch.sum(probs) + torch.sum(labels) + self.eps
+        # dice = intersection / union
+        # loss = 1 - dice
 
         return loss
 

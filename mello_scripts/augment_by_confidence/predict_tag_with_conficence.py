@@ -5,14 +5,14 @@ from mlqe_word_level.microtransquest_config.microtransquest_config import MODEL_
 from mlqe_word_level.run_model import MicroTransQuestModel
 
 split = 'test'
-pred_year = '19'
+pred_year = '21'
 
 TEST_PATH = '/opt/tiger/fake_arnold/qe_data/qe_data_mello/'+ split + pred_year + '/en-de-' + split + pred_year + '/'
 
 test_src_file = split + pred_year + '.src'
 test_mt_file = split + pred_year + '.mt'
 
-pred_model_prefix = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_2021_en-de/'
+pred_model_prefix = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_21_seed_999_en-de/'
 microtransquest_config['best_model_dir'] = pred_model_prefix + 'outputs/best_model'
 RESULT_DIRECTORY = pred_model_prefix + 'prediction_with_confidence'
 if not os.path.exists(RESULT_DIRECTORY):

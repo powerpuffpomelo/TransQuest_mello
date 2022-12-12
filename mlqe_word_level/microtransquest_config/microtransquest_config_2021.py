@@ -25,7 +25,7 @@ TEST_TARGET_TAGS_FLE = "test_predictions_mt.txt"
 DEV_SOURCE_TAGS_FILE_SUB = "dev_predictions_src.txt"
 DEV_TARGET_TAGS_FILE_SUB = "dev_predictions_mt.txt"
 
-SEED = 777
+SEED = 999
 TEMP_DIRECTORY = "checkpoints/train_result_" + lang_pair + "/data"
 GOOGLE_DRIVE = False
 DRIVE_FILE_ID = None
