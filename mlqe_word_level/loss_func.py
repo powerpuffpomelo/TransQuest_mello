@@ -4,6 +4,32 @@ from torch.nn import functional as F
 
 # 0 ok 1 bad
 
+class CELoss(nn.Module):
+    def __init__(self, num_class=2, eps=1e-8, reduction='mean'):
+        super(CELoss,self).__init__()
+        self.num_class = num_class
+        self.eps = eps
+        self.reduction = reduction
+        self.weight = torch.Tensor([0.4, 0.6])
+
+    def forward(self, preds, labels):
+        # assert preds.dim()==2 and labels.dim()==1
+        preds = preds.view(-1,preds.size(-1))
+        labels = labels.view(-1)
+        
+        device = labels.device
+        weight = self.weight.to(device)
+
+        ce_func = torch.nn.CrossEntropyLoss(weight=weight, reduction='none')
+        ce_loss = ce_func(preds, labels)
+
+        if self.reduction == 'mean':
+            ce_loss = ce_loss.mean()
+        else:
+            ce_loss = ce_loss.sum()
+        return ce_loss
+
+
 class FocalLoss(nn.Module):
     def __init__(self, alpha=0.25, gamma=2, num_class = 2, reduction='mean'):
         """
@@ -107,7 +133,43 @@ class DiceLoss(nn.Module):
         return loss
 
 
-dc = DiceLoss()
+class LogitAdjustmentLoss(nn.Module):
+    def __init__(self, num_class=2, tau=0.3, eps=1e-8, reduction='mean'):
+        super(LogitAdjustmentLoss,self).__init__()
+        self.tau = tau
+        self.num_class = num_class
+        self.eps = eps
+        self.reduction = reduction
+        self.prior = torch.Tensor([0.7, 0.3])
+
+    def forward(self, preds, labels):
+        # assert preds.dim()==2 and labels.dim()==1
+        preds = preds.view(-1,preds.size(-1))
+        labels = labels.view(-1)
+        
+        mask = labels.ge(0)
+        preds = torch.masked_select(preds, mask.unsqueeze(-1)).view(-1, self.num_class)
+        labels = torch.masked_select(labels, mask)
+        
+        device = labels.device
+        prior = self.prior.to(device)
+        log_prior = torch.log(prior + self.eps).unsqueeze(0)
+        # print(preds)
+        preds = preds + self.tau * log_prior
+        # print(log_prior)
+        # print(preds)
+
+        ce_func = torch.nn.CrossEntropyLoss(reduction='none')
+        logit_adjustment_loss = ce_func(preds, labels)
+
+        if self.reduction == 'mean':
+            logit_adjustment_loss = logit_adjustment_loss.mean()
+        else:
+            logit_adjustment_loss = logit_adjustment_loss.sum()
+        return logit_adjustment_loss
+
+
+dc = LogitAdjustmentLoss()
 logit = torch.rand((5, 2))
 label = torch.tensor([1, 0, 0, -100, -100])
 loss = dc(logit, label)

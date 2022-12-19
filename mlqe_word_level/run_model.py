@@ -47,7 +47,7 @@ from transformers.optimization import (
 )
 
 from mlqe_word_level.format import post_process, prepare_data, format_to_test, post_process_with_confidence
-from mlqe_word_level.loss_func import FocalLoss, DiceLoss
+from mlqe_word_level.loss_func import CELoss, FocalLoss, DiceLoss, LogitAdjustmentLoss
 from transquest.algo.word_level.microtransquest.model_args import MicroTransQuestArgs
 from transquest.algo.word_level.microtransquest.utils import sweep_config_to_sweep_values, InputExample, \
     read_examples_from_file, get_examples_from_df, convert_examples_to_features, LazyQEDataset
@@ -528,7 +528,12 @@ class MicroTransQuestModel:
                     outputs = model(**inputs)
                     loss = outputs[0]
 
-                    if self.args.loss_type == 'focal':
+                    if self.args.loss_type == 'mello_ce':
+                        logits = outputs.logits  # [bsz, seq_len, cls_num]
+                        ce_loss_func = CELoss()
+                        ce_loss = ce_loss_func(logits, inputs['labels'])
+                        loss = ce_loss
+                    elif self.args.loss_type == 'focal':
                         logits = outputs.logits  # [bsz, seq_len, cls_num]
                         focal_loss_func = FocalLoss()
                         focal_loss = focal_loss_func(logits, inputs['labels'])
@@ -538,6 +543,11 @@ class MicroTransQuestModel:
                         dice_loss_func = DiceLoss()
                         dice_loss = dice_loss_func(logits, inputs['labels'])
                         loss = dice_loss
+                    elif self.args.loss_type == 'logit_adjustment':
+                        logits = outputs.logits  # [bsz, seq_len, cls_num]
+                        logit_adjustment_loss_func = LogitAdjustmentLoss()
+                        logit_adjustment_loss = logit_adjustment_loss_func(logits, inputs['labels'])
+                        loss = logit_adjustment_loss
 
                 if args.n_gpu > 1:
                     loss = loss.mean()  # mean() to average on multi-gpu parallel training
