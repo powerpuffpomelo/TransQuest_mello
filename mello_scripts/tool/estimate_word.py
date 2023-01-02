@@ -79,9 +79,9 @@ if __name__ == '__main__':
 
 # transquest whole test
 lang_pair=en-de
-GOLD_PREFIX=/opt/tiger/fake_arnold/qe_data/qe_data_mello/test21/en-de-test21
-PRE_PREFIX=/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_21_logit_adjustment_loss_tau0.3_ok0.7_en-de/prediction
-python3 mello_scripts/tool/estimate_word.py $GOLD_PREFIX/test21.mt_tag $PRE_PREFIX/test21.mt_tag.pred
+GOLD_PREFIX=/opt/tiger/fake_arnold/qe_data/qe_data_mello/test19/en-de-test19
+PRE_PREFIX=/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_21_proto_finetune_en-de/prediction
+python3 mello_scripts/tool/estimate_word.py $GOLD_PREFIX/test19.mt_tag $PRE_PREFIX/test19.mt_tag.pred
 
 # robust train memory / part test
 lang_pair=si-en
