@@ -191,6 +191,7 @@ def get_examples_from_df(data, bbox=False):
                 for sentence_id, sentence_df in data.groupby(["sentence_id"])
             ]
         else:
+            # 只有平行语料
             return [
                 InputExampleForTLM(guid=sentence_id, words=sentence_df["words"].tolist())
                 for sentence_id, sentence_df in data.groupby(["sentence_id"])
@@ -571,7 +572,7 @@ def convert_example_to_feature_tlm(example_row):
     label_ids = []
     random_tool = random.Random(322)
     # print(tokenizer.mask_token_id)  # 250001
-
+    print("aaaaaaaaaaaaaaaaa")
     for word in example.words:
         word_tokens = tokenizer.tokenize(word)
         word_tokens_ids = tokenizer.convert_tokens_to_ids(word_tokens)
@@ -581,7 +582,10 @@ def convert_example_to_feature_tlm(example_row):
         else:
             input_ids.extend(word_tokens_ids)
             label_ids.extend([-100] * len(word_tokens_ids))
-
+    # tokenizer.mask_token_id 250001
+    print(input_ids)
+    print(label_ids)
+    assert 1==2
     # Account for [CLS] and [SEP] with "- 2" and with "- 3" for RoBERTa.
     special_tokens_count = 3 if sep_token_extra else 2
     if len(input_ids) > max_seq_length - special_tokens_count:

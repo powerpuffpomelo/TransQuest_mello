@@ -44,9 +44,6 @@ raw_dev_df = reader(DEV_PATH, DEV_SOURCE_FILE, DEV_TARGET_FILE, DEV_SOURCE_TAGS_
 
 dev_sentences = prepare_testdata(raw_dev_df)
 
-fold_sources_tags = []
-fold_targets_tags = []
-
 dev_fold_sources_tags = []
 dev_fold_targets_tags = []
 

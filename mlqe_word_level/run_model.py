@@ -292,8 +292,23 @@ class MicroTransQuestModel:
             )
 
         train_data = prepare_data(train_data, self.args)   # pd
-
         eval_data = prepare_data(eval_data, self.args)
+
+        # eval_data
+        """
+        sentence_id     words labels
+        0                0     Mafia     OK
+        1                0    bosses     OK
+        2                0  reformed     OK
+        3                0     their     OK
+        4                0     clans     OK
+        ...            ...       ...    ...
+        35604          699         _     OK
+        35605          699         "     OK
+        35606          699         _     OK
+        35607          699         .     OK
+        35608          699         _     OK
+        """
 
         self._move_model_to_device()
 
@@ -1432,7 +1447,9 @@ class MicroTransQuestModel:
                         raise ValueError("Input must be given as a path to a file when using lazy loading")
                     
                     examples = get_examples_from_df(data, bbox=True if self.args.model_type == "layoutlm" else False)   # 经过了
-
+                    # print(examples[0].guid) # 0
+                    # print(examples[0].words) # ['José', 'Ortega', 'y', 'Gasset', 'visited', 'Husserl', 'at', 'Freiburg', 'in', '1934', '.', '[SEP]', '1934', 'besuchte', 'José', 'Ortega', 'y', 'Gasset', 'Husserl', 'in', 'Freiburg', '.']
+                    
             if hasattr(self, 'num_labels'):
                 cached_features_file = os.path.join(
                     args.cache_dir,
@@ -1481,6 +1498,13 @@ class MicroTransQuestModel:
                     use_multiprocessing=args.use_multiprocessing,
                     chunksize=args.multiprocessing_chunksize,
                 )
+                print("==================")
+                print(features[0].input_ids)
+                print(features[0].input_mask)
+                print(features[0].segment_ids)
+                print(features[0].label_ids)
+                print(features[0].adv_label_ids)
+                assert 1==2
 
                 if not no_cache:
                     torch.save(features, cached_features_file)
@@ -1999,6 +2023,22 @@ class MicroTQForTLM(MicroTransQuestModel):
 
         train_data = prepare_data(train_data, self.args)   # pd
         eval_data = prepare_data(eval_data, self.args)
+
+        # eval_data
+        """
+        sentence_id           words
+        0                0  Simultaneously
+        1                0               ,
+        2                0             the
+        3                0          Legion
+        4                0            took
+        ...            ...             ...
+        33928          999            Sand
+        33929          999             und
+        33930          999   pulverförmige
+        33931          999            Erde
+        33932          999               .
+        """
 
         self._move_model_to_device()
 
@@ -2988,7 +3028,6 @@ class MicroTQForTLMQE(MicroTransQuestModel):
 
         if args.n_gpu > 1:
             model = torch.nn.DataParallel(model)
-
         global_step = 0
         training_progress_scores = None
         tr_loss, logging_loss = 0.0, 0.0

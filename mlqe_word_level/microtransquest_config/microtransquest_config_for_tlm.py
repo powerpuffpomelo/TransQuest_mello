@@ -2,7 +2,8 @@ from multiprocessing import cpu_count
 
 lang_pair = 'en-zh'
 
-TRAIN_PATH = "data/train/" + lang_pair + "-train/"
+path_prefix = '/opt/tiger/fake_arnold/qe_data/qe_data_mello/'
+TRAIN_PATH = "qe_data/train/" + lang_pair + "-train/"
 TRAIN_SOURCE_FILE = "train.src"
 TRAIN_SOURCE_TAGS_FILE = "train.source_tags"
 TRAIN_TARGET_FILE = "train.mt"
@@ -11,7 +12,7 @@ TRAIN_PE_FILE = "train.pe"
 TRAIN_SOURCE_ADV_TAGS_FILE = "train.src_ok_ratio_tag"
 TRAIN_TARGET_ADV_TAGS_FILE = "train.mtgap_ok_ratio_tag"
 
-DEV_PATH = "data/dev/" + lang_pair + "-dev/"
+DEV_PATH = "qe_data/dev/" + lang_pair + "-dev/"
 DEV_SOURCE_FILE = "dev.src"
 DEV_SOURCE_TAGS_FILE = "dev.source_tags"
 DEV_TARGET_FILE = "dev.mt"
@@ -20,7 +21,7 @@ DEV_PE_FILE = "dev.pe"
 DEV_SOURCE_ADV_TAGS_FILE = "dev.src_ok_ratio_tag"
 DEV_TARGET_ADV_TAGS_FILE = "dev.mtgap_ok_ratio_tag"
 
-TEST_PATH = "data/test/" + lang_pair + "-test20/"
+TEST_PATH = "qe_data/test/" + lang_pair + "-test20/"
 TEST_SOURCE_FILE = "test20.src"
 TEST_TARGET_FILE = "test20.mt"
 TEST_PE_FILE = "test20.pe"
