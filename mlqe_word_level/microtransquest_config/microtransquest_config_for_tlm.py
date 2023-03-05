@@ -52,7 +52,7 @@ microtransquest_config = {
     'eval_batch_size': 8,
     'num_train_epochs': 10,
     'weight_decay': 0,
-    'learning_rate': 4e-5,
+    'learning_rate': 5e-6,
     'adam_epsilon': 1e-8,
     'warmup_ratio': 0.1,
     'warmup_steps': 0,
@@ -72,7 +72,7 @@ microtransquest_config = {
     "evaluate_during_training_verbose": True,
     'use_cached_eval_features': False,
     "save_best_model": True,
-    'save_eval_checkpoints': True,
+    'save_eval_checkpoints': False,
     'tensorboard_dir': None,
     "save_optimizer_and_scheduler": True,
 
@@ -91,7 +91,7 @@ microtransquest_config = {
     'wandb_kwargs': {},
 
     "use_early_stopping": True,
-    "early_stopping_patience": 10,
+    "early_stopping_patience": 30,
     "early_stopping_delta": 0,
     "early_stopping_metric": "eval_loss",
     "early_stopping_metric_minimize": True,

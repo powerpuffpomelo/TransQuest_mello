@@ -20,7 +20,7 @@ lang_pair = args.lang_pair
 TRAIN_PATH = path_prefix + "train21/" + lang_pair + "-train/"
 DEV_PATH = path_prefix + "dev21/" + lang_pair + "-dev/"
 TEST_PATH = path_prefix + "test21/" + lang_pair + "-test21/"
-temp_prefix = "train_result_" + args.save_name + "_" + lang_pair
+temp_prefix = args.save_name + "_" + lang_pair
 if not os.path.exists(temp_prefix):
     os.makedirs(temp_prefix)
 TEMP_DIRECTORY = temp_prefix + "/data"

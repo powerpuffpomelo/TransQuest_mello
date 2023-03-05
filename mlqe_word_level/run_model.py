@@ -1498,13 +1498,13 @@ class MicroTransQuestModel:
                     use_multiprocessing=args.use_multiprocessing,
                     chunksize=args.multiprocessing_chunksize,
                 )
-                print("==================")
-                print(features[0].input_ids)
-                print(features[0].input_mask)
-                print(features[0].segment_ids)
-                print(features[0].label_ids)
-                print(features[0].adv_label_ids)
-                assert 1==2
+                # print("==================")
+                # print(features[0].input_ids)   # list
+                # print(features[0].input_mask)
+                # print(features[0].segment_ids)
+                # print(features[0].label_ids)
+                # print(features[0].adv_label_ids)
+                # assert 1==2
 
                 if not no_cache:
                     torch.save(features, cached_features_file)
@@ -2243,6 +2243,9 @@ class MicroTQForTLM(MicroTransQuestModel):
             from torch.cuda import amp
 
             scaler = amp.GradScaler()
+        
+        train_true_predict_count = 0
+        train_total_predict_count = 0
 
         for _ in train_iterator:   # 每个epoch
             model.train()
@@ -2275,8 +2278,14 @@ class MicroTQForTLM(MicroTransQuestModel):
                     steps_trained_in_current_epoch -= 1
                     continue
                 batch = tuple(t.to(device) for t in batch)  # input_ids, input_mask, segment_ids, label_ids
-
+                # print("==================")
+                # print(batch[0][0])
+                # print(batch[-1][0])
+                # assert 1==2
                 inputs = self._get_inputs_dict(batch)
+                # print(inputs)
+                # assert 1==2
+                
 
                 if self.args.fp16:
                     with amp.autocast():
@@ -2285,8 +2294,33 @@ class MicroTQForTLM(MicroTransQuestModel):
                         loss = outputs[0]
                 else:
                     # forward在这里
+                    # print("dddddddddddddddddddddddddd")
+                    # inputs = self.tokenizer("The capital of France is <mask>.", return_tensors="pt").to(device)
+                    # print(inputs)
+                    # logits = model(**inputs).logits
+                    # mask_token_index = (inputs.input_ids == self.tokenizer.mask_token_id)[0].nonzero(as_tuple=True)[0]
+                    # predicted_token_id = logits[0, mask_token_index].argmax(axis=-1)
+                    # print(self.tokenizer.decode(predicted_token_id))
+                    # assert 1==2
+                    # print("eeeeeeeeeeeeeeeeeeeeeeeeeee")
                     outputs = model(**inputs)
+                    # print("aaaaaaaaaaaaaaaaaaaa")
+                    # print(outputs)
+                    # assert 1==2
                     loss = outputs[0]
+                    
+                    label = batch[3].view(-1)
+                    logits = outputs.logits.view(-1, model.config.vocab_size)
+                    logits = torch.argmax(logits, dim=1)
+                    correction_list = [logits[idx] == label[idx] for idx in range(len(label)) if label[idx] != -100]
+                    train_true_predict_count += correction_list.count(True)
+                    train_total_predict_count += len(correction_list)
+                    # print("aaaaaaaaaaaaa")
+                    # print(label)
+                    # print(logits)
+                    # print(train_true_predict_count)
+                    # print(train_total_predict_count)
+                    # assert 1==2
 
                 # logits = outputs.logits.view(-1, model.config.vocab_size)
                 # logits = torch.argmax(logits, dim=1)
@@ -2388,6 +2422,10 @@ class MicroTQForTLM(MicroTransQuestModel):
 
                         training_progress_scores["global_step"].append(global_step)
                         training_progress_scores["train_loss"].append(current_loss)
+                        training_progress_scores["train_acc"].append(train_true_predict_count / train_total_predict_count)
+                        train_true_predict_count = 0
+                        train_total_predict_count = 0
+
                         for key in results:
                             training_progress_scores[key].append(results[key])
                         report = pd.DataFrame(training_progress_scores)
@@ -2483,6 +2521,10 @@ class MicroTQForTLM(MicroTransQuestModel):
 
                 training_progress_scores["global_step"].append(global_step)
                 training_progress_scores["train_loss"].append(current_loss)
+                training_progress_scores["train_acc"].append(train_true_predict_count / train_total_predict_count)
+                train_true_predict_count = 0
+                train_total_predict_count = 0
+                
                 for key in results:
                     training_progress_scores[key].append(results[key])
                 report = pd.DataFrame(training_progress_scores)
@@ -2630,6 +2672,7 @@ class MicroTQForTLM(MicroTransQuestModel):
         training_progress_scores = {
             "global_step": [],
             "train_loss": [],
+            "train_acc": [],
             "eval_loss": [],
             "eval_acc": [],
             **extra_metrics,
