@@ -7,8 +7,8 @@ lang_pair = 'en-de'
 save_name = '19'
 split = 'test'
 TEST_PATH = "/opt/tiger/fake_arnold/qe_data/qe_data_mello/" + split + "19/" + lang_pair + "-" + split + "19"
-pred_model_name = '21_temp'
-microtransquest_config['best_model_dir'] = "checkpoints/train_result_" + pred_model_name + "_" + lang_pair + "/outputs/best_model"
+pred_model_name = '21_qe_from_tlm6000'
+microtransquest_config['best_model_dir'] = "checkpoints/train_result_" + pred_model_name + "_" + lang_pair + "/outputs/checkpoint-2100"
 RESULT_DIRECTORY = "checkpoints/train_result_" + pred_model_name + "_" + lang_pair + "/prediction"
 if not os.path.exists(RESULT_DIRECTORY):
     os.makedirs(RESULT_DIRECTORY)
