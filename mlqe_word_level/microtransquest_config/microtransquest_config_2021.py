@@ -31,7 +31,6 @@ GOOGLE_DRIVE = False
 DRIVE_FILE_ID = None
 MODEL_TYPE = "xlmroberta"
 MODEL_NAME = "transformers/xlm-roberta-large-for-tc"
-MODEL_NAME = "/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_21_qe_from_tlm6000_en-de/outputs/checkpoint-2100"
 
 microtransquest_config = {
     'output_dir': 'train_result_' + lang_pair + '/outputs/',
@@ -44,7 +43,7 @@ microtransquest_config = {
     'train_batch_size': 8,
     'gradient_accumulation_steps': 1,
     'eval_batch_size': 8,
-    'num_train_epochs': 3,
+    'num_train_epochs': 8,
     'weight_decay': 0,
     'learning_rate': 4e-5,
     'adam_epsilon': 1e-8,
