@@ -183,9 +183,18 @@ class MicroTransQuestModel:
         else:
             if not self.args.quantized_model:
                 # 暂时！
-                tlm_model = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/TQ_for_TLM_dynamic_lr5e-6_mask0.15_patience30_en-de/outputs/checkpoint-6000'
-                self.model = model_class.from_pretrained(tlm_model, config=self.config, **kwargs)
-                # self.model = model_class.from_pretrained(model_name, config=self.config, **kwargs)      # 加载模型
+                # tlm_model = '/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/TQ_for_TLM_dynamic_lr5e-6_mask0.15_patience30_en-de/outputs/checkpoint-6000'
+                # self.model = model_class.from_pretrained(tlm_model, config=self.config, **kwargs)
+                
+                self.model = model_class.from_pretrained('/opt/tiger/fake_arnold/TransQuest_mello/checkpoints/train_result_21_qe_from_fix2100_lr1e-5_en-de/outputs/checkpoint-2100', config=self.config, **kwargs) 
+                # self.model = model_class.from_pretrained(model_name, config=self.config, **kwargs)      # 正常加载模型
+                # 冻结预训练模型
+                # self.optim_param = []
+                # for name, parameter in self.model.named_parameters():
+                #     if "classifier" not in name:
+                #         parameter.requires_grad = False
+                #     else:
+                #         self.optim_param.append(parameter)
 
             else:
                 quantized_weights = torch.load(os.path.join(model_name, "pytorch_model.bin"))
@@ -384,6 +393,7 @@ class MicroTransQuestModel:
             optimizer_grouped_parameters.append(group_nd)
 
         if not self.args.train_custom_parameters_only:
+            # 经过了
             optimizer_grouped_parameters.extend(
                 [
                     {
@@ -404,12 +414,15 @@ class MicroTransQuestModel:
                     },
                 ]
             )
+            # print(optimizer_grouped_parameters)
 
         warmup_steps = math.ceil(t_total * args.warmup_ratio)
         args.warmup_steps = warmup_steps if args.warmup_steps == 0 else args.warmup_steps
 
-        if args.optimizer == "AdamW":
+        if args.optimizer == "AdamW":   # 经过了
             optimizer = AdamW(optimizer_grouped_parameters, lr=args.learning_rate, eps=args.adam_epsilon)
+            # 部分参数
+            # optimizer = AdamW(self.optim_param, lr=args.learning_rate, eps=args.adam_epsilon)
         elif args.optimizer == "Adafactor":
             optimizer = Adafactor(
                 optimizer_grouped_parameters,

@@ -6,8 +6,8 @@ from transquest.algo.word_level.microtransquest.run_model import MicroTransQuest
 lang_pair = 'en-de'
 save_name = '21'
 TEST_PATH = "/opt/tiger/fake_arnold/qe_data/qe_data_mello/test21/" + lang_pair + "-test21"
-pred_model_name = '21_qe_from_tlm6000_lr5e-5'
-microtransquest_config['best_model_dir'] = "checkpoints/train_result_" + pred_model_name + "_" + lang_pair + "/outputs/checkpoint-5400"
+pred_model_name = '21_qe_from_fix2100_lr1e-5'
+microtransquest_config['best_model_dir'] = "checkpoints/train_result_" + pred_model_name + "_" + lang_pair + "/outputs/checkpoint-2100"
 RESULT_DIRECTORY = "checkpoints/train_result_" + pred_model_name + "_" + lang_pair + "/prediction"
 if not os.path.exists(RESULT_DIRECTORY):
     os.makedirs(RESULT_DIRECTORY)
